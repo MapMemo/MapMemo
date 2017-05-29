@@ -8,13 +8,13 @@
 
 #import "AnnotationCallOutView.h"
 
-#import "Photo.h"
+#import "MapPoint.h"
 
 #import "UIImageView+WebImage.h"
 
 @implementation AnnotationCallOutView
 
-- (void)setPhoto:(Photo*)photo withNickname:(NSString*)nickname {
+- (void)setPhoto:(MapPoint*)photo withNickname:(NSString*)nickname {
 	self.nicknameLabel.text = nickname;
 	[self.photoView setImageWithPath:photo.thumbnailPath andPlaceholder:nil];
 }

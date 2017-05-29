@@ -8,7 +8,7 @@
 
 #import "PhotoAnnotation.h"
 
-#import "Photo.h"
+#import "MapPoint.h"
 
 @implementation PhotoAnnotation
 

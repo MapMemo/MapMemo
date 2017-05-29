@@ -2,12 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>ServerEndPoint</key>
-	<string>http://140.124.182.119:4567/ws</string>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>PhotoWall needs the permsiion to share your photo&apos;s location</string>
-	<key>NSPhotoLibraryUsageDescription</key>
-	<string>PhotoWall needs the permission to share your photos.</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleExecutable</key>
@@ -35,6 +29,12 @@
 		<key>NSAllowsArbitraryLoads</key>
 		<true/>
 	</dict>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>PhotoWall needs the permsiion to share your photo's location</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>PhotoWall needs the permission to share your photos.</string>
+	<key>ServerEndPoint</key>
+	<string>http://140.124.182.119:4567/ws</string>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>

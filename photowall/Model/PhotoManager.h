@@ -10,7 +10,7 @@
 
 #import <MapKit/MapKit.h>
 
-#import "Photo.h"
+#import "MapPoint.h"
 #import "PhotoMapRegion.h"
 
 @class RestClient;

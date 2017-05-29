@@ -1,5 +1,5 @@
 //
-//  Photo.h
+//  MapPoint.h
 //  photowall
 //
 //  Created by Spirit on 4/9/17.
@@ -8,7 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
-@interface PhotoLocation : NSObject
+//the location of map point
+@interface MapPointLocation : NSObject
 
 - (instancetype)initWithLatitude:(double)latitude andLongitude:(double)longitude;
 
@@ -17,19 +18,29 @@
 
 @end
 
-@interface Photo : NSObject
+//main map point
+@interface MapPoint : NSObject
 
+//user ID
 @property (nonatomic, readonly) NSString* posterId;
+//mapPoint ID ?
 @property (nonatomic, readonly) NSString* identifier;
+//PostTime
 @property (nonatomic, readonly) NSDate* timestamp;
-@property (nonatomic, readonly) PhotoLocation* location;
-
+//Location
+@property (nonatomic, readonly) MapPointLocation* location;
+//memo
+@property (nonatomic, readonly) NSString* memo;
+//small image path
 @property (nonatomic, readonly) NSString* thumbnailPath;
+//large Image path
 @property (nonatomic, readonly) NSString* fullSizeImagePath;
+
 
 @end
 
-@interface Photo (JSON)
+//json of map point
+@interface MapPoint (JSON)
 
 + (instancetype)photoFromJson:(id)json;
 

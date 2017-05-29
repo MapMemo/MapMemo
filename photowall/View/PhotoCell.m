@@ -8,7 +8,7 @@
 
 #import "PhotoCell.h"
 
-#import "Photo.h"
+#import "MapPoint.h"
 
 #import "UIImageView+WebImage.h"
 
@@ -16,7 +16,7 @@ NSString* const PhotoCellIdentifier = @"PhotoCell";
 
 @implementation PhotoCell
 
-- (void)setPhoto:(Photo*)photo {
+- (void)setPhoto:(MapPoint*)photo {
 	[self.photoView setImageWithPath:photo.thumbnailPath andPlaceholder:nil];
 }
 

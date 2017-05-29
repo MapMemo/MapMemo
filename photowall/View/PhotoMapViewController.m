@@ -79,7 +79,7 @@ NSString* const PhotoAnnotationViewIdentifier = @"PhotoAnnotationView";
 		[_annotations removeAllObjects];
 		if (error == nil) {
 			[_nearByPhotos addObjectsFromArray:photos];
-			for (Photo* photo in photos) {
+			for (MapPoint* photo in photos) {
 				PhotoAnnotation* annotation = [PhotoAnnotation new];
 				annotation.photo = photo;
 				annotation.poster = [self.userManager getUser:photo.posterId].nickname;

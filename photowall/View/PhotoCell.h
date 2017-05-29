@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@class Photo;
+@class MapPoint;
 
 FOUNDATION_EXPORT NSString* const PhotoCellIdentifier;
 
@@ -17,6 +17,6 @@ FOUNDATION_EXPORT NSString* const PhotoCellIdentifier;
 @property (weak, nonatomic) IBOutlet UILabel* posterName;
 @property (weak, nonatomic) IBOutlet UIImageView* photoView;
 
-- (void)setPhoto:(Photo*)photo;
+- (void)setPhoto:(MapPoint*)photo;
 
 @end

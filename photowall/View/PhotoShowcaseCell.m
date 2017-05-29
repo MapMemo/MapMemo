@@ -10,7 +10,7 @@
 
 #import <SDWebImage/UIImageView+WebCache.h>
 
-#import "Photo.h"
+#import "MapPoint.h"
 #import "RestClient.h"
 
 #import "UIView+Utils.h"
@@ -25,7 +25,7 @@ NSString* const PhotoShowcaseCellIdentifier = @"PhotoShowcaseCell";
 	UITapGestureRecognizer* _tapGesture;
 }
 
-- (void)setPhoto:(Photo*)photo {
+- (void)setPhoto:(MapPoint*)photo {
 	if (_tapGesture == nil) {
 		_tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(doubleTapToResize:)];
 		_tapGesture.numberOfTapsRequired = 2;

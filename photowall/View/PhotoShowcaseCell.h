@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@class Photo;
+@class MapPoint;
 
 FOUNDATION_EXPORT NSString* const PhotoShowcaseCellIdentifier;
 
@@ -21,6 +21,6 @@ FOUNDATION_EXPORT NSString* const PhotoShowcaseCellIdentifier;
 
 - (void)updateZoom;
 
-- (void)setPhoto:(Photo*)photo;
+- (void)setPhoto:(MapPoint*)photo;
 
 @end

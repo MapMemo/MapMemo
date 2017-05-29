@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		040D468A1ECECD510002C83E /* Model.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = 040D46891ECECD510002C83E /* Model.xcmappingmodel */; };
+		04A116B81EC5AE63000147AB /* TestView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04A116B71EC5AE63000147AB /* TestView.xib */; };
+		04A116BC1EC5B030000147AB /* LoginInTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A116BA1EC5B030000147AB /* LoginInTestViewController.m */; };
+		04A116BD1EC5B030000147AB /* LoginInTestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04A116BB1EC5B030000147AB /* LoginInTestViewController.xib */; };
 		0901072C0D2144C2D01D103C /* Pods_photowall_photowallTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03D7C38FF52C51B46ED445C4 /* Pods_photowall_photowallTests.framework */; };
 		1E0804FF1E9D323700C43CEB /* UIColor+Defaults.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E0804FE1E9D323700C43CEB /* UIColor+Defaults.m */; };
 		1E0DCDFA1EB4656100C6316E /* NSDate+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E0DCDF91EB4656100C6316E /* NSDate+Utils.m */; };
@@ -40,7 +44,7 @@
 		1E9B85141E98B04F0081B251 /* Mapping2.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = 1E9B85131E98B04F0081B251 /* Mapping2.xcmappingmodel */; };
 		1E9B85171E98B7800081B251 /* Strings.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1E9B85151E98B7800081B251 /* Strings.strings */; };
 		1E9E46491E99CF84008613AB /* UIImageView+WebImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E9E46481E99CF84008613AB /* UIImageView+WebImage.m */; };
-		1E9E464C1E99D853008613AB /* Photo.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E9E464B1E99D853008613AB /* Photo.m */; };
+		1E9E464C1E99D853008613AB /* MapPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E9E464B1E99D853008613AB /* MapPoint.m */; };
 		1E9E464F1E99D86B008613AB /* PhotoManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E9E464E1E99D86B008613AB /* PhotoManager.m */; };
 		1E9E46511E99FCC3008613AB /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E9E46501E99FCC3008613AB /* CoreLocation.framework */; };
 		1E9E46541E9A0341008613AB /* LocationAwarePhotoUploadTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E9E46531E9A0341008613AB /* LocationAwarePhotoUploadTask.m */; };
@@ -81,6 +85,11 @@
 
 /* Begin PBXFileReference section */
 		03D7C38FF52C51B46ED445C4 /* Pods_photowall_photowallTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_photowall_photowallTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		040D46891ECECD510002C83E /* Model.xcmappingmodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcmappingmodel; path = Model.xcmappingmodel; sourceTree = "<group>"; };
+		04A116B71EC5AE63000147AB /* TestView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TestView.xib; sourceTree = "<group>"; };
+		04A116B91EC5B030000147AB /* LoginInTestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginInTestViewController.h; sourceTree = "<group>"; };
+		04A116BA1EC5B030000147AB /* LoginInTestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginInTestViewController.m; sourceTree = "<group>"; };
+		04A116BB1EC5B030000147AB /* LoginInTestViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginInTestViewController.xib; sourceTree = "<group>"; };
 		1AE073FC1196A431F3A8B0B9 /* Pods-photowall.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-photowall.release.xcconfig"; path = "Pods/Target Support Files/Pods-photowall/Pods-photowall.release.xcconfig"; sourceTree = "<group>"; };
 		1E0804FD1E9D323700C43CEB /* UIColor+Defaults.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIColor+Defaults.h"; path = "Utils/UIColor+Defaults.h"; sourceTree = "<group>"; };
 		1E0804FE1E9D323700C43CEB /* UIColor+Defaults.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIColor+Defaults.m"; path = "Utils/UIColor+Defaults.m"; sourceTree = "<group>"; };
@@ -138,8 +147,8 @@
 		1E9B85161E98B7800081B251 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = photowall/Base.lproj/Strings.strings; sourceTree = "<group>"; };
 		1E9E46471E99CF84008613AB /* UIImageView+WebImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImageView+WebImage.h"; path = "Utils/UIImageView+WebImage.h"; sourceTree = "<group>"; };
 		1E9E46481E99CF84008613AB /* UIImageView+WebImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImageView+WebImage.m"; path = "Utils/UIImageView+WebImage.m"; sourceTree = "<group>"; };
-		1E9E464A1E99D853008613AB /* Photo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Photo.h; path = Model/Photo.h; sourceTree = "<group>"; };
-		1E9E464B1E99D853008613AB /* Photo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Photo.m; path = Model/Photo.m; sourceTree = "<group>"; };
+		1E9E464A1E99D853008613AB /* MapPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MapPoint.h; path = Model/MapPoint.h; sourceTree = "<group>"; };
+		1E9E464B1E99D853008613AB /* MapPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MapPoint.m; path = Model/MapPoint.m; sourceTree = "<group>"; };
 		1E9E464D1E99D86B008613AB /* PhotoManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PhotoManager.h; path = Model/PhotoManager.h; sourceTree = "<group>"; };
 		1E9E464E1E99D86B008613AB /* PhotoManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PhotoManager.m; path = Model/PhotoManager.m; sourceTree = "<group>"; };
 		1E9E46501E99FCC3008613AB /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -218,8 +227,8 @@
 				1E18E7B61E88EF3400200DC0 /* User.m */,
 				1E18E7A91E88E1B000200DC0 /* AccountManager.h */,
 				1E18E7AA1E88E1B000200DC0 /* AccountManager.m */,
-				1E9E464A1E99D853008613AB /* Photo.h */,
-				1E9E464B1E99D853008613AB /* Photo.m */,
+				1E9E464A1E99D853008613AB /* MapPoint.h */,
+				1E9E464B1E99D853008613AB /* MapPoint.m */,
 				1E9E464D1E99D86B008613AB /* PhotoManager.h */,
 				1E9E464E1E99D86B008613AB /* PhotoManager.m */,
 				1E9E46521E9A0341008613AB /* LocationAwarePhotoUploadTask.h */,
@@ -307,6 +316,7 @@
 				1E5B4EFA1E8619DD003F1239 /* AppDelegate.m */,
 				1E5B4F0A1E8619DD003F1239 /* Info.plist */,
 				1E5B4F021E8619DD003F1239 /* photowall.xcdatamodeld */,
+				040D46891ECECD510002C83E /* Model.xcmappingmodel */,
 				1EB8DF961E8F988D00FB67B6 /* Images.xcassets */,
 				1E5B4EF61E8619DD003F1239 /* Supporting Files */,
 				1E9B85131E98B04F0081B251 /* Mapping2.xcmappingmodel */,
@@ -386,6 +396,10 @@
 				1EDAF87F1EB5AD6600BC48B3 /* PhotoShowcaseCell.h */,
 				1EDAF8801EB5AD6600BC48B3 /* PhotoShowcaseCell.m */,
 				1EDAF8811EB5AD6600BC48B3 /* PhotoShowcaseCell.xib */,
+				04A116B71EC5AE63000147AB /* TestView.xib */,
+				04A116B91EC5B030000147AB /* LoginInTestViewController.h */,
+				04A116BA1EC5B030000147AB /* LoginInTestViewController.m */,
+				04A116BB1EC5B030000147AB /* LoginInTestViewController.xib */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -482,7 +496,7 @@
 				TargetAttributes = {
 					1E5B4EF21E8619DC003F1239 = {
 						CreatedOnToolsVersion = 8.0;
-						DevelopmentTeam = 479P3H2UN3;
+						DevelopmentTeam = E478BLE59X;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.Keychain = {
@@ -532,10 +546,12 @@
 				1E13CA791E90C164000DBF74 /* ProfileView.xib in Resources */,
 				1E0DCDFF1EB4781800C6316E /* PhotoGridSectionHeader.xib in Resources */,
 				1E13CA8D1E90C297000DBF74 /* PhotoGridView.xib in Resources */,
+				04A116B81EC5AE63000147AB /* TestView.xib in Resources */,
 				1EDAF8831EB5AD6600BC48B3 /* PhotoShowcaseCell.xib in Resources */,
 				1E9B85111E9892430081B251 /* FriendCell.xib in Resources */,
 				1EBCF1A71EAC8DCE00C2FDFA /* MaskView.xib in Resources */,
 				1E13CA7E1E90C1A5000DBF74 /* PhotoMapView.xib in Resources */,
+				04A116BD1EC5B030000147AB /* LoginInTestViewController.xib in Resources */,
 				1ED6B9501E8FE31700CF0D63 /* RootView.xib in Resources */,
 				1E13CA831E90C1DD000DBF74 /* FriendsListView.xib in Resources */,
 				1EDAF8791EB5893700BC48B3 /* AnnotationCallOutView.xib in Resources */,
@@ -579,7 +595,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		51E6A707369F30E4E5983D17 /* [CP] Embed Pods Frameworks */ = {
@@ -639,7 +655,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -670,13 +686,15 @@
 				1E5B4EFB1E8619DD003F1239 /* AppDelegate.m in Sources */,
 				1ED6B94F1E8FE31700CF0D63 /* RootViewController.m in Sources */,
 				1E13CA7D1E90C1A5000DBF74 /* PhotoMapViewController.m in Sources */,
+				04A116BC1EC5B030000147AB /* LoginInTestViewController.m in Sources */,
 				1E5B4EF81E8619DD003F1239 /* main.m in Sources */,
 				1E18E7B01E88E4AB00200DC0 /* NSString+Utils.m in Sources */,
 				1E18E7AB1E88E1B000200DC0 /* AccountManager.m in Sources */,
 				1E13CA901E90CC8B000DBF74 /* UIView+Utils.m in Sources */,
 				1EDAF8821EB5AD6600BC48B3 /* PhotoShowcaseCell.m in Sources */,
 				1ECB6F8B1E86566100BA0D77 /* RestRequest.m in Sources */,
-				1E9E464C1E99D853008613AB /* Photo.m in Sources */,
+				1E9E464C1E99D853008613AB /* MapPoint.m in Sources */,
+				040D468A1ECECD510002C83E /* Model.xcmappingmodel in Sources */,
 				1E0DCE081EB48CBC00C6316E /* PhotoMapRegion+Utils.m in Sources */,
 				1E18E7A61E88C1A500200DC0 /* KeyChainSecuredAuthenticator.m in Sources */,
 				1E0DCDFE1EB4781800C6316E /* PhotoGridSectionHeader.m in Sources */,
@@ -824,13 +842,15 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = photowall/photowall.entitlements;
-				DEVELOPMENT_TEAM = 479P3H2UN3;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = E478BLE59X;
 				INFOPLIST_FILE = photowall/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = picowork.photowall;
+				PRODUCT_BUNDLE_IDENTIFIER = picowork.photowall.andy840119;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = 1;
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -841,13 +861,15 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = photowall/photowall.entitlements;
-				DEVELOPMENT_TEAM = 479P3H2UN3;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = E478BLE59X;
 				INFOPLIST_FILE = photowall/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = picowork.photowall;
+				PRODUCT_BUNDLE_IDENTIFIER = picowork.photowall.andy840119;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = 1;
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};

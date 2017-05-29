@@ -62,9 +62,9 @@
 	}
 	[request upload:_data withMethod:@"POST" andHandler:^(RestResponse* response) {
 		if (_handler != nil) {
-			Photo* photo = nil;
+			MapPoint* photo = nil;
 			if (response.succeeded) {
-				photo = [Photo photoFromJson:response.result];
+				photo = [MapPoint photoFromJson:response.result];
 			}
 			_handler(response.succeeded ? nil : response.error, @[ photo ]);
 		}

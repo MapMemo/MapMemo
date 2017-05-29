@@ -8,12 +8,12 @@
 
 #import <MapKit/MapKit.h>
 
-@class Photo;
+@class MapPoint;
 
 @interface PhotoAnnotation : NSObject<MKAnnotation>
 
 @property (nonatomic) NSString* poster;
 
-@property (weak, nonatomic) Photo* photo;
+@property (weak, nonatomic) MapPoint* photo;
 
 @end

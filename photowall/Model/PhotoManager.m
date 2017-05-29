@@ -72,7 +72,7 @@
 		if (response.succeeded) {
 			NSMutableArray* photos = [NSMutableArray new];
 			for (id json in response.result) {
-				[photos addObject:[Photo photoFromJson:json]];
+				[photos addObject:[MapPoint photoFromJson:json]];
 			}
 			if (handler) {
 				handler(nil, photos);

@@ -1,14 +1,14 @@
 //
-//  Photo.m
+//  MapPoint.m
 //  photowall
 //
 //  Created by Spirit on 4/9/17.
 //  Copyright © 2017 Picowork. All rights reserved.
 //
 
-#import "Photo.h"
+#import "MapPoint.h"
 
-@implementation PhotoLocation
+@implementation MapPointLocation
 
 - (instancetype)initWithLatitude:(double)latitude andLongitude:(double)longitude {
 	if (self = [super init]) {
@@ -20,7 +20,7 @@
 
 @end
 
-@implementation Photo
+@implementation MapPoint
 
 - (NSString*)fullSizeImagePath {
 	return [NSString stringWithFormat:@"/photos/%@", self.identifier];
@@ -32,23 +32,23 @@
 
 @end
 
-@implementation Photo (JSON)
+@implementation MapPoint (JSON)
 
 + (instancetype)photoFromJson:(id)json {
 	NSString* identifier = [json objectForKey:@"id"];
 	NSString* posterId = [json objectForKey:@"posterId"];
 	NSDate* timestamp = [NSDate dateWithTimeIntervalSince1970:[[json objectForKey:@"timestamp"] doubleValue] / 1000];
-	PhotoLocation* location = nil;
+	MapPointLocation* location = nil;
 	id locationJson = [json objectForKey:@"location"];
 	if (locationJson != nil) {
 		double latitude = [[locationJson objectForKey:@"latitude"] doubleValue];
 		double longitude = [[locationJson objectForKey:@"longitude"] doubleValue];
-		location = [[PhotoLocation alloc] initWithLatitude:latitude andLongitude:longitude];
+		location = [[MapPointLocation alloc] initWithLatitude:latitude andLongitude:longitude];
 	}
-	return [[Photo alloc] initWithIdentifier:identifier posterId:posterId timestamp:timestamp andLocation:location];
+	return [[MapPoint alloc] initWithIdentifier:identifier posterId:posterId timestamp:timestamp andLocation:location];
 }
 
-- (instancetype)initWithIdentifier:(NSString*)identifier posterId:(NSString*)posterId timestamp:(NSDate*)timestamp andLocation:(PhotoLocation*)location {
+- (instancetype)initWithIdentifier:(NSString*)identifier posterId:(NSString*)posterId timestamp:(NSDate*)timestamp andLocation:(MapPointLocation*)location {
 	if (self = [super init]) {
 		_identifier = identifier;
 		_posterId = posterId;

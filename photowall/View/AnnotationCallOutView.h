@@ -8,13 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
-@class Photo;
+@class MapPoint;
 
 @interface AnnotationCallOutView : UIView
 
 @property (weak, nonatomic) IBOutlet UILabel* nicknameLabel;
 @property (weak, nonatomic) IBOutlet UIImageView* photoView;
 
-- (void)setPhoto:(Photo*)photo withNickname:(NSString*)nickname;
+- (void)setPhoto:(MapPoint*)photo withNickname:(NSString*)nickname;
 
 @end

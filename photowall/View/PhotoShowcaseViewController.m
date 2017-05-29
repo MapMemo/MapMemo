@@ -32,7 +32,7 @@
 }
 
 - (UICollectionViewCell*)collectionView:(UICollectionView*)collectionView cellForItemAtIndexPath:(NSIndexPath*)indexPath {
-	Photo* photo = [self.photos objectAtIndex:indexPath.row];
+	MapPoint* photo = [self.photos objectAtIndex:indexPath.row];
 	PhotoShowcaseCell* cell = [collectionView dequeueReusableCellWithReuseIdentifier:PhotoShowcaseCellIdentifier forIndexPath:indexPath];
 	[cell setPhoto:photo];
 	return cell;

@@ -14,10 +14,14 @@
 
 @implementation photowallTests
 
+//initial test
+
 - (void)setUp {
     [super setUp];
     // Put setup code here. This method is called before the invocation of each test method in the class.
 }
+
+//after single test ,run this method to clean up the rsource
 
 - (void)tearDown {
     // Put teardown code here. This method is called after the invocation of each test method in the class.

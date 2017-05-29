@@ -28,7 +28,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "452390F5C29DBCAE8E99BBE04015BE98"
+               BlueprintIdentifier = "1642526D0D8BE4C902E3728704C8ECF7"
                BuildableName = "Pods_photowall_photowallTests.framework"
                BlueprintName = "Pods-photowall-photowallTests"
                ReferencedContainer = "container:Pods/Pods.xcodeproj">

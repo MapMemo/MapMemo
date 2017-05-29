@@ -12,7 +12,7 @@
 
 @synthesize lastUpdated;
 
-- (instancetype)initWithJson:(id)json {
+- (instancetype)initWithJson :(id)json {
 	if (self = [super initWithContext:[NSManagedObjectContext MR_defaultContext]]) {
 		self.identifier = [json objectForKey:@"id"];
 		[self updateWithJson:json];

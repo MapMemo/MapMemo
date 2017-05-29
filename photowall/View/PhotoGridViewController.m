@@ -53,7 +53,7 @@
 
 #pragma mark - UICollectionViewDataSource
 - (UICollectionViewCell*)collectionView:(UICollectionView*)collectionView cellForItemAtIndexPath:(NSIndexPath*)indexPath {
-	Photo* photo = [[_cache objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
+	MapPoint* photo = [[_cache objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
 	PhotoCell* cell = (PhotoCell*)[collectionView dequeueReusableCellWithReuseIdentifier:PhotoCellIdentifier forIndexPath:indexPath];
 	[cell setPhoto:photo];
 	cell.posterName.text = [self.userManager getUser:photo.posterId].nickname;
@@ -69,7 +69,7 @@
 }
 
 - (UICollectionReusableView*)collectionView:(UICollectionView*)collectionView viewForSupplementaryElementOfKind:(NSString*)kind atIndexPath:(NSIndexPath*)indexPath {
-	Photo* photo = [[_cache objectAtIndex:indexPath.section] objectAtIndex:0];
+	MapPoint* photo = [[_cache objectAtIndex:indexPath.section] objectAtIndex:0];
 	PhotoGridSectionHeader* header = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:PhotoGridSectionHeaderIdentifier forIndexPath:indexPath];
 	header.dateLabel.text = photo.timestamp.dayString;
 	return header;
@@ -108,7 +108,7 @@
 }
 
 - (void)collectionView:(UICollectionView*)collectionView didSelectItemAtIndexPath:(NSIndexPath*)indexPath {
-	Photo* photo = [[_cache objectAtIndex:indexPath.section] objectAtIndex:indexPath.item];
+	MapPoint* photo = [[_cache objectAtIndex:indexPath.section] objectAtIndex:indexPath.item];
 	PhotoShowcaseViewController* controller = [[PhotoShowcaseViewController alloc] initWithNibName:@"PhotoShowcaseView" bundle:nil];
 	NSMutableArray* photos = [NSMutableArray new];
 	for (NSArray* section in _cache) {
@@ -122,7 +122,7 @@
 
 #pragma mark - Private Methods
 - (void)addPhotos:(NSArray*)photos {
-	for (Photo* photo in photos) {
+	for (MapPoint* photo in photos) {
 		if (_latest == nil || photo.timestamp.timeIntervalSince1970 > _latest.timeIntervalSince1970) {
 			_latest = photo.timestamp;
 		}
@@ -147,7 +147,7 @@
 	}];
 	for (NSString* key in keys) {
 		NSMutableDictionary* section = [_photos objectForKey:key];
-		[_cache addObject:[[section allValues] sortedArrayUsingComparator:^NSComparisonResult(Photo* photo1, Photo* photo2) {
+		[_cache addObject:[[section allValues] sortedArrayUsingComparator:^NSComparisonResult(MapPoint* photo1, MapPoint* photo2) {
 			return [photo2.timestamp compare:photo1.timestamp];
 		}]];
 	}
