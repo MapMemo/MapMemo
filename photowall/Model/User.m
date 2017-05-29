@@ -12,6 +12,7 @@
 
 @synthesize lastUpdated;
 
+//get user info by json format
 - (instancetype)initWithJson :(id)json {
 	if (self = [super initWithContext:[NSManagedObjectContext MR_defaultContext]]) {
 		self.identifier = [json objectForKey:@"id"];
@@ -29,8 +30,8 @@
 
 @end
 
+//
 @implementation User (JSON)
-
 - (void)updateWithJson:(id)json {
 	self.nickname = [json objectForKey:@"nickname"];
 	self.lastUpdated = [NSDate new];

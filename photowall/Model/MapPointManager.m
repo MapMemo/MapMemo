@@ -1,19 +1,19 @@
 //
-//  PhotoManager.m
+//  MapPointManager.m
 //  photowall
 //
 //  Created by Spirit on 4/9/17.
 //  Copyright © 2017 Picowork. All rights reserved.
 //
 
-#import "PhotoManager.h"
+#import "MapPointManager.h"
 
 #import "RestClient.h"
 #import "LocationAwarePhotoUploadTask.h"
 
 #import "NSDate+Utils.h"
 
-@implementation PhotoManager {
+@implementation MapPointManager {
 	RestClient* _client;
 	NSMutableArray* _tasks;
 }
@@ -53,7 +53,7 @@
 	[request get:[self forwardPhotos:handler]];
 }
 
-- (void)loadPhotosNear:(PhotoMapRegion*)region withHandler:(PhotoHandler)handler {
+- (void)loadPhotosNear:(MapPointRegion*)region withHandler:(PhotoHandler)handler {
 	if (region == nil) {
 		if (handler != nil) {
 			handler(nil, @[]);

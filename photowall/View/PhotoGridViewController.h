@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @class UserManager;
-@class PhotoManager;
+@class MapPointManager;
 
 @interface PhotoGridViewController : UIViewController<UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 
@@ -18,7 +18,7 @@
 
 @property (nonatomic) NSString* posterId;
 @property (nonatomic, weak) UserManager* userManager;
-@property (nonatomic, weak) PhotoManager* photoManager;
+@property (nonatomic, weak) MapPointManager* photoManager;
 
 - (void)refreshPhotos;
 

@@ -15,6 +15,8 @@ FOUNDATION_EXPORT NSString* const KeyChainGroup;
 @class User;
 @class RestClient;
 
+//manage single account
+
 @protocol AuthenticationDelegate <NSObject>
 
 - (void)authenticated:(User*)me;

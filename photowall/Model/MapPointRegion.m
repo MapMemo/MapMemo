@@ -1,14 +1,14 @@
 //
-//  PhotoMapRegion.m
+//  MapPointRegion.m
 //  photowall
 //
 //  Created by Spirit on 4/29/17.
 //  Copyright © 2017 Picowork. All rights reserved.
 //
 
-#import "PhotoMapRegion.h"
+#import "MapPointRegion.h"
 
-@implementation PhotoMapRegion
+@implementation MapPointRegion
 
 - (instancetype)initWithLatitude:(double)latitude longitude:(double)longitude andRadius:(double)radius {
 	if (self = [super init]) {

@@ -9,21 +9,30 @@
 #import <UIKit/UIKit.h>
 
 @class UserManager;
-@class PhotoManager;
+@class MapPointManager;
 @class AccountManager;
+
+//RowView 順序 : FriendList,mapList,histery,setting(personal profile)
+//RowView 正中間 : Map(Add,Edit...)
 
 @interface RootViewController : UIViewController<UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UIView* viewContainer;
 
-@property (weak, nonatomic) IBOutlet UIButton* gridTabButton;
-@property (weak, nonatomic) IBOutlet UIButton* profileTabButton;
+//Friend list
 @property (weak, nonatomic) IBOutlet UIButton* friendsTabButton;
-@property (weak, nonatomic) IBOutlet UIButton* photoMapTabButton;
+//map list view
+@property (weak, nonatomic) IBOutlet UIButton* gridTabButton;
+//Histery
 @property (weak, nonatomic) IBOutlet UIButton* takePictureTabButton;
+//setting
+@property (weak, nonatomic) IBOutlet UIButton* profileTabButton;
+
+//View map and add,enit new MapPoint in the map
+@property (weak, nonatomic) IBOutlet UIButton* photoMapTabButton;
 
 @property UserManager* userManager;
-@property PhotoManager* photoManager;
+@property MapPointManager* photoManager;
 @property AccountManager* accountManager;
 
 - (void)showPhotosOfUser:(NSString*)userId;

@@ -10,7 +10,7 @@
 #import <MapKit/MapKit.h>
 
 @class UserManager;
-@class PhotoManager;
+@class MapPointManager;
 
 @interface PhotoMapViewController : UIViewController<MKMapViewDelegate>
 
@@ -19,6 +19,6 @@
 @property (weak, nonatomic) IBOutlet MKMapView* mapView;
 
 @property (weak, nonatomic) UserManager* userManager;
-@property (weak, nonatomic) PhotoManager* photoManager;
+@property (weak, nonatomic) MapPointManager* photoManager;
 
 @end

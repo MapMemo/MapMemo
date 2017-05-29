@@ -9,7 +9,7 @@
 #import "PhotoGridViewController.h"
 
 #import "UserManager.h"
-#import "PhotoManager.h"
+#import "MapPointManager.h"
 
 #import "PhotoCell.h"
 #import "PhotoGridSectionHeader.h"

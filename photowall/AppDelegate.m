@@ -112,7 +112,7 @@
 
 - (void)initializeManagers {
 	self.userManager = [[UserManager alloc] initWithClient:_client];
-	self.photoManager = [[PhotoManager alloc] initWithClient:_client];
+	self.photoManager = [[MapPointManager alloc] initWithClient:_client];
 	self.accountManager = [[AccountManager alloc] initWithClient:_client];
 	self.accountManager.authDelegate = self;
 }

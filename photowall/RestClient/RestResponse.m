@@ -10,6 +10,7 @@
 
 #import "RestRequest.h"
 
+//only use in RestRequest
 @implementation RestResponse {
 	id _object;
 	RestRequest* _request;

@@ -8,6 +8,7 @@
 
 #import "UIColor+Defaults.h"
 
+//setting the color
 @implementation UIColor (Defaults)
 
 + (instancetype)main {

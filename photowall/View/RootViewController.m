@@ -16,13 +16,22 @@
 #import "UIView+Utils.h"
 #import "UIColor+Defaults.h"
 
-#import "PhotoManager.h"
+#import "MapPointManager.h"
 
-@implementation RootViewController {
-	ProfileViewController* _profileViewController;
+@implementation RootViewController
+{
+
+	//Friend list
 	FriendsViewController* _friendsViewController;
-	PhotoMapViewController* _photoMapViewController;
+	//Map List View
 	PhotoGridViewController* _photoGridViewController;
+	//Histery
+
+	//Profile
+	ProfileViewController* _profileViewController;
+
+	//MapView
+	PhotoMapViewController* _photoMapViewController;
 
 	NSArray* _titles;
 	NSArray* _tabButtons;
@@ -32,11 +41,13 @@
 	UIViewController* _currentController;
 }
 
+//those five view are loaded preparing for switching
 - (void)viewDidLoad {
 	[super viewDidLoad];
 	if ([self respondsToSelector:@selector(edgesForExtendedLayout)]) {
 		self.edgesForExtendedLayout = UIRectEdgeNone;
 	}
+
 	_tabButtons = @[ _friendsTabButton, _gridTabButton, _photoMapTabButton, _profileTabButton ];
 
 	_selectedIndex = 0;
@@ -66,6 +77,7 @@
 	[self setTitle:@"Friends"];
 }
 
+//
 - (void)showPhotosOfUser:(NSString*)userId {
 	PhotoGridViewController* controller = [[PhotoGridViewController alloc] initWithNibName:@"PhotoGridView" bundle:nil];
 	controller.posterId = userId;
@@ -74,6 +86,7 @@
 	[self.navigationController pushViewController:controller animated:YES];
 }
 
+//if press the button
 #pragma mark - IBActions
 - (IBAction)tabButtonPressed:(id)sender {
 	if ([sender isKindOfClass:[UIButton class]]) {
@@ -82,6 +95,7 @@
 	}
 }
 
+//
 - (IBAction)takePictureButtonPressed:(id)sender {
 	UIImagePickerController* picker = [UIImagePickerController new];
 	picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
@@ -100,6 +114,7 @@
 	}];
 }
 
+//switch the page
 #pragma mark - Private Methods
 - (void)setSelectedIndex:(NSInteger)index {
 	if (index < 0 || index > [_viewControllers count]) {

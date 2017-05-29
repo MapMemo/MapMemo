@@ -1,18 +1,18 @@
 //
-//  PhotoMapRegion+Utils.h
+//  MapPointRegion+Utils.h
 //  photowall
 //
 //  Created by Spirit on 4/29/17.
 //  Copyright © 2017 Picowork. All rights reserved.
 //
 
-#import "PhotoMapRegion.h"
+#import "MapPointRegion.h"
 
 #import <MapKit/MapKit.h>
 
-@interface PhotoMapRegion (Utils)
+@interface MapPointRegion (Utils)
 
-+ (PhotoMapRegion*)fromMKCoordinateRegion:(MKCoordinateRegion)region;
++ (MapPointRegion*)fromMKCoordinateRegion:(MKCoordinateRegion)region;
 
 - (MKCoordinateRegion)toMKCoordinateRegion;
 

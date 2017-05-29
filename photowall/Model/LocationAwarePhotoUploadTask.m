@@ -10,7 +10,8 @@
 
 #import "RestClient.h"
 
-@implementation LocationAwarePhotoUploadTask {
+@implementation LocationAwarePhotoUploadTask
+{
 	NSData* _data;
 	RestClient* _client;
 	PhotoHandler _handler;

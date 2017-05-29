@@ -9,13 +9,13 @@
 #import "PhotoMapViewController.h"
 
 #import "UserManager.h"
-#import "PhotoManager.h"
+#import "MapPointManager.h"
 
 #import "PhotoAnnotation.h"
 #import "AnnotationCallOutView.h"
 
 #import "UIView+Utils.h"
-#import "PhotoMapRegion+Utils.h"
+#import "MapPointRegion+Utils.h"
 
 NSString* const PhotoAnnotationViewIdentifier = @"PhotoAnnotationView";
 
@@ -38,12 +38,12 @@ NSString* const PhotoAnnotationViewIdentifier = @"PhotoAnnotationView";
 - (void)viewDidAppear:(BOOL)animated {
 	MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(CLLocationCoordinate2DMake(25.044013, 121.533954), 500, 500);
 	[self.mapView setRegion:region animated:YES];
-	[self loadPhotosInRegion:[PhotoMapRegion fromMKCoordinateRegion:region]];
+	[self loadPhotosInRegion:[MapPointRegion fromMKCoordinateRegion:region]];
 }
 
 #pragma mark - MKMapViewDelegate
 - (void)mapView:(MKMapView*)mapView regionDidChangeAnimated:(BOOL)animated {
-	PhotoMapRegion* region = [PhotoMapRegion fromMKCoordinateRegion:mapView.region];
+	MapPointRegion* region = [MapPointRegion fromMKCoordinateRegion:mapView.region];
 	[self loadPhotosInRegion:region];
 }
 
@@ -63,7 +63,7 @@ NSString* const PhotoAnnotationViewIdentifier = @"PhotoAnnotationView";
 }
 
 #pragma mark - Private Methods
-- (void)loadPhotosInRegion:(PhotoMapRegion*)region {
+- (void)loadPhotosInRegion:(MapPointRegion*)region {
 	self.mapView.tag = region.hash;
 	[self.photoManager loadPhotosNear:region withHandler:[self updateAnnoationsWithTag:region.hash]];
 }

@@ -1,5 +1,5 @@
 //
-//  PhotoMapRegion.h
+//  MapPointRegion.h
 //  photowall
 //
 //  Created by Spirit on 4/29/17.
@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface PhotoMapRegion : NSObject
+@interface MapPointRegion : NSObject
 
 - (instancetype)initWithLatitude:(double)latitude longitude:(double)longitude andRadius:(double)radius;
 

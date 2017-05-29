@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <CoreLocation/CoreLocation.h>
 
-#import "PhotoManager.h"
+#import "MapPointManager.h"
 
 @interface LocationAwarePhotoUploadTask : NSObject<CLLocationManagerDelegate>
 
