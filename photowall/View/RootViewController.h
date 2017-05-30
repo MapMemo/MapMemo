@@ -12,8 +12,8 @@
 @class MapPointManager;
 @class AccountManager;
 
-//RowView 順序 : FriendList,mapList,histery,setting(personal profile)
-//RowView 正中間 : Map(Add,Edit...)
+//RowView 頁E��E: FriendList,mapList,histery,setting(personal profile)
+//RowView 正中閁E: Map(Add,Edit...)
 
 @interface RootViewController : UIViewController<UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 

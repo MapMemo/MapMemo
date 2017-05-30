@@ -1,0 +1,350 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|ARM">
+      <Configuration>Debug</Configuration>
+      <Platform>ARM</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|ARM">
+      <Configuration>Release</Configuration>
+      <Platform>ARM</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectName>photowall</ProjectName>
+    <DefaultLanguage>en-US</DefaultLanguage>
+    <MinimumVisualStudioVersion>15.0</MinimumVisualStudioVersion>
+    <AppContainerApplication>true</AppContainerApplication>
+    <ApplicationType>Windows Store</ApplicationType>
+    <ApplicationTypeRevision>10.0</ApplicationTypeRevision>
+    <EnableDotNetNativeCompatibleProfile>true</EnableDotNetNativeCompatibleProfile>
+    <WindowsTargetPlatformVersion>10.0.14393.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformMinVersion>10.0.10586.0</WindowsTargetPlatformMinVersion>
+    <Keyword>IslandwoodProj</Keyword>
+    <ProjectGuid>{FD42941D-45E2-474A-9600-292C3CB35A86}</ProjectGuid>
+    <RootNamespace>photowall</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v141</PlatformToolset>
+    <TargetName>photowall</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v141</PlatformToolset>
+    <TargetName>photowall</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v141</PlatformToolset>
+    <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
+    <Optimize>true</Optimize>
+    <TargetName>photowall</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v141</PlatformToolset>
+    <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
+    <Optimize>true</Optimize>
+    <TargetName>photowall</TargetName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings" />
+  <ImportGroup Label="Shared" />
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <PackageCertificateKeyFile>photowall_TemporaryKey.pfx</PackageCertificateKeyFile>
+    <PackageCertificateThumbprint>D095ED4071F7A0D93085697ECF15F78E76342CCF</PackageCertificateThumbprint>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <AdditionalOptions>/bigobj %(AdditionalOptions)</AdditionalOptions>
+      <DisableSpecificWarnings>4453;28204</DisableSpecificWarnings>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+    </ClCompile>
+    <ClangCompile>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <ExcludedSearchPathSubdirectories>*.nib;*.lproj;*.framework;*.gch;(*);.DS_Store;CVS;.svn;.git;.hg;*.xcodeproj;*.xcode;*.pbproj;*.pbxproj;*.xcassets</ExcludedSearchPathSubdirectories>
+      <HeaderMap>Project</HeaderMap>
+      <IncludePaths>%(IncludePaths);$(SolutionPublicHeadersDir)</IncludePaths>
+      <ObjectiveCARC>true</ObjectiveCARC>
+      <ObjectiveCModules>true</ObjectiveCModules>
+      <OptimizationLevel>Disabled</OptimizationLevel>
+      <OtherCFlags>-iquote"..\..\sbuild\Debug-iphoneos\AFNetworking\AFNetworking.framework\Headers" -iquote"..\..\sbuild\Debug-iphoneos\MagicalRecord\MagicalRecord.framework\Headers" -iquote"..\..\sbuild\Debug-iphoneos\NitroKeychain\NitroKeychain.framework\Headers" -iquote"..\..\sbuild\Debug-iphoneos\SDWebImage\SDWebImage.framework\Headers"</OtherCFlags>
+      <OtherCPlusPlusFlags>-iquote"..\..\sbuild\Debug-iphoneos\AFNetworking\AFNetworking.framework\Headers" -iquote"..\..\sbuild\Debug-iphoneos\MagicalRecord\MagicalRecord.framework\Headers" -iquote"..\..\sbuild\Debug-iphoneos\NitroKeychain\NitroKeychain.framework\Headers" -iquote"..\..\sbuild\Debug-iphoneos\SDWebImage\SDWebImage.framework\Headers"</OtherCPlusPlusFlags>
+      <PreprocessorDefinitions>DEBUG=1;COCOAPODS=1</PreprocessorDefinitions>
+    </ClangCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>%(AdditionalDependencies);AFNetworking.lib;MagicalRecord.lib;NitroKeychain.lib;Pods_photowall.lib;SDWebImage.lib</AdditionalDependencies>
+    </Link>
+    <SBInfoPlistCopy>
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </SBInfoPlistCopy>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">
+    <ClCompile>
+      <AdditionalOptions>/bigobj %(AdditionalOptions)</AdditionalOptions>
+      <DisableSpecificWarnings>4453;28204</DisableSpecificWarnings>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+    </ClCompile>
+    <ClangCompile>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <ExcludedSearchPathSubdirectories>*.nib;*.lproj;*.framework;*.gch;(*);.DS_Store;CVS;.svn;.git;.hg;*.xcodeproj;*.xcode;*.pbproj;*.pbxproj;*.xcassets</ExcludedSearchPathSubdirectories>
+      <HeaderMap>Project</HeaderMap>
+      <IncludePaths>%(IncludePaths);$(SolutionPublicHeadersDir)</IncludePaths>
+      <ObjectiveCARC>true</ObjectiveCARC>
+      <ObjectiveCModules>true</ObjectiveCModules>
+      <OptimizationLevel>Disabled</OptimizationLevel>
+      <OtherCFlags>-iquote"..\..\sbuild\Debug-iphoneos\AFNetworking\AFNetworking.framework\Headers" -iquote"..\..\sbuild\Debug-iphoneos\MagicalRecord\MagicalRecord.framework\Headers" -iquote"..\..\sbuild\Debug-iphoneos\NitroKeychain\NitroKeychain.framework\Headers" -iquote"..\..\sbuild\Debug-iphoneos\SDWebImage\SDWebImage.framework\Headers"</OtherCFlags>
+      <OtherCPlusPlusFlags>-iquote"..\..\sbuild\Debug-iphoneos\AFNetworking\AFNetworking.framework\Headers" -iquote"..\..\sbuild\Debug-iphoneos\MagicalRecord\MagicalRecord.framework\Headers" -iquote"..\..\sbuild\Debug-iphoneos\NitroKeychain\NitroKeychain.framework\Headers" -iquote"..\..\sbuild\Debug-iphoneos\SDWebImage\SDWebImage.framework\Headers"</OtherCPlusPlusFlags>
+      <PreprocessorDefinitions>DEBUG=1;COCOAPODS=1</PreprocessorDefinitions>
+    </ClangCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>%(AdditionalDependencies);AFNetworking.lib;MagicalRecord.lib;NitroKeychain.lib;Pods_photowall.lib;SDWebImage.lib</AdditionalDependencies>
+    </Link>
+    <SBInfoPlistCopy>
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </SBInfoPlistCopy>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <AdditionalOptions>/bigobj %(AdditionalOptions)</AdditionalOptions>
+      <DisableSpecificWarnings>4453;28204</DisableSpecificWarnings>
+    </ClCompile>
+    <ClangCompile>
+      <ExcludedSearchPathSubdirectories>*.nib;*.lproj;*.framework;*.gch;(*);.DS_Store;CVS;.svn;.git;.hg;*.xcodeproj;*.xcode;*.pbproj;*.pbxproj;*.xcassets</ExcludedSearchPathSubdirectories>
+      <HeaderMap>Project</HeaderMap>
+      <IncludePaths>%(IncludePaths);$(SolutionPublicHeadersDir)</IncludePaths>
+      <ObjectiveCARC>true</ObjectiveCARC>
+      <ObjectiveCModules>true</ObjectiveCModules>
+      <OptimizationLevel>MinSpace</OptimizationLevel>
+      <OtherCFlags>-iquote"..\..\sbuild\Release-iphoneos\AFNetworking\AFNetworking.framework\Headers" -iquote"..\..\sbuild\Release-iphoneos\MagicalRecord\MagicalRecord.framework\Headers" -iquote"..\..\sbuild\Release-iphoneos\NitroKeychain\NitroKeychain.framework\Headers" -iquote"..\..\sbuild\Release-iphoneos\SDWebImage\SDWebImage.framework\Headers"</OtherCFlags>
+      <OtherCPlusPlusFlags>-iquote"..\..\sbuild\Release-iphoneos\AFNetworking\AFNetworking.framework\Headers" -iquote"..\..\sbuild\Release-iphoneos\MagicalRecord\MagicalRecord.framework\Headers" -iquote"..\..\sbuild\Release-iphoneos\NitroKeychain\NitroKeychain.framework\Headers" -iquote"..\..\sbuild\Release-iphoneos\SDWebImage\SDWebImage.framework\Headers"</OtherCPlusPlusFlags>
+      <PreprocessorDefinitions>COCOAPODS=1</PreprocessorDefinitions>
+    </ClangCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>%(AdditionalDependencies);AFNetworking.lib;MagicalRecord.lib;NitroKeychain.lib;Pods_photowall.lib;SDWebImage.lib</AdditionalDependencies>
+    </Link>
+    <SBInfoPlistCopy>
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </SBInfoPlistCopy>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">
+    <ClCompile>
+      <AdditionalOptions>/bigobj %(AdditionalOptions)</AdditionalOptions>
+      <DisableSpecificWarnings>4453;28204</DisableSpecificWarnings>
+    </ClCompile>
+    <ClangCompile>
+      <ExcludedSearchPathSubdirectories>*.nib;*.lproj;*.framework;*.gch;(*);.DS_Store;CVS;.svn;.git;.hg;*.xcodeproj;*.xcode;*.pbproj;*.pbxproj;*.xcassets</ExcludedSearchPathSubdirectories>
+      <HeaderMap>Project</HeaderMap>
+      <IncludePaths>%(IncludePaths);$(SolutionPublicHeadersDir)</IncludePaths>
+      <ObjectiveCARC>true</ObjectiveCARC>
+      <ObjectiveCModules>true</ObjectiveCModules>
+      <OptimizationLevel>MinSpace</OptimizationLevel>
+      <OtherCFlags>-iquote"..\..\sbuild\Release-iphoneos\AFNetworking\AFNetworking.framework\Headers" -iquote"..\..\sbuild\Release-iphoneos\MagicalRecord\MagicalRecord.framework\Headers" -iquote"..\..\sbuild\Release-iphoneos\NitroKeychain\NitroKeychain.framework\Headers" -iquote"..\..\sbuild\Release-iphoneos\SDWebImage\SDWebImage.framework\Headers"</OtherCFlags>
+      <OtherCPlusPlusFlags>-iquote"..\..\sbuild\Release-iphoneos\AFNetworking\AFNetworking.framework\Headers" -iquote"..\..\sbuild\Release-iphoneos\MagicalRecord\MagicalRecord.framework\Headers" -iquote"..\..\sbuild\Release-iphoneos\NitroKeychain\NitroKeychain.framework\Headers" -iquote"..\..\sbuild\Release-iphoneos\SDWebImage\SDWebImage.framework\Headers"</OtherCPlusPlusFlags>
+      <PreprocessorDefinitions>COCOAPODS=1</PreprocessorDefinitions>
+    </ClangCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>%(AdditionalDependencies);AFNetworking.lib;MagicalRecord.lib;NitroKeychain.lib;Pods_photowall.lib;SDWebImage.lib</AdditionalDependencies>
+    </Link>
+    <SBInfoPlistCopy>
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </SBInfoPlistCopy>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+  </ItemGroup>
+  <ItemGroup>
+    <AppxManifest Include="Package.appxmanifest">
+      <SubType>Designer</SubType>
+    </AppxManifest>
+    <Xml Include="default.rd.xml" />
+    <None Include="photowall_TemporaryKey.pfx" />
+    <None Include="project.json" />
+    <Image Include="Assets\LockScreenLogo.scale-200.png" />
+    <Image Include="Assets\SplashScreen.scale-200.png" />
+    <Image Include="Assets\Square150x150Logo.scale-200.png" />
+    <Image Include="Assets\Square44x44Logo.scale-200.png" />
+    <Image Include="Assets\Square44x44Logo.targetsize-24_altform-unplated.png" />
+    <Image Include="Assets\StoreLogo.png" />
+    <Image Include="Assets\Wide310x150Logo.scale-200.png" />
+    <ClInclude Include="pch.h" />
+    <ClInclude Include="App.xaml.h">
+      <DependentUpon>App.xaml</DependentUpon>
+    </ClInclude>
+    <ClCompile Include="App.xaml.cpp">
+      <DependentUpon>App.xaml</DependentUpon>
+    </ClCompile>
+    <ClCompile Include="pch.cpp">
+      <PrecompiledHeader>Create</PrecompiledHeader>
+    </ClCompile>
+    <AssetCatalogCompile Include="..\..\photowall\Images.xcassets" />
+    <ClInclude Include="..\..\photowall\AppDelegate.h" />
+    <ClInclude Include="..\..\photowall\CoreData\_User.h" />
+    <ClInclude Include="..\..\photowall\LoginInTestViewController.h" />
+    <ClInclude Include="..\..\photowall\Model\AccountManager.h" />
+    <ClInclude Include="..\..\photowall\Model\LocationAwarePhotoUploadTask.h" />
+    <ClInclude Include="..\..\photowall\Model\MapPoint.h" />
+    <ClInclude Include="..\..\photowall\Model\MapPointManager.h" />
+    <ClInclude Include="..\..\photowall\Model\MapPointRegion.h" />
+    <ClInclude Include="..\..\photowall\Model\User.h" />
+    <ClInclude Include="..\..\photowall\Model\UserManager.h" />
+    <ClInclude Include="..\..\photowall\RestClient\KeyChainSecuredAuthenticator.h" />
+    <ClInclude Include="..\..\photowall\RestClient\RestClient.h" />
+    <ClInclude Include="..\..\photowall\RestClient\RestRequest.h" />
+    <ClInclude Include="..\..\photowall\RestClient\RestResponse.h" />
+    <ClInclude Include="..\..\photowall\Utils\MapPointRegion+Utils.h" />
+    <ClInclude Include="..\..\photowall\Utils\NSDate+Utils.h" />
+    <ClInclude Include="..\..\photowall\Utils\NSString+Utils.h" />
+    <ClInclude Include="..\..\photowall\Utils\UIColor+Defaults.h" />
+    <ClInclude Include="..\..\photowall\Utils\UIImageView+WebImage.h" />
+    <ClInclude Include="..\..\photowall\Utils\UIView+Utils.h" />
+    <ClInclude Include="..\..\photowall\Utils\UIViewController+Mask.h" />
+    <ClInclude Include="..\..\photowall\View\AnnotationCallOutView.h" />
+    <ClInclude Include="..\..\photowall\View\FriendCell.h" />
+    <ClInclude Include="..\..\photowall\View\FriendsViewController.h" />
+    <ClInclude Include="..\..\photowall\View\LoginViewController.h" />
+    <ClInclude Include="..\..\photowall\View\MapPointGridViewController.h" />
+    <ClInclude Include="..\..\photowall\View\MapPointHisteryController.h" />
+    <ClInclude Include="..\..\photowall\View\MapPointViewController.h" />
+    <ClInclude Include="..\..\photowall\View\MapPointView_EditBarController.h" />
+    <ClInclude Include="..\..\photowall\View\MapPointView_ViewBarController.h" />
+    <ClInclude Include="..\..\photowall\View\PhotoAnnotation.h" />
+    <ClInclude Include="..\..\photowall\View\PhotoCell.h" />
+    <ClInclude Include="..\..\photowall\View\PhotoGridSectionHeader.h" />
+    <ClInclude Include="..\..\photowall\View\PhotoShowcaseCell.h" />
+    <ClInclude Include="..\..\photowall\View\PhotoShowcaseViewController.h" />
+    <ClInclude Include="..\..\photowall\View\ProfileViewController.h" />
+    <ClInclude Include="..\..\photowall\View\RootViewController.h" />
+    <ClangCompile Include="..\..\photowall\AppDelegate.m" />
+    <ClangCompile Include="..\..\photowall\CoreData\_User.m" />
+    <ClangCompile Include="..\..\photowall\LoginInTestViewController.m" />
+    <ClangCompile Include="..\..\photowall\Model\AccountManager.m" />
+    <ClangCompile Include="..\..\photowall\Model\LocationAwarePhotoUploadTask.m" />
+    <ClangCompile Include="..\..\photowall\Model\MapPoint.m" />
+    <ClangCompile Include="..\..\photowall\Model\MapPointManager.m" />
+    <ClangCompile Include="..\..\photowall\Model\MapPointRegion.m" />
+    <ClangCompile Include="..\..\photowall\Model\User.m" />
+    <ClangCompile Include="..\..\photowall\Model\UserManager.m" />
+    <ClangCompile Include="..\..\photowall\RestClient\KeyChainSecuredAuthenticator.m" />
+    <ClangCompile Include="..\..\photowall\RestClient\RestClient.m" />
+    <ClangCompile Include="..\..\photowall\RestClient\RestRequest.m" />
+    <ClangCompile Include="..\..\photowall\RestClient\RestResponse.m" />
+    <ClangCompile Include="..\..\photowall\Utils\MapPointRegion+Utils.m" />
+    <ClangCompile Include="..\..\photowall\Utils\NSDate+Utils.m" />
+    <ClangCompile Include="..\..\photowall\Utils\NSString+Utils.m" />
+    <ClangCompile Include="..\..\photowall\Utils\UIColor+Defaults.m" />
+    <ClangCompile Include="..\..\photowall\Utils\UIImageView+WebImage.m" />
+    <ClangCompile Include="..\..\photowall\Utils\UIView+Utils.m" />
+    <ClangCompile Include="..\..\photowall\Utils\UIViewController+Mask.m" />
+    <ClangCompile Include="..\..\photowall\View\AnnotationCallOutView.m" />
+    <ClangCompile Include="..\..\photowall\View\FriendCell.m" />
+    <ClangCompile Include="..\..\photowall\View\FriendsViewController.m" />
+    <ClangCompile Include="..\..\photowall\View\LoginViewController.m" />
+    <ClangCompile Include="..\..\photowall\View\MapPointGridViewController.m" />
+    <ClangCompile Include="..\..\photowall\View\MapPointHisteryController.m" />
+    <ClangCompile Include="..\..\photowall\View\MapPointViewController.m" />
+    <ClangCompile Include="..\..\photowall\View\MapPointView_EditBarController.m" />
+    <ClangCompile Include="..\..\photowall\View\MapPointView_ViewBarController.m" />
+    <ClangCompile Include="..\..\photowall\View\PhotoAnnotation.m" />
+    <ClangCompile Include="..\..\photowall\View\PhotoCell.m" />
+    <ClangCompile Include="..\..\photowall\View\PhotoGridSectionHeader.m" />
+    <ClangCompile Include="..\..\photowall\View\PhotoShowcaseCell.m" />
+    <ClangCompile Include="..\..\photowall\View\PhotoShowcaseViewController.m" />
+    <ClangCompile Include="..\..\photowall\View\ProfileViewController.m" />
+    <ClangCompile Include="..\..\photowall\View\RootViewController.m" />
+    <ClangCompile Include="..\..\photowall\main.m" />
+    <DataModelCompile Include="..\..\photowall\photowall.xcdatamodeld" />
+    <SBInfoPlistCopy Include="..\..\photowall\Info.plist">
+      <ExcludedFromBuild Condition="'$(Configuration)'=='Debug'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)'=='Release'">false</ExcludedFromBuild>
+      <VariableFile Condition="'$(Configuration)'=='Debug'">photowall-Debug-xcvars.txt</VariableFile>
+      <VariableFile Condition="'$(Configuration)'=='Release'">photowall-Release-xcvars.txt</VariableFile>
+    </SBInfoPlistCopy>
+    <SBResourceCopy Include="..\..\photowall\Base.lproj\Strings.strings">
+      <VariantDir>Base.lproj</VariantDir>
+    </SBResourceCopy>
+    <Text Include="..\..\photowall\Mapping2.xcmappingmodel" />
+    <Text Include="..\..\photowall\Model.xcmappingmodel" />
+    <Text Include="photowall-Debug-xcvars.txt">
+      <DeploymentContent>false</DeploymentContent>
+    </Text>
+    <Text Include="photowall-Release-xcvars.txt">
+      <DeploymentContent>false</DeploymentContent>
+    </Text>
+    <XibCompile Include="..\..\photowall\LoginInTestViewController.xib" />
+    <XibCompile Include="..\..\photowall\TestView.xib" />
+    <XibCompile Include="..\..\photowall\View\AnnotationCallOutView.xib" />
+    <XibCompile Include="..\..\photowall\View\FriendCell.xib" />
+    <XibCompile Include="..\..\photowall\View\FriendsListView.xib" />
+    <XibCompile Include="..\..\photowall\View\LoginView.xib" />
+    <XibCompile Include="..\..\photowall\View\MapPointGridView.xib" />
+    <XibCompile Include="..\..\photowall\View\MapPointHistery.xib" />
+    <XibCompile Include="..\..\photowall\View\MapPointView.xib" />
+    <XibCompile Include="..\..\photowall\View\MapPointView_EditBar.xib" />
+    <XibCompile Include="..\..\photowall\View\MapPointView_ViewBar.xib" />
+    <XibCompile Include="..\..\photowall\View\MaskView.xib" />
+    <XibCompile Include="..\..\photowall\View\PhotoCell.xib" />
+    <XibCompile Include="..\..\photowall\View\PhotoGridSectionHeader.xib" />
+    <XibCompile Include="..\..\photowall\View\PhotoShowcaseCell.xib" />
+    <XibCompile Include="..\..\photowall\View\PhotoShowcaseView.xib" />
+    <XibCompile Include="..\..\photowall\View\ProfileView.xib" />
+    <XibCompile Include="..\..\photowall\View\RootView.xib" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Pods\Pods.vsimporter\AFNetworking-WinStore10\AFNetworking.vcxproj">
+      <Project>{1556b8a6-dd9b-44f5-bb1f-e2b58d6562e1}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Pods\Pods.vsimporter\MagicalRecord-WinStore10\MagicalRecord.vcxproj">
+      <Project>{307f8fa1-f1b1-42dc-a9d2-bc922e8cb507}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Pods\Pods.vsimporter\NitroKeychain-WinStore10\NitroKeychain.vcxproj">
+      <Project>{af89e37f-cc29-4a08-949e-2a04d26b103c}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Pods\Pods.vsimporter\Nocilla-WinStore10\Nocilla.vcxproj">
+      <Project>{a7d1dbd9-e1cb-485a-b811-63c007b1f018}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Pods\Pods.vsimporter\OCMock-WinStore10\OCMock.vcxproj">
+      <Project>{3ecefca3-4b80-4d26-a987-81cecfee2ff5}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Pods\Pods.vsimporter\Pods-photowall-photowallTests-WinStore10\Pods-photowall-photowallTests.vcxproj">
+      <Project>{6bbef765-8a10-46dc-a744-ef3ef148115d}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Pods\Pods.vsimporter\Pods-photowall-WinStore10\Pods-photowall.vcxproj">
+      <Project>{7dbcb20c-b4fb-42b8-93fe-89378b74052e}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Pods\Pods.vsimporter\SDWebImage-WinStore10\SDWebImage.vcxproj">
+      <Project>{b01daf5d-23ae-4a60-936c-5ea196998f14}</Project>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets" />
+</Project>

@@ -6,6 +6,9 @@
 build/
 DerivedData/
 
+Debug/
+
+
 ## Various settings
 *.pbxuser
 !default.pbxuser

@@ -1,0 +1,379 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Common">
+      <UniqueIdentifier>{fd3f7660-2850-484a-88bb-975a575b40c9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Assets">
+      <UniqueIdentifier>{0a695727-49e6-4ef4-8250-52f706f64a7d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Xcode Variable Files">
+      <UniqueIdentifier>{266D0984-267B-4315-9B95-AC78FD861177}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="photowall">
+      <UniqueIdentifier>{46C10B34-811B-4039-8E8F-2DD82AC99E39}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="photowall\CoreData">
+      <UniqueIdentifier>{43F689E5-33E2-48EB-AB87-790FB729E74B}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="photowall\Model">
+      <UniqueIdentifier>{B50FA110-6C72-491B-8145-53B6D43E9088}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="photowall\RestClient">
+      <UniqueIdentifier>{09EEB40D-B21C-48F9-BAF5-C44B96E7A7A7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="photowall\Supporting Files">
+      <UniqueIdentifier>{F953B97F-25C2-4B5A-AC02-51FAF7AB5695}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="photowall\Supporting Files\Base">
+      <UniqueIdentifier>{FD63E66C-9904-4137-98AC-EC5B457CD99C}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="photowall\Utils">
+      <UniqueIdentifier>{24250BD5-605D-4193-A25D-8E2B8D88B750}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="photowall\View">
+      <UniqueIdentifier>{D88A1496-7EDE-4575-8D29-B85BC246CFCE}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <Xml Include="default.rd.xml" />
+    <AppxManifest Include="Package.appxmanifest" />
+    <None Include="photowall_TemporaryKey.pfx" />
+    <Image Include="Assets\LockScreenLogo.scale-200.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\SplashScreen.scale-200.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\Square150x150Logo.scale-200.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\Square44x44Logo.scale-200.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\StoreLogo.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\Wide310x150Logo.scale-200.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <AssetCatalogCompile Include="..\..\photowall\Images.xcassets">
+      <Filter>photowall</Filter>
+    </AssetCatalogCompile>
+    <ClInclude Include="..\..\photowall\AppDelegate.h">
+      <Filter>photowall</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\photowall\CoreData\_User.h">
+      <Filter>photowall\CoreData</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\photowall\LoginInTestViewController.h">
+      <Filter>photowall\View</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\photowall\Model\AccountManager.h">
+      <Filter>photowall\Model</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\photowall\Model\LocationAwarePhotoUploadTask.h">
+      <Filter>photowall\Model</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\photowall\Model\MapPoint.h">
+      <Filter>photowall\Model</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\photowall\Model\MapPointManager.h">
+      <Filter>photowall\Model</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\photowall\Model\MapPointRegion.h">
+      <Filter>photowall\Model</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\photowall\Model\User.h">
+      <Filter>photowall\Model</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\photowall\Model\UserManager.h">
+      <Filter>photowall\Model</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\photowall\RestClient\KeyChainSecuredAuthenticator.h">
+      <Filter>photowall\RestClient</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\photowall\RestClient\RestClient.h">
+      <Filter>photowall\RestClient</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\photowall\RestClient\RestRequest.h">
+      <Filter>photowall\RestClient</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\photowall\RestClient\RestResponse.h">
+      <Filter>photowall\RestClient</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\photowall\Utils\MapPointRegion+Utils.h">
+      <Filter>photowall\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\photowall\Utils\NSDate+Utils.h">
+      <Filter>photowall\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\photowall\Utils\NSString+Utils.h">
+      <Filter>photowall\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\photowall\Utils\UIColor+Defaults.h">
+      <Filter>photowall\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\photowall\Utils\UIImageView+WebImage.h">
+      <Filter>photowall\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\photowall\Utils\UIView+Utils.h">
+      <Filter>photowall\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\photowall\Utils\UIViewController+Mask.h">
+      <Filter>photowall\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\photowall\View\AnnotationCallOutView.h">
+      <Filter>photowall\View</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\photowall\View\FriendCell.h">
+      <Filter>photowall\View</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\photowall\View\FriendsViewController.h">
+      <Filter>photowall\View</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\photowall\View\LoginViewController.h">
+      <Filter>photowall\View</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\photowall\View\MapPointGridViewController.h">
+      <Filter>photowall\View</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\photowall\View\MapPointHisteryController.h">
+      <Filter>photowall\View</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\photowall\View\MapPointViewController.h">
+      <Filter>photowall\View</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\photowall\View\MapPointView_EditBarController.h">
+      <Filter>photowall\View</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\photowall\View\MapPointView_ViewBarController.h">
+      <Filter>photowall\View</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\photowall\View\PhotoAnnotation.h">
+      <Filter>photowall\View</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\photowall\View\PhotoCell.h">
+      <Filter>photowall\View</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\photowall\View\PhotoGridSectionHeader.h">
+      <Filter>photowall\View</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\photowall\View\PhotoShowcaseCell.h">
+      <Filter>photowall\View</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\photowall\View\PhotoShowcaseViewController.h">
+      <Filter>photowall\View</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\photowall\View\ProfileViewController.h">
+      <Filter>photowall\View</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\photowall\View\RootViewController.h">
+      <Filter>photowall\View</Filter>
+    </ClInclude>
+    <ClangCompile Include="..\..\photowall\AppDelegate.m">
+      <Filter>photowall</Filter>
+    </ClangCompile>
+    <ClangCompile Include="..\..\photowall\CoreData\_User.m">
+      <Filter>photowall\CoreData</Filter>
+    </ClangCompile>
+    <ClangCompile Include="..\..\photowall\LoginInTestViewController.m">
+      <Filter>photowall\View</Filter>
+    </ClangCompile>
+    <ClangCompile Include="..\..\photowall\Model\AccountManager.m">
+      <Filter>photowall\Model</Filter>
+    </ClangCompile>
+    <ClangCompile Include="..\..\photowall\Model\LocationAwarePhotoUploadTask.m">
+      <Filter>photowall\Model</Filter>
+    </ClangCompile>
+    <ClangCompile Include="..\..\photowall\Model\MapPoint.m">
+      <Filter>photowall\Model</Filter>
+    </ClangCompile>
+    <ClangCompile Include="..\..\photowall\Model\MapPointManager.m">
+      <Filter>photowall\Model</Filter>
+    </ClangCompile>
+    <ClangCompile Include="..\..\photowall\Model\MapPointRegion.m">
+      <Filter>photowall\Model</Filter>
+    </ClangCompile>
+    <ClangCompile Include="..\..\photowall\Model\User.m">
+      <Filter>photowall\Model</Filter>
+    </ClangCompile>
+    <ClangCompile Include="..\..\photowall\Model\UserManager.m">
+      <Filter>photowall\Model</Filter>
+    </ClangCompile>
+    <ClangCompile Include="..\..\photowall\RestClient\KeyChainSecuredAuthenticator.m">
+      <Filter>photowall\RestClient</Filter>
+    </ClangCompile>
+    <ClangCompile Include="..\..\photowall\RestClient\RestClient.m">
+      <Filter>photowall\RestClient</Filter>
+    </ClangCompile>
+    <ClangCompile Include="..\..\photowall\RestClient\RestRequest.m">
+      <Filter>photowall\RestClient</Filter>
+    </ClangCompile>
+    <ClangCompile Include="..\..\photowall\RestClient\RestResponse.m">
+      <Filter>photowall\RestClient</Filter>
+    </ClangCompile>
+    <ClangCompile Include="..\..\photowall\Utils\MapPointRegion+Utils.m">
+      <Filter>photowall\Utils</Filter>
+    </ClangCompile>
+    <ClangCompile Include="..\..\photowall\Utils\NSDate+Utils.m">
+      <Filter>photowall\Utils</Filter>
+    </ClangCompile>
+    <ClangCompile Include="..\..\photowall\Utils\NSString+Utils.m">
+      <Filter>photowall\Utils</Filter>
+    </ClangCompile>
+    <ClangCompile Include="..\..\photowall\Utils\UIColor+Defaults.m">
+      <Filter>photowall\Utils</Filter>
+    </ClangCompile>
+    <ClangCompile Include="..\..\photowall\Utils\UIImageView+WebImage.m">
+      <Filter>photowall\Utils</Filter>
+    </ClangCompile>
+    <ClangCompile Include="..\..\photowall\Utils\UIView+Utils.m">
+      <Filter>photowall\Utils</Filter>
+    </ClangCompile>
+    <ClangCompile Include="..\..\photowall\Utils\UIViewController+Mask.m">
+      <Filter>photowall\Utils</Filter>
+    </ClangCompile>
+    <ClangCompile Include="..\..\photowall\View\AnnotationCallOutView.m">
+      <Filter>photowall\View</Filter>
+    </ClangCompile>
+    <ClangCompile Include="..\..\photowall\View\FriendCell.m">
+      <Filter>photowall\View</Filter>
+    </ClangCompile>
+    <ClangCompile Include="..\..\photowall\View\FriendsViewController.m">
+      <Filter>photowall\View</Filter>
+    </ClangCompile>
+    <ClangCompile Include="..\..\photowall\View\LoginViewController.m">
+      <Filter>photowall\View</Filter>
+    </ClangCompile>
+    <ClangCompile Include="..\..\photowall\View\MapPointGridViewController.m">
+      <Filter>photowall\View</Filter>
+    </ClangCompile>
+    <ClangCompile Include="..\..\photowall\View\MapPointHisteryController.m">
+      <Filter>photowall\View</Filter>
+    </ClangCompile>
+    <ClangCompile Include="..\..\photowall\View\MapPointViewController.m">
+      <Filter>photowall\View</Filter>
+    </ClangCompile>
+    <ClangCompile Include="..\..\photowall\View\MapPointView_EditBarController.m">
+      <Filter>photowall\View</Filter>
+    </ClangCompile>
+    <ClangCompile Include="..\..\photowall\View\MapPointView_ViewBarController.m">
+      <Filter>photowall\View</Filter>
+    </ClangCompile>
+    <ClangCompile Include="..\..\photowall\View\PhotoAnnotation.m">
+      <Filter>photowall\View</Filter>
+    </ClangCompile>
+    <ClangCompile Include="..\..\photowall\View\PhotoCell.m">
+      <Filter>photowall\View</Filter>
+    </ClangCompile>
+    <ClangCompile Include="..\..\photowall\View\PhotoGridSectionHeader.m">
+      <Filter>photowall\View</Filter>
+    </ClangCompile>
+    <ClangCompile Include="..\..\photowall\View\PhotoShowcaseCell.m">
+      <Filter>photowall\View</Filter>
+    </ClangCompile>
+    <ClangCompile Include="..\..\photowall\View\PhotoShowcaseViewController.m">
+      <Filter>photowall\View</Filter>
+    </ClangCompile>
+    <ClangCompile Include="..\..\photowall\View\ProfileViewController.m">
+      <Filter>photowall\View</Filter>
+    </ClangCompile>
+    <ClangCompile Include="..\..\photowall\View\RootViewController.m">
+      <Filter>photowall\View</Filter>
+    </ClangCompile>
+    <ClangCompile Include="..\..\photowall\main.m">
+      <Filter>photowall\Supporting Files</Filter>
+    </ClangCompile>
+    <DataModelCompile Include="..\..\photowall\photowall.xcdatamodeld">
+      <Filter>photowall</Filter>
+    </DataModelCompile>
+    <SBInfoPlistCopy Include="..\..\photowall\Info.plist" />
+    <SBResourceCopy Include="..\..\photowall\Base.lproj\Strings.strings">
+      <Filter>photowall\Supporting Files\Base</Filter>
+    </SBResourceCopy>
+    <Text Include="..\..\photowall\Mapping2.xcmappingmodel">
+      <Filter>photowall</Filter>
+    </Text>
+    <Text Include="..\..\photowall\Model.xcmappingmodel">
+      <Filter>photowall</Filter>
+    </Text>
+    <Text Include="photowall-Debug-xcvars.txt">
+      <Filter>Xcode Variable Files</Filter>
+    </Text>
+    <Text Include="photowall-Release-xcvars.txt">
+      <Filter>Xcode Variable Files</Filter>
+    </Text>
+    <XibCompile Include="..\..\photowall\LoginInTestViewController.xib">
+      <Filter>photowall\View</Filter>
+    </XibCompile>
+    <XibCompile Include="..\..\photowall\TestView.xib">
+      <Filter>photowall\View</Filter>
+    </XibCompile>
+    <XibCompile Include="..\..\photowall\View\AnnotationCallOutView.xib">
+      <Filter>photowall\View</Filter>
+    </XibCompile>
+    <XibCompile Include="..\..\photowall\View\FriendCell.xib">
+      <Filter>photowall\View</Filter>
+    </XibCompile>
+    <XibCompile Include="..\..\photowall\View\FriendsListView.xib">
+      <Filter>photowall\View</Filter>
+    </XibCompile>
+    <XibCompile Include="..\..\photowall\View\LoginView.xib">
+      <Filter>photowall\View</Filter>
+    </XibCompile>
+    <XibCompile Include="..\..\photowall\View\MapPointGridView.xib">
+      <Filter>photowall\View</Filter>
+    </XibCompile>
+    <XibCompile Include="..\..\photowall\View\MapPointHistery.xib">
+      <Filter>photowall\View</Filter>
+    </XibCompile>
+    <XibCompile Include="..\..\photowall\View\MapPointView.xib">
+      <Filter>photowall\View</Filter>
+    </XibCompile>
+    <XibCompile Include="..\..\photowall\View\MapPointView_EditBar.xib">
+      <Filter>photowall\View</Filter>
+    </XibCompile>
+    <XibCompile Include="..\..\photowall\View\MapPointView_ViewBar.xib">
+      <Filter>photowall\View</Filter>
+    </XibCompile>
+    <XibCompile Include="..\..\photowall\View\MaskView.xib">
+      <Filter>photowall\View</Filter>
+    </XibCompile>
+    <XibCompile Include="..\..\photowall\View\PhotoCell.xib">
+      <Filter>photowall\View</Filter>
+    </XibCompile>
+    <XibCompile Include="..\..\photowall\View\PhotoGridSectionHeader.xib">
+      <Filter>photowall\View</Filter>
+    </XibCompile>
+    <XibCompile Include="..\..\photowall\View\PhotoShowcaseCell.xib">
+      <Filter>photowall\View</Filter>
+    </XibCompile>
+    <XibCompile Include="..\..\photowall\View\PhotoShowcaseView.xib">
+      <Filter>photowall\View</Filter>
+    </XibCompile>
+    <XibCompile Include="..\..\photowall\View\ProfileView.xib">
+      <Filter>photowall\View</Filter>
+    </XibCompile>
+    <XibCompile Include="..\..\photowall\View\RootView.xib">
+      <Filter>photowall\View</Filter>
+    </XibCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="App.xaml.cpp" />
+    <ClCompile Include="pch.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="pch.h" />
+    <ClInclude Include="App.xaml.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="project.json" />
+  </ItemGroup>
+</Project>
