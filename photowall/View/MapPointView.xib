@@ -10,6 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MapPointViewController">
             <connections>
+                <outlet property="barViewContainer" destination="lvv-uj-gZ4" id="hIX-I6-fPo"/>
                 <outlet property="mapView" destination="g3n-hg-vdF" id="Trj-Ik-ijd"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -47,13 +48,23 @@
                     </attributedString>
                     <nil key="highlightedColor"/>
                 </label>
+                <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lvv-uj-gZ4">
+                    <rect key="frame" x="0.0" y="417" width="375" height="250"/>
+                    <color key="backgroundColor" white="1" alpha="0.81950984589041098" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="250" id="axh-fv-KK4"/>
+                    </constraints>
+                </view>
             </subviews>
             <constraints>
                 <constraint firstItem="0Vh-vb-rY7" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="5pV-3F-p03"/>
                 <constraint firstAttribute="bottom" secondItem="g3n-hg-vdF" secondAttribute="bottom" id="8GR-2K-v8R"/>
                 <constraint firstItem="g3n-hg-vdF" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="I1m-m7-F0d"/>
                 <constraint firstItem="g3n-hg-vdF" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="UU9-dc-WSr"/>
+                <constraint firstAttribute="bottom" secondItem="lvv-uj-gZ4" secondAttribute="bottom" id="aFN-J4-Y74"/>
                 <constraint firstAttribute="trailing" secondItem="g3n-hg-vdF" secondAttribute="trailing" id="qms-bN-mKs"/>
+                <constraint firstAttribute="trailing" secondItem="lvv-uj-gZ4" secondAttribute="trailing" id="tu0-IU-Ha7"/>
+                <constraint firstItem="lvv-uj-gZ4" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="uLg-v8-LIS"/>
                 <constraint firstItem="0Vh-vb-rY7" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="yJR-Rz-Oez"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>

@@ -117,10 +117,12 @@
 - (IBAction)takePictureButtonPressed:(id)sender
 {
     [self setSelectedIndex:(0)];
+
+    //TODO : send if the page is in show or not
     
     //TODO : sned the time button up,for detecting is longPress or not
     
-    //TODO : send if the page is in here or not
+
     
     /*
 	UIImagePickerController* picker = [UIImagePickerController new];
@@ -144,7 +146,8 @@
 
 //switch the page
 #pragma mark - Private Methods
-- (void)setSelectedIndex:(NSInteger)index {
+- (void)setSelectedIndex:(NSInteger)index
+{
 	if (index < 0 || index > [_viewControllers count]) {
 		return;
 	}

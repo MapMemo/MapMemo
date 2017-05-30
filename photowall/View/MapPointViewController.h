@@ -20,6 +20,9 @@ enum MapPointViewMode
 
 @interface MapPointViewController : UIViewController<MKMapViewDelegate>
 
+//show the view or edit page
+@property (weak, nonatomic) IBOutlet UIView* barViewContainer;
+
 @property (weak, nonatomic) UIViewController* rootViewController;
 
 @property (weak, nonatomic) IBOutlet MKMapView* mapView;

@@ -23,11 +23,16 @@ NSString* const PhotoAnnotationViewIdentifier = @"PhotoAnnotationView";
 
 @implementation MapPointViewController {
 
+    //Map List View
+    MapPointView_ViewBarController* _viewMapPointBarController;
+
 	//Friend list
 	MapPointView_EditBarController* _editMapPointBarController;
 
-	//Map List View
-	MapPointView_ViewBarController* _viewMapPointBarController;
+
+    NSInteger _selectedIndex;
+    NSArray* _barControllers;
+    UIViewController* _currentController;
 
 	NSMutableArray* _annotations;
 	NSMutableArray* _nearByPhotos;
@@ -38,12 +43,24 @@ NSString* const PhotoAnnotationViewIdentifier = @"PhotoAnnotationView";
 	float pressDownTime;
 }
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
 	[super viewDidLoad];
 	_annotations = [NSMutableArray new];
 	_nearByPhotos = [NSMutableArray new];
 
 	TriggerDeltaPressTime=1000;
+
+
+    _viewMapPointBarController=[[MapPointView_ViewBarController alloc] initWithNibName:@"MapPointView_ViewBar" bundle:nil];
+    _editMapPointBarController=[[MapPointView_EditBarController alloc] initWithNibName:@"MapPointView_EditBar" bundle:nil];
+
+    _barControllers = @[  _viewMapPointBarController,_editMapPointBarController ];
+
+    //set now page index is 0
+    _selectedIndex = 1;
+    //set index
+    [self setSelectedIndex:_selectedIndex];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -130,6 +147,34 @@ NSString* const PhotoAnnotationViewIdentifier = @"PhotoAnnotationView";
 -(void) LongPressMapButton
 {
 
+}
+
+//switch the page
+#pragma mark - Private Methods
+- (void)setSelectedIndex:(NSInteger)index {
+    if (index < 0 || index > [_barControllers count])
+    {
+        return;
+    }
+    _selectedIndex = index;
+    UIViewController* controller = [_barControllers objectAtIndex:index];
+    if (_currentController == controller)
+    {
+        return;
+    }
+    [_currentController.view removeFromSuperview];
+    [self.barViewContainer addSubview:controller.view fit:YES];
+    _currentController = controller;
+
+    //TODO : if is edit barView,set touch as enable;
+    if(index==1)
+    {
+        self.barViewContainer.userInteractionEnabled=true;
+    }
+    else
+    {
+        self.barViewContainer.userInteractionEnabled=false;
+    }
 }
 
 @end
