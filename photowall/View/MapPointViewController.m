@@ -1,12 +1,12 @@
 //
-//  PhotoMapViewController.m
+//  MapPointViewController.m
 //  photowall
 //
 //  Created by Spirit on 4/2/17.
 //  Copyright © 2017 Picowork. All rights reserved.
 //
 
-#import "PhotoMapViewController.h"
+#import "MapPointViewController.h"
 
 #import "UserManager.h"
 #import "MapPointManager.h"
@@ -19,7 +19,7 @@
 
 NSString* const PhotoAnnotationViewIdentifier = @"PhotoAnnotationView";
 
-@implementation PhotoMapViewController {
+@implementation MapPointViewController {
 	NSMutableArray* _annotations;
 	NSMutableArray* _nearByPhotos;
 }

@@ -1,22 +1,20 @@
 //
-//  PhotoMapViewController.h
+//  MapPointHisteryController.h
 //  photowall
 //
-//  Created by Spirit on 4/2/17.
-//  Copyright © 2017 Picowork. All rights reserved.
+//  Created by andy840119 on 2017/05/30.
+//  Copyright © 2017年 Picowork. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
-#import <MapKit/MapKit.h>
 
 @class UserManager;
 @class MapPointManager;
 
-@interface PhotoMapViewController : UIViewController<MKMapViewDelegate>
+@interface MapPointHisteryController : UIViewController
 
 @property (weak, nonatomic) UIViewController* rootViewController;
 
-@property (weak, nonatomic) IBOutlet MKMapView* mapView;
 
 @property (weak, nonatomic) UserManager* userManager;
 @property (weak, nonatomic) MapPointManager* photoManager;

@@ -10,8 +10,9 @@
 
 #import "ProfileViewController.h"
 #import "FriendsViewController.h"
-#import "PhotoMapViewController.h"
+#import "MapPointViewController.h"
 #import "PhotoGridViewController.h"
+#import "MapPointHisteryController.h"
 
 #import "UIView+Utils.h"
 #import "UIColor+Defaults.h"
@@ -26,12 +27,11 @@
 	//Map List View
 	PhotoGridViewController* _photoGridViewController;
 	//Histery
-
+	MapPointHisteryController *_mapPointHisteryController;
 	//Profile
 	ProfileViewController* _profileViewController;
-
 	//MapView
-	PhotoMapViewController* _photoMapViewController;
+	MapPointViewController* _mapPointViewController;
 
 	NSArray* _titles;
 	NSArray* _tabButtons;
@@ -48,28 +48,35 @@
 		self.edgesForExtendedLayout = UIRectEdgeNone;
 	}
 
+	//combint four button into one,so that it cen change it by switching index
 	_tabButtons = @[ _friendsTabButton, _gridTabButton, _photoMapTabButton, _profileTabButton ];
-
+	//TODO : set now page is map
 	_selectedIndex = 0;
-
+	//all page
+	_mapPointHisteryController=[[MapPointHisteryController alloc] initWithNibName:@"MapPointHistery" bundle:nil];
 	_profileViewController = [[ProfileViewController alloc] initWithNibName:@"ProfileView" bundle:nil];
-	_photoMapViewController = [[PhotoMapViewController alloc] initWithNibName:@"PhotoMapView" bundle:nil];
+	_mapPointViewController = [[MapPointViewController alloc] initWithNibName:@"MapPointView" bundle:nil];
 	_photoGridViewController = [[PhotoGridViewController alloc] initWithNibName:@"PhotoGridView" bundle:nil];
 	_friendsViewController = [[FriendsViewController alloc] initWithNibName:@"FriendsListView" bundle:nil];
+	//set to array for selection by index
+	_viewControllers = @[ _friendsViewController, _photoGridViewController, _mapPointViewController, _profileViewController ];
 
-	_viewControllers = @[ _friendsViewController, _photoGridViewController, _photoMapViewController, _profileViewController ];
-
+	//setting
 	_profileViewController.rootViewController = self;
 	_profileViewController.accountManager = self.accountManager;
-
+	//photo
 	_photoGridViewController.rootViewController = self;
 	_photoGridViewController.userManager = self.userManager;
 	_photoGridViewController.photoManager = self.photoManager;
-
-	_photoMapViewController.rootViewController = self;
-	_photoMapViewController.userManager = self.userManager;
-	_photoMapViewController.photoManager = self.photoManager;
-
+	//map
+	_mapPointViewController.rootViewController = self;
+	_mapPointViewController.userManager = self.userManager;
+	_mapPointViewController.photoManager = self.photoManager;
+	//histery
+	_mapPointHisteryController.rootViewController = self;
+	_mapPointHisteryController.userManager = self.userManager;
+	_mapPointHisteryController.photoManager = self.photoManager;
+	//friend
 	_friendsViewController.rootViewController = self;
 	_friendsViewController.userManager = self.userManager;
 
@@ -86,7 +93,7 @@
 	[self.navigationController pushViewController:controller animated:YES];
 }
 
-//if press the button
+//if press four of the buttonthe button
 #pragma mark - IBActions
 - (IBAction)tabButtonPressed:(id)sender {
 	if ([sender isKindOfClass:[UIButton class]]) {
@@ -95,7 +102,7 @@
 	}
 }
 
-//
+//if press the center circle button
 - (IBAction)takePictureButtonPressed:(id)sender {
 	UIImagePickerController* picker = [UIImagePickerController new];
 	picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
@@ -104,6 +111,7 @@
 	[self presentViewController:picker animated:YES completion:nil];
 }
 
+//
 #pragma mark - UIImagePickerControllerDelegate
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info {
 	[picker dismissViewControllerAnimated:YES completion:nil];
