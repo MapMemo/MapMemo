@@ -16,33 +16,52 @@
 
 #import "UIView+Utils.h"
 #import "MapPointRegion+Utils.h"
+#import "MapPointView_EditBarController.h"
+#import "MapPointView_ViewBarController.h"
 
 NSString* const PhotoAnnotationViewIdentifier = @"PhotoAnnotationView";
 
 @implementation MapPointViewController {
+
+	//Friend list
+	MapPointView_EditBarController* _editMapPointBarController;
+
+	//Map List View
+	MapPointView_ViewBarController* _viewMapPointBarController;
+
 	NSMutableArray* _annotations;
 	NSMutableArray* _nearByPhotos;
+
+	//if pressDeltaTime > 1000ms,set as longPress
+    float TriggerDeltaPressTime;
+
+	float pressDownTime;
 }
 
 - (void)viewDidLoad {
 	[super viewDidLoad];
 	_annotations = [NSMutableArray new];
 	_nearByPhotos = [NSMutableArray new];
+
+	TriggerDeltaPressTime=1000;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
 	[super viewWillAppear:animated];
-	[self.rootViewController setTitle:@"Photos On Map"];
+	[self.rootViewController setTitle:@"points On Map"];
 }
 
-- (void)viewDidAppear:(BOOL)animated {
+- (void)viewDidAppear:(BOOL)animated
+{
+	//set to the area
 	MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(CLLocationCoordinate2DMake(25.044013, 121.533954), 500, 500);
 	[self.mapView setRegion:region animated:YES];
 	[self loadPhotosInRegion:[MapPointRegion fromMKCoordinateRegion:region]];
 }
 
 #pragma mark - MKMapViewDelegate
-- (void)mapView:(MKMapView*)mapView regionDidChangeAnimated:(BOOL)animated {
+- (void)mapView:(MKMapView*)mapView regionDidChangeAnimated:(BOOL)animated
+{
 	MapPointRegion* region = [MapPointRegion fromMKCoordinateRegion:mapView.region];
 	[self loadPhotosInRegion:region];
 }
@@ -88,6 +107,29 @@ NSString* const PhotoAnnotationViewIdentifier = @"PhotoAnnotationView";
 		}
 		[self.mapView addAnnotations:_annotations];
 	};
+}
+
+
+- (void)PressButtonDown:(float )PressTime
+{
+	pressDownTime=PressTime;
+}
+
+- (void)PressButtonUp:(float )PressUpTime
+{
+	float deltaTime=PressUpTime-pressDownTime;
+
+	//see as long press
+	if(deltaTime>TriggerDeltaPressTime)
+	{
+		[self LongPressMapButton];
+	}
+}
+
+//long press Button,
+-(void) LongPressMapButton
+{
+
 }
 
 @end

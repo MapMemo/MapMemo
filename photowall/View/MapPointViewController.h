@@ -12,6 +12,12 @@
 @class UserManager;
 @class MapPointManager;
 
+enum MapPointViewMode
+{
+    empty=0,//if there is not map in the center (selected area)
+    forceExistmapPoint=1 //if there have mapPoint in the map
+};
+
 @interface MapPointViewController : UIViewController<MKMapViewDelegate>
 
 @property (weak, nonatomic) UIViewController* rootViewController;
@@ -20,5 +26,11 @@
 
 @property (weak, nonatomic) UserManager* userManager;
 @property (weak, nonatomic) MapPointManager* photoManager;
+
+
+//Notofied by rootView
+- (void)PressButtonDown:(float)PressTime;
+//Notified by rootView
+- (void)PressButtonUp:(float)PressUpTime;
 
 @end
