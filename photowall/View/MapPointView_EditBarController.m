@@ -12,6 +12,9 @@
 
 @end
 
+//TODO : flow up the textbox when typing
+// https://stackoverflow.com/questions/1126726/how-to-make-a-uitextfield-move-up-when-keyboard-is-present
+//
 @implementation MapPointView_EditBarController
 
 - (void)viewDidLoad {
