@@ -11,7 +11,7 @@
 #import "ProfileViewController.h"
 #import "FriendsViewController.h"
 #import "MapPointViewController.h"
-#import "PhotoGridViewController.h"
+#import "MapPointGridViewController.h"
 #import "MapPointHisteryController.h"
 
 #import "UIView+Utils.h"
@@ -25,7 +25,7 @@
 	//Friend list
 	FriendsViewController* _friendsViewController;
 	//Map List View
-	PhotoGridViewController* _photoGridViewController;
+	MapPointGridViewController* _photoGridViewController;
 	//Histery
 	MapPointHisteryController *_mapPointHisteryController;
 	//Profile
@@ -49,17 +49,17 @@
 	}
 
 	//combint four button into one,so that it cen change it by switching index
-	_tabButtons = @[ _friendsTabButton, _gridTabButton, _photoMapTabButton, _profileTabButton ];
+	_tabButtons = @[ _friendsTabButton, _mapListViewTabButton, _mapPointHisteryTabButton, _profileTabButton ];
 	//TODO : set now page is map
-	_selectedIndex = 0;
+	_selectedIndex = 4;
 	//all page
 	_mapPointHisteryController=[[MapPointHisteryController alloc] initWithNibName:@"MapPointHistery" bundle:nil];
 	_profileViewController = [[ProfileViewController alloc] initWithNibName:@"ProfileView" bundle:nil];
 	_mapPointViewController = [[MapPointViewController alloc] initWithNibName:@"MapPointView" bundle:nil];
-	_photoGridViewController = [[PhotoGridViewController alloc] initWithNibName:@"PhotoGridView" bundle:nil];
+	_photoGridViewController = [[MapPointGridViewController alloc] initWithNibName:@"MapPointGridView" bundle:nil];
 	_friendsViewController = [[FriendsViewController alloc] initWithNibName:@"FriendsListView" bundle:nil];
 	//set to array for selection by index
-	_viewControllers = @[ _friendsViewController, _photoGridViewController, _mapPointViewController, _profileViewController ];
+	_viewControllers = @[ _friendsViewController, _photoGridViewController,_mapPointHisteryController , _profileViewController,_mapPointViewController ];
 
 	//setting
 	_profileViewController.rootViewController = self;
@@ -79,14 +79,15 @@
 	//friend
 	_friendsViewController.rootViewController = self;
 	_friendsViewController.userManager = self.userManager;
+    //set index
+	[self setSelectedIndex:_selectedIndex];
 
-	[self setSelectedIndex:0];
-	[self setTitle:@"Friends"];
+	//[self setTitle:@"Friends"];
 }
 
-//
+//set the user ID into MapPointGridViewController
 - (void)showPhotosOfUser:(NSString*)userId {
-	PhotoGridViewController* controller = [[PhotoGridViewController alloc] initWithNibName:@"PhotoGridView" bundle:nil];
+	MapPointGridViewController* controller = [[MapPointGridViewController alloc] initWithNibName:@"MapPointGridView" bundle:nil];
 	controller.posterId = userId;
 	controller.userManager = self.userManager;
 	controller.photoManager = self.photoManager;
@@ -102,13 +103,29 @@
 	}
 }
 
-//if press the center circle button
-- (IBAction)takePictureButtonPressed:(id)sender {
+//center circle button down
+- (IBAction)takePictureButtonDown:(id)sender
+{
+    //TODO : send the time button pressdown
+
+}
+
+//center circle button up
+- (IBAction)takePictureButtonPressed:(id)sender
+{
+    [self setSelectedIndex:(4)];
+    
+    //TODO : sned the time button up,for detecting is longPress or not
+    
+    //TODO : send if the page is in here or not
+    
+    /*
 	UIImagePickerController* picker = [UIImagePickerController new];
 	picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
 //	picker.sourceType = UIImagePickerControllerSourceTypeCamera;
 	picker.delegate = self;
 	[self presentViewController:picker animated:YES completion:nil];
+     */
 }
 
 //

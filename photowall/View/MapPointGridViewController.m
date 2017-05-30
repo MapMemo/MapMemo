@@ -1,12 +1,12 @@
 //
-//  PhotoGridViewController.m
+//  MapPointGridViewController.m
 //  photowall
 //
 //  Created by Spirit on 4/2/17.
 //  Copyright © 2017 Picowork. All rights reserved.
 //
 
-#import "PhotoGridViewController.h"
+#import "MapPointGridViewController.h"
 
 #import "UserManager.h"
 #import "MapPointManager.h"
@@ -17,7 +17,7 @@
 
 #import "NSDate+Utils.h"
 
-@implementation PhotoGridViewController {
+@implementation MapPointGridViewController {
 	CGFloat _cellSize;
 
 	NSDate* _latest;

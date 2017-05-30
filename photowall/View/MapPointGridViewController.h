@@ -1,5 +1,5 @@
 //
-//  PhotoGridViewController.h
+//  MapPointGridViewController.h
 //  photowall
 //
 //  Created by Spirit on 4/2/17.
@@ -11,7 +11,7 @@
 @class UserManager;
 @class MapPointManager;
 
-@interface PhotoGridViewController : UIViewController<UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
+@interface MapPointGridViewController : UIViewController<UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 
 @property (nonatomic, weak) UIViewController* rootViewController;
 @property (nonatomic, weak) IBOutlet UICollectionView* photosView;

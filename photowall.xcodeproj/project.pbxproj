@@ -26,8 +26,8 @@
 		1E13CA7E1E90C1A5000DBF74 /* MapPointView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1E13CA7C1E90C1A5000DBF74 /* MapPointView.xib */; };
 		1E13CA821E90C1DD000DBF74 /* FriendsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E13CA801E90C1DD000DBF74 /* FriendsViewController.m */; };
 		1E13CA831E90C1DD000DBF74 /* FriendsListView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1E13CA811E90C1DD000DBF74 /* FriendsListView.xib */; };
-		1E13CA8C1E90C297000DBF74 /* PhotoGridViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E13CA8A1E90C297000DBF74 /* PhotoGridViewController.m */; };
-		1E13CA8D1E90C297000DBF74 /* PhotoGridView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1E13CA8B1E90C297000DBF74 /* PhotoGridView.xib */; };
+		1E13CA8C1E90C297000DBF74 /* MapPointGridViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E13CA8A1E90C297000DBF74 /* MapPointGridViewController.m */; };
+		1E13CA8D1E90C297000DBF74 /* MapPointGridView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1E13CA8B1E90C297000DBF74 /* MapPointGridView.xib */; };
 		1E13CA901E90CC8B000DBF74 /* UIView+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E13CA8F1E90CC8B000DBF74 /* UIView+Utils.m */; };
 		1E13CA921E90CFFF000DBF74 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E13CA911E90CFFF000DBF74 /* MapKit.framework */; };
 		1E18E7A61E88C1A500200DC0 /* KeyChainSecuredAuthenticator.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E18E7A51E88C1A500200DC0 /* KeyChainSecuredAuthenticator.m */; };
@@ -116,9 +116,9 @@
 		1E13CA7F1E90C1DD000DBF74 /* FriendsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FriendsViewController.h; path = View/FriendsViewController.h; sourceTree = "<group>"; };
 		1E13CA801E90C1DD000DBF74 /* FriendsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FriendsViewController.m; path = View/FriendsViewController.m; sourceTree = "<group>"; };
 		1E13CA811E90C1DD000DBF74 /* FriendsListView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = FriendsListView.xib; path = View/FriendsListView.xib; sourceTree = "<group>"; };
-		1E13CA891E90C297000DBF74 /* PhotoGridViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PhotoGridViewController.h; path = View/PhotoGridViewController.h; sourceTree = "<group>"; };
-		1E13CA8A1E90C297000DBF74 /* PhotoGridViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PhotoGridViewController.m; path = View/PhotoGridViewController.m; sourceTree = "<group>"; };
-		1E13CA8B1E90C297000DBF74 /* PhotoGridView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PhotoGridView.xib; path = View/PhotoGridView.xib; sourceTree = "<group>"; };
+		1E13CA891E90C297000DBF74 /* MapPointGridViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MapPointGridViewController.h; path = View/MapPointGridViewController.h; sourceTree = "<group>"; };
+		1E13CA8A1E90C297000DBF74 /* MapPointGridViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MapPointGridViewController.m; path = View/MapPointGridViewController.m; sourceTree = "<group>"; };
+		1E13CA8B1E90C297000DBF74 /* MapPointGridView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MapPointGridView.xib; path = View/MapPointGridView.xib; sourceTree = "<group>"; };
 		1E13CA8E1E90CC8B000DBF74 /* UIView+Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIView+Utils.h"; path = "Utils/UIView+Utils.h"; sourceTree = "<group>"; };
 		1E13CA8F1E90CC8B000DBF74 /* UIView+Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIView+Utils.m"; path = "Utils/UIView+Utils.m"; sourceTree = "<group>"; };
 		1E13CA911E90CFFF000DBF74 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
@@ -377,9 +377,9 @@
 				1E13CA7F1E90C1DD000DBF74 /* FriendsViewController.h */,
 				1E13CA801E90C1DD000DBF74 /* FriendsViewController.m */,
 				1E13CA811E90C1DD000DBF74 /* FriendsListView.xib */,
-				1E13CA891E90C297000DBF74 /* PhotoGridViewController.h */,
-				1E13CA8A1E90C297000DBF74 /* PhotoGridViewController.m */,
-				1E13CA8B1E90C297000DBF74 /* PhotoGridView.xib */,
+				1E13CA891E90C297000DBF74 /* MapPointGridViewController.h */,
+				1E13CA8A1E90C297000DBF74 /* MapPointGridViewController.m */,
+				1E13CA8B1E90C297000DBF74 /* MapPointGridView.xib */,
 				1E9B850D1E9892430081B251 /* FriendCell.h */,
 				1E9B850E1E9892430081B251 /* FriendCell.m */,
 				1E9B850F1E9892430081B251 /* FriendCell.xib */,
@@ -553,7 +553,7 @@
 				1EBCF1AF1EAC929E00C2FDFA /* PhotoCell.xib in Resources */,
 				1E13CA791E90C164000DBF74 /* ProfileView.xib in Resources */,
 				1E0DCDFF1EB4781800C6316E /* PhotoGridSectionHeader.xib in Resources */,
-				1E13CA8D1E90C297000DBF74 /* PhotoGridView.xib in Resources */,
+				1E13CA8D1E90C297000DBF74 /* MapPointGridView.xib in Resources */,
 				04A116B81EC5AE63000147AB /* TestView.xib in Resources */,
 				1EDAF8831EB5AD6600BC48B3 /* PhotoShowcaseCell.xib in Resources */,
 				04CCB80E1EDD1E70006B4D0D /* MapPointHistery.xib in Resources */,
@@ -709,7 +709,7 @@
 				1E18E7A61E88C1A500200DC0 /* KeyChainSecuredAuthenticator.m in Sources */,
 				1E0DCDFE1EB4781800C6316E /* PhotoGridSectionHeader.m in Sources */,
 				1EBCF1AE1EAC929E00C2FDFA /* PhotoCell.m in Sources */,
-				1E13CA8C1E90C297000DBF74 /* PhotoGridViewController.m in Sources */,
+				1E13CA8C1E90C297000DBF74 /* MapPointGridViewController.m in Sources */,
 				1E9E464F1E99D86B008613AB /* MapPointManager.m in Sources */,
 				1EDAF8771EB5891600BC48B3 /* AnnotationCallOutView.m in Sources */,
 				1E9E46491E99CF84008613AB /* UIImageView+WebImage.m in Sources */,

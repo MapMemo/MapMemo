@@ -22,14 +22,14 @@
 //Friend list
 @property (weak, nonatomic) IBOutlet UIButton* friendsTabButton;
 //map list view
-@property (weak, nonatomic) IBOutlet UIButton* gridTabButton;
+@property (weak, nonatomic) IBOutlet UIButton* mapListViewTabButton;
 //Histery
-@property (weak, nonatomic) IBOutlet UIButton* takePictureTabButton;
+@property (weak, nonatomic) IBOutlet UIButton* mapPointHisteryTabButton;
 //setting
 @property (weak, nonatomic) IBOutlet UIButton* profileTabButton;
 
 //View map and add,enit new MapPoint in the map
-@property (weak, nonatomic) IBOutlet UIButton* photoMapTabButton;
+@property (weak, nonatomic) IBOutlet UIButton* MapPointViewTabButton;
 
 @property UserManager* userManager;
 @property MapPointManager* photoManager;
