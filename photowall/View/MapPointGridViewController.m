@@ -42,7 +42,7 @@
 
 - (void)viewWillAppear:(BOOL)animated {
 	[super viewWillAppear:animated];
-	[self.rootViewController setTitle:@"Photos"];
+	[self.rootViewController setTitle:@"MapPointGridView"];
 	[self refreshPhotos];
 }
 

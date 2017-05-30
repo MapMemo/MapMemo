@@ -29,7 +29,7 @@
 @property (weak, nonatomic) IBOutlet UIButton* profileTabButton;
 
 //View map and add,enit new MapPoint in the map
-@property (weak, nonatomic) IBOutlet UIButton* MapPointViewTabButton;
+@property (weak, nonatomic) IBOutlet UIButton* mapPointViewTabButton;
 
 @property UserManager* userManager;
 @property MapPointManager* photoManager;
