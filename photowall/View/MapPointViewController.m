@@ -41,6 +41,8 @@ NSString* const PhotoAnnotationViewIdentifier = @"PhotoAnnotationView";
     float TriggerDeltaPressTime;
 
 	float pressDownTime;
+
+    float barFrame_Y;
 }
 
 - (void)viewDidLoad
@@ -51,9 +53,18 @@ NSString* const PhotoAnnotationViewIdentifier = @"PhotoAnnotationView";
 
 	TriggerDeltaPressTime=1000;
 
+    if(barFrame_Y==0)
+    {
+        CGRect newFrame = [self.barViewContainer frame];
+        barFrame_Y = newFrame.origin.y;
+    }
 
     _viewMapPointBarController=[[MapPointView_ViewBarController alloc] initWithNibName:@"MapPointView_ViewBar" bundle:nil];
     _editMapPointBarController=[[MapPointView_EditBarController alloc] initWithNibName:@"MapPointView_EditBar" bundle:nil];
+
+    //get keyboard appear and disappear event
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardDidShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillBeHidden:) name:UIKeyboardWillHideNotification object:nil];
 
     _barControllers = @[  _viewMapPointBarController,_editMapPointBarController ];
 
@@ -61,6 +72,40 @@ NSString* const PhotoAnnotationViewIdentifier = @"PhotoAnnotationView";
     _selectedIndex = 1;
     //set index
     [self setSelectedIndex:_selectedIndex];
+}
+
+//keyboard show and start typing
+- (void)keyboardWillShow:(NSNotification*)aNotification {
+    [UIView animateWithDuration:0.25 animations:^
+    {
+        CGRect newFrame = [self.barViewContainer frame];
+        newFrame.origin.y =barFrame_Y - 300; // tweak here to adjust the moving position
+        [self.barViewContainer setFrame:newFrame];
+
+    }completion:^(BOOL finished)
+    {
+
+    }];
+}
+
+//hide the keyboard
+- (void)keyboardWillBeHidden:(NSNotification*)aNotification {
+    [UIView animateWithDuration:0.25 animations:^
+    {
+        CGRect newFrame = [self.barViewContainer frame];
+        newFrame.origin.y =barFrame_Y ;  // tweak here to adjust the moving position
+        [self.barViewContainer setFrame:newFrame];
+
+    }completion:^(BOOL finished)
+    {
+
+    }];
+
+}
+
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    [self.view endEditing:YES];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -152,6 +197,9 @@ NSString* const PhotoAnnotationViewIdentifier = @"PhotoAnnotationView";
 //switch the page
 #pragma mark - Private Methods
 - (void)setSelectedIndex:(NSInteger)index {
+
+    //TODO : if can ,add animation for switching the page
+
     if (index < 0 || index > [_barControllers count])
     {
         return;
@@ -175,6 +223,8 @@ NSString* const PhotoAnnotationViewIdentifier = @"PhotoAnnotationView";
     {
         self.barViewContainer.userInteractionEnabled=false;
     }
+
+
 }
 
 @end
