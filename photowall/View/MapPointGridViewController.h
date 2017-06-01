@@ -7,11 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PageUIViewController.h"
 
 @class UserManager;
 @class MapPointManager;
 
-@interface MapPointGridViewController : UIViewController<UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
+@interface MapPointGridViewController : PageUIViewController<UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 
 @property (nonatomic, weak) UIViewController* rootViewController;
 @property (nonatomic, weak) IBOutlet UICollectionView* photosView;

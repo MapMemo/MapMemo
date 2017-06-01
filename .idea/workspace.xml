@@ -1,7 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="80bc2a7f-e5b6-43ea-9e3f-bb333bfd5340" name="Default" comment="" />
+    <list default="true" id="80bc2a7f-e5b6-43ea-9e3f-bb333bfd5340" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/photowall/View/PageUIViewController.h" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/photowall/View/PageUIViewController.m" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/photowall.xcodeproj/project.pbxproj" afterPath="$PROJECT_DIR$/photowall.xcodeproj/project.pbxproj" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/photowall/View/FriendsViewController.h" afterPath="$PROJECT_DIR$/photowall/View/FriendsViewController.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/photowall/View/MapPointGridViewController.h" afterPath="$PROJECT_DIR$/photowall/View/MapPointGridViewController.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/photowall/View/MapPointHisteryController.h" afterPath="$PROJECT_DIR$/photowall/View/MapPointHisteryController.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/photowall/View/MapPointView.xib" afterPath="$PROJECT_DIR$/photowall/View/MapPointView.xib" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/photowall/View/MapPointViewController.h" afterPath="$PROJECT_DIR$/photowall/View/MapPointViewController.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/photowall/View/MapPointViewController.m" afterPath="$PROJECT_DIR$/photowall/View/MapPointViewController.m" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/photowall/View/MapPointView_EditBar.xib" afterPath="$PROJECT_DIR$/photowall/View/MapPointView_EditBar.xib" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/photowall/View/MapPointView_EditBarController.m" afterPath="$PROJECT_DIR$/photowall/View/MapPointView_EditBarController.m" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/photowall/View/ProfileViewController.h" afterPath="$PROJECT_DIR$/photowall/View/ProfileViewController.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/photowall/View/RootViewController.m" afterPath="$PROJECT_DIR$/photowall/View/RootViewController.m" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -25,28 +40,38 @@
       <file leaf-file-name="RootViewController.m" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/photowall/View/RootViewController.m">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="175">
-              <caret line="149" column="0" lean-forward="false" selection-start-line="149" selection-start-column="0" selection-end-line="149" selection-end-column="0" />
+            <state relative-caret-position="-315">
+              <caret line="33" column="17" lean-forward="true" selection-start-line="33" selection-start-column="17" selection-end-line="33" selection-end-column="17" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MapPointViewController.h" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/photowall/View/MapPointViewController.h">
+      <file leaf-file-name="PageUIViewController.m" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/photowall/View/PageUIViewController.m">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="217">
-              <caret line="23" column="0" lean-forward="false" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+            <state relative-caret-position="285">
+              <caret line="19" column="1" lean-forward="true" selection-start-line="19" selection-start-column="1" selection-end-line="19" selection-end-column="1" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MapPointViewController.m" pinned="false" current-in-tab="false">
+      <file leaf-file-name="PageUIViewController.h" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/photowall/View/PageUIViewController.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="180">
+              <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="21" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MapPointViewController.m" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/photowall/View/MapPointViewController.m">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="284">
-              <caret line="210" column="15" lean-forward="true" selection-start-line="210" selection-start-column="15" selection-end-line="210" selection-end-column="15" />
+            <state relative-caret-position="217">
+              <caret line="83" column="29" lean-forward="true" selection-start-line="83" selection-start-column="29" selection-end-line="83" selection-end-column="29" />
               <folding>
                 <element signature="e#138#172#0" expanded="true" />
               </folding>
@@ -54,22 +79,14 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MapPointView_EditBarController.m" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/photowall/View/MapPointView_EditBarController.m">
+      <file leaf-file-name="MapPointViewController.h" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/photowall/View/MapPointViewController.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="379">
-              <caret line="26" column="48" lean-forward="true" selection-start-line="26" selection-start-column="48" selection-end-line="26" selection-end-column="48" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="UIView+Utils.m" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/photowall/Utils/UIView+Utils.m">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="24" column="0" lean-forward="false" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
-              <folding />
+            <state relative-caret-position="412">
+              <caret line="37" column="41" lean-forward="true" selection-start-line="37" selection-start-column="41" selection-end-line="37" selection-end-column="41" />
+              <folding>
+                <element signature="e#138#161#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -88,8 +105,8 @@
       <find>_selectedIndex</find>
       <find>imagePickerController</find>
       <find>_currentController</find>
-      <find>viewContainer</find>
       <find>touchesBegan</find>
+      <find>viewContainer</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -110,16 +127,19 @@
         <option value="$PROJECT_DIR$/photowall/Model/MapPointRegion.h" />
         <option value="$PROJECT_DIR$/photowall/Model/MapPointManager.m" />
         <option value="$PROJECT_DIR$/photowall/RestClient/RestResponse.m" />
-        <option value="$PROJECT_DIR$/photowall/View/MapPointHisteryController.h" />
         <option value="$PROJECT_DIR$/photowall/View/MapPointGridViewController.m" />
-        <option value="$PROJECT_DIR$/photowall/View/MapPointGridViewController.h" />
         <option value="$PROJECT_DIR$/photowall/View/MapPointView_ViewBarController.m" />
         <option value="$PROJECT_DIR$/photowall/AppDelegate.m" />
         <option value="$PROJECT_DIR$/photowall/View/RootViewController.h" />
-        <option value="$PROJECT_DIR$/photowall/View/MapPointViewController.h" />
-        <option value="$PROJECT_DIR$/photowall/View/RootViewController.m" />
-        <option value="$PROJECT_DIR$/photowall/View/MapPointViewController.m" />
         <option value="$PROJECT_DIR$/photowall/View/MapPointView_EditBarController.m" />
+        <option value="$PROJECT_DIR$/photowall/View/RootViewController.m" />
+        <option value="$PROJECT_DIR$/photowall/View/FriendsViewController.h" />
+        <option value="$PROJECT_DIR$/photowall/View/MapPointGridViewController.h" />
+        <option value="$PROJECT_DIR$/photowall/View/MapPointHisteryController.h" />
+        <option value="$PROJECT_DIR$/photowall/View/ProfileViewController.h" />
+        <option value="$PROJECT_DIR$/photowall/View/PageUIViewController.h" />
+        <option value="$PROJECT_DIR$/photowall/View/MapPointViewController.h" />
+        <option value="$PROJECT_DIR$/photowall/View/MapPointViewController.m" />
       </list>
     </option>
   </component>
@@ -159,6 +179,38 @@
             <PATH_ELEMENT>
               <option name="myItemId" value="photowall" />
               <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeRootNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="photowall" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="photowall" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeRootNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="photowall" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="photowall" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="View" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.XcodeViewNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
@@ -307,51 +359,20 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
           <url>file://$PROJECT_DIR$/photowall/View/MapPointViewController.m</url>
-          <line>202</line>
+          <line>209</line>
           <option name="timeStamp" value="7" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/photowall/View/MapPointViewController.m</url>
+          <line>50</line>
+          <option name="timeStamp" value="11" />
+        </line-breakpoint>
       </breakpoints>
-      <option name="time" value="11" />
+      <option name="time" value="12" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/photowall/View/ProfileViewController.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/photowall/View/ProfileViewController.m">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-213">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/photowall/Model/MapPoint.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="630">
-          <caret line="42" column="26" lean-forward="true" selection-start-line="42" selection-start-column="26" selection-end-line="42" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Pods/OCMock/Source/OCMock/OCClassMockObject.m">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="177">
-          <caret line="229" column="2" lean-forward="false" selection-start-line="229" selection-start-column="2" selection-end-line="229" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/photowall/Model/MapPoint.m">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/photowall/Utils/NSDate+Utils.m">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
@@ -537,14 +558,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/photowall/View/MapPointHisteryController.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="11" lean-forward="false" selection-start-line="10" selection-start-column="11" selection-end-line="10" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/photowall/View/MapPointGridViewController.m">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
@@ -603,14 +616,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/photowall/View/FriendsViewController.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="21" column="0" lean-forward="true" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/photowall/View/FriendCell.m">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
@@ -640,16 +645,8 @@
         <state relative-caret-position="109">
           <caret line="26" column="14" lean-forward="false" selection-start-line="26" selection-start-column="14" selection-end-line="26" selection-end-column="14" />
           <folding>
-            <element signature="e#128#151#0" expanded="true" />
+            <element signature="e#128#151#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/photowall/View/MapPointGridViewController.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="20" column="58" lean-forward="false" selection-start-line="20" selection-start-column="58" selection-end-line="20" selection-end-column="58" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -657,6 +654,50 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="142">
           <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="59" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIImagePickerController.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="17" column="4" lean-forward="false" selection-start-line="17" selection-start-column="4" selection-end-line="17" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIWindow.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="182">
+          <caret line="56" column="38" lean-forward="false" selection-start-line="56" selection-start-column="38" selection-end-line="56" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/photowall/View/FriendsViewController.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="19" lean-forward="true" selection-start-line="11" selection-start-column="19" selection-end-line="11" selection-end-column="19" />
+          <folding>
+            <element signature="e#137#160#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/photowall/View/MapPointGridViewController.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" column="49" lean-forward="false" selection-start-line="14" selection-start-column="49" selection-end-line="14" selection-end-column="49" />
+          <folding>
+            <element signature="e#142#165#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/photowall/View/MapPointView_EditBarController.m">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="367">
+          <caret line="37" column="0" lean-forward="false" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -669,37 +710,67 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/photowall/View/MapPointHisteryController.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" column="44" lean-forward="false" selection-start-line="14" selection-start-column="44" selection-end-line="14" selection-end-column="44" />
+          <folding>
+            <element signature="e#150#173#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/photowall/View/ProfileViewController.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="13" column="55" lean-forward="false" selection-start-line="13" selection-start-column="55" selection-end-line="13" selection-end-column="55" />
+          <folding>
+            <element signature="e#137#160#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/photowall/View/RootViewController.m">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="175">
-          <caret line="149" column="0" lean-forward="false" selection-start-line="149" selection-start-column="0" selection-end-line="149" selection-end-column="0" />
+        <state relative-caret-position="-315">
+          <caret line="33" column="17" lean-forward="true" selection-start-line="33" selection-start-column="17" selection-end-line="33" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/photowall/View/PageUIViewController.m">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="19" column="1" lean-forward="true" selection-start-line="19" selection-start-column="1" selection-end-line="19" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/photowall/View/PageUIViewController.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="21" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/photowall/View/MapPointViewController.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="217">
-          <caret line="23" column="0" lean-forward="false" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="412">
+          <caret line="37" column="41" lean-forward="true" selection-start-line="37" selection-start-column="41" selection-end-line="37" selection-end-column="41" />
+          <folding>
+            <element signature="e#138#161#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/photowall/View/MapPointViewController.m">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="284">
-          <caret line="210" column="15" lean-forward="true" selection-start-line="210" selection-start-column="15" selection-end-line="210" selection-end-column="15" />
+        <state relative-caret-position="217">
+          <caret line="83" column="29" lean-forward="true" selection-start-line="83" selection-start-column="29" selection-end-line="83" selection-end-column="29" />
           <folding>
             <element signature="e#138#172#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/photowall/View/MapPointView_EditBarController.m">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="379">
-          <caret line="26" column="48" lean-forward="true" selection-start-line="26" selection-start-column="48" selection-end-line="26" selection-end-column="48" />
-          <folding />
         </state>
       </provider>
     </entry>

@@ -36,6 +36,9 @@
                     <rect key="frame" x="42" y="180" width="42" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <state key="normal" title="Image"/>
+                    <connections>
+                        <action selector="SelectImageButtonPressUp:" destination="-1" eventType="touchUpInside" id="oYO-Bx-Mbc"/>
+                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QIm-0u-LNA">
                     <rect key="frame" x="309" y="180" width="30" height="30"/>

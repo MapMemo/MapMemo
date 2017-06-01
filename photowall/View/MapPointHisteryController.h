@@ -7,11 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PageUIViewController.h"
 
 @class UserManager;
 @class MapPointManager;
 
-@interface MapPointHisteryController : UIViewController
+@interface MapPointHisteryController : PageUIViewController
 
 @property (weak, nonatomic) UIViewController* rootViewController;
 

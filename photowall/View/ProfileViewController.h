@@ -9,8 +9,9 @@
 #import <UIKit/UIKit.h>
 
 #import "AccountManager.h"
+#import "PageUIViewController.h"
 
-@interface ProfileViewController : UIViewController<AccountEditDelegate, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
+@interface ProfileViewController : PageUIViewController<AccountEditDelegate, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UIImageView* portrait;
 @property (weak, nonatomic) IBOutlet UITextField* nicknameField;

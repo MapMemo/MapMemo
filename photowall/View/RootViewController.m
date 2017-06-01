@@ -121,16 +121,7 @@
     //TODO : send if the page is in show or not
     
     //TODO : sned the time button up,for detecting is longPress or not
-    
 
-    
-    /*
-	UIImagePickerController* picker = [UIImagePickerController new];
-	picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-//	picker.sourceType = UIImagePickerControllerSourceTypeCamera;
-	picker.delegate = self;
-	[self presentViewController:picker animated:YES completion:nil];
-     */
 }
 
 //
@@ -163,5 +154,7 @@
 	[self.viewContainer addSubview:controller.view fit:YES];
 	_currentController = controller;
 }
+
+
 
 @end

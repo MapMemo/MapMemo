@@ -28,5 +28,16 @@
 }
 
 //TODO : if press image button , filter the image viewController for image selection
+- (IBAction)SelectImageButtonPressUp:(id)sender
+{
+	UIImagePickerController* picker = [UIImagePickerController new];
+	picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+//	picker.sourceType = UIImagePickerControllerSourceTypeCamera;
+	picker.delegate = self;
+	[self presentViewController:picker animated:YES completion:nil];
+
+}
+
+
 
 @end

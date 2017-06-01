@@ -7,11 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PageUIViewController.h"
 
 @class UserManager;
 @class RootViewController;
 
-@interface FriendsViewController : UIViewController<UITableViewDelegate, UITableViewDataSource>
+@interface FriendsViewController : PageUIViewController<UITableViewDelegate, UITableViewDataSource>
 
 @property (weak) UserManager* userManager;
 @property (weak) RootViewController* rootViewController;

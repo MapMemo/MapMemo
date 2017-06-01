@@ -53,11 +53,8 @@ NSString* const PhotoAnnotationViewIdentifier = @"PhotoAnnotationView";
 
 	TriggerDeltaPressTime=1000;
 
-    if(barFrame_Y==0)
-    {
-        CGRect newFrame = [self.barViewContainer frame];
-        barFrame_Y = newFrame.origin.y;
-    }
+	//set the position_Y
+	barFrame_Y=400.0f;
 
     _viewMapPointBarController=[[MapPointView_ViewBarController alloc] initWithNibName:@"MapPointView_ViewBar" bundle:nil];
     _editMapPointBarController=[[MapPointView_EditBarController alloc] initWithNibName:@"MapPointView_EditBar" bundle:nil];
@@ -72,35 +69,47 @@ NSString* const PhotoAnnotationViewIdentifier = @"PhotoAnnotationView";
     _selectedIndex = 1;
     //set index
     [self setSelectedIndex:_selectedIndex];
+
+	//add map event
+	UIPanGestureRecognizer* panRec = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(didDragMap:)];
+	[panRec setDelegate:self];
+	[self.mapView addGestureRecognizer:panRec];
+}
+
+- (void)didDragMap:(UIGestureRecognizer*)gestureRecognizer
+{
+	if (gestureRecognizer.state == UIGestureRecognizerStateEnded)
+	{
+		//
+		NSLog(@"drag ended");
+	}
+	else
+	{
+		//TODO detect if area contains any mapPoints
+
+		//TODO : if contains ,catch the nearest center map Points
+		NSLog(@"draging...");
+	}
+}
+
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer {
+	return YES;
+}
+
+//if switch to this page
+-(void) OnSwitchPage
+{
+	//TODO : switch to the right bottom controller
 }
 
 //keyboard show and start typing
 - (void)keyboardWillShow:(NSNotification*)aNotification {
-    [UIView animateWithDuration:0.25 animations:^
-    {
-        CGRect newFrame = [self.barViewContainer frame];
-        newFrame.origin.y =barFrame_Y - 300; // tweak here to adjust the moving position
-        [self.barViewContainer setFrame:newFrame];
-
-    }completion:^(BOOL finished)
-    {
-
-    }];
+    self.setBottonViewShowWithKeyboardHeight;
 }
 
 //hide the keyboard
 - (void)keyboardWillBeHidden:(NSNotification*)aNotification {
-    [UIView animateWithDuration:0.25 animations:^
-    {
-        CGRect newFrame = [self.barViewContainer frame];
-        newFrame.origin.y =barFrame_Y ;  // tweak here to adjust the moving position
-        [self.barViewContainer setFrame:newFrame];
-
-    }completion:^(BOOL finished)
-    {
-
-    }];
-
+	self.setBottomViewShow;
 }
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
@@ -198,33 +207,83 @@ NSString* const PhotoAnnotationViewIdentifier = @"PhotoAnnotationView";
 #pragma mark - Private Methods
 - (void)setSelectedIndex:(NSInteger)index {
 
-    //TODO : if can ,add animation for switching the page
-
     if (index < 0 || index > [_barControllers count])
     {
+		self.setBottonViewHide;
         return;
     }
     _selectedIndex = index;
+	//get now controller
     UIViewController* controller = [_barControllers objectAtIndex:index];
     if (_currentController == controller)
     {
         return;
     }
+	//hide the view
+	self.setBottonViewHide;
+	//switch the view
     [_currentController.view removeFromSuperview];
-    [self.barViewContainer addSubview:controller.view fit:YES];
+    [self.bottomViewContainer addSubview:controller.view fit:YES];
     _currentController = controller;
-
+	//show the view
+	self.setBottomViewShow;
     //TODO : if is edit barView,set touch as enable;
     if(index==1)
     {
-        self.barViewContainer.userInteractionEnabled=true;
+        self.bottomViewContainer.userInteractionEnabled=true;
     }
     else
     {
-        self.barViewContainer.userInteractionEnabled=false;
+        self.bottomViewContainer.userInteractionEnabled=false;
     }
+}
 
+//can see the whole view when has keyboard
+-(void) setBottonViewShowWithKeyboardHeight
+{
+	[UIView animateWithDuration:0.25 animations:^
+	{
+		CGRect newFrame = [self.bottomViewContainer frame];
+		newFrame.origin.y =barFrame_Y - 300; // tweak here to adjust the moving position
+		[self.bottomViewContainer setFrame:newFrame];
+
+	}completion:^(BOOL finished)
+	{
+
+	}];
+}
+
+//show the whole view
+-(void) setBottomViewShow
+{
+	[UIView animateWithDuration:0.25 animations:^
+	{
+		CGRect newFrame = [self.bottomViewContainer frame];
+		newFrame.origin.y =barFrame_Y ;  // tweak here to adjust the moving position
+		[self.bottomViewContainer setFrame:newFrame];
+
+	}completion:^(BOOL finished)
+	{
+
+	}];
 
 }
+
+//hide the view
+-(void) setBottonViewHide
+{
+	[UIView animateWithDuration:0.25 animations:^
+	{
+		CGRect newFrame = [self.bottomViewContainer frame];
+		newFrame.origin.y =barFrame_Y + 300 ;  // tweak here to adjust the moving position
+		[self.bottomViewContainer setFrame:newFrame];
+
+	}completion:^(BOOL finished)
+	{
+
+	}];
+
+}
+
 
 @end

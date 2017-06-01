@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
+#import "PageUIViewController.h"
 
 @class UserManager;
 @class MapPointManager;
@@ -18,10 +19,10 @@ enum MapPointViewMode
     forceExistmapPoint=1 //if there have mapPoint in the map
 };
 
-@interface MapPointViewController : UIViewController<MKMapViewDelegate>
+@interface MapPointViewController : PageUIViewController<MKMapViewDelegate,UIGestureRecognizerDelegate>
 
 //show the view or edit page
-@property (weak, nonatomic) IBOutlet UIView* barViewContainer;
+@property (weak, nonatomic) IBOutlet UIView* bottomViewContainer;
 
 @property (weak, nonatomic) UIViewController* rootViewController;
 
