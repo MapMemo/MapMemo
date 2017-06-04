@@ -10,6 +10,5 @@
 
 @interface PageUIViewController : UIViewController
 
--(void) OnSwitchPage;
 
 @end

@@ -12,8 +12,10 @@
 
 @interface PhotoAnnotation : NSObject<MKAnnotation>
 
+//who post the point
 @property (nonatomic) NSString* poster;
 
+//maPoints
 @property (weak, nonatomic) MapPoint* photo;
 
 @end

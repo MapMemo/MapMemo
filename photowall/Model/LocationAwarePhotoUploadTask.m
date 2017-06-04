@@ -15,6 +15,7 @@
 	NSData* _data;
 	RestClient* _client;
 	PhotoHandler _handler;
+	// use to get the position
 	CLLocationManager* _manager;
 }
 
@@ -55,14 +56,18 @@
 }
 
 #pragma mark - Private Methods
-- (void)uploadPhotoWithLocation:(CLLocation*)location {
+- (void)uploadPhotoWithLocation:(CLLocation*)location
+{
 	RestRequest* request = [_client path:@"/photos"];
 	if (location != nil) {
 		NSString* geolocation = [NSString stringWithFormat:@"geo:%@,%@", @(location.coordinate.latitude), @(location.coordinate.longitude)];
 		[request setValue:geolocation forHeader:@"Geolocation"];
 	}
-	[request upload:_data withMethod:@"POST" andHandler:^(RestResponse* response) {
-		if (_handler != nil) {
+	[request upload:_data withMethod:@"POST" andHandler:^(RestResponse* response)
+	{
+		if (_handler != nil)
+		{
+			//if upload success ,get the result
 			MapPoint* photo = nil;
 			if (response.succeeded) {
 				photo = [MapPoint photoFromJson:response.result];

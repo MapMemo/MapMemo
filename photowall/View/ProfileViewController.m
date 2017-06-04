@@ -105,6 +105,7 @@
 
 - (void)keyboardWillShow:(NSNotification*)notification {
 	NSDictionary* info = [notification userInfo];
+	//get the keyboard size
 	CGSize size = [[info objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
 	NSTimeInterval duration = [[info objectForKey:UIKeyboardAnimationDurationUserInfoKey] doubleValue];
 	NSInteger options = [[info objectForKey:UIKeyboardAnimationCurveUserInfoKey] integerValue];

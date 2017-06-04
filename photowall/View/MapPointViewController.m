@@ -16,26 +16,32 @@
 
 #import "UIView+Utils.h"
 #import "MapPointRegion+Utils.h"
-#import "MapPointView_EditBarController.h"
-#import "MapPointView_ViewBarController.h"
+#import "MapPointViewEditBottomViewController.h"
+#import "MapPointViewDetailBottomViewController.h"
 
 NSString* const PhotoAnnotationViewIdentifier = @"PhotoAnnotationView";
 
+
+//TODO : about get the map center position :
+//https://cg2010studio.com/2014/04/08/ios-%E4%BD%BF%E7%94%A8%E5%9C%B0%E5%9C%96%E7%8D%B2%E5%BE%97%E7%B6%93%E7%B7%AF%E5%BA%A6/
 @implementation MapPointViewController {
 
     //Map List View
-    MapPointView_ViewBarController* _viewMapPointBarController;
+    MapPointViewDetailBottomViewController* _viewMapPointBarController;
 
 	//Friend list
-	MapPointView_EditBarController* _editMapPointBarController;
+	MapPointViewEditBottomViewController* _editMapPointBarController;
 
 
     NSInteger _selectedIndex;
     NSArray* _barControllers;
     UIViewController* _currentController;
 
+	//all the points int the mapView
 	NSMutableArray* _annotations;
-	NSMutableArray* _nearByPhotos;
+
+	//all the mapPoints objects
+	NSMutableArray* _nearByMapPoints;
 
 	//if pressDeltaTime > 1000ms,set as longPress
     float TriggerDeltaPressTime;
@@ -49,15 +55,15 @@ NSString* const PhotoAnnotationViewIdentifier = @"PhotoAnnotationView";
 {
 	[super viewDidLoad];
 	_annotations = [NSMutableArray new];
-	_nearByPhotos = [NSMutableArray new];
+	_nearByMapPoints = [NSMutableArray new];
 
 	TriggerDeltaPressTime=1000;
 
 	//set the position_Y
 	barFrame_Y=400.0f;
 
-    _viewMapPointBarController=[[MapPointView_ViewBarController alloc] initWithNibName:@"MapPointView_ViewBar" bundle:nil];
-    _editMapPointBarController=[[MapPointView_EditBarController alloc] initWithNibName:@"MapPointView_EditBar" bundle:nil];
+    _viewMapPointBarController=[[MapPointViewDetailBottomViewController alloc] initWithNibName:@"MapPointViewDetailBottomView" bundle:nil];
+    _editMapPointBarController=[[MapPointViewEditBottomViewController alloc] initWithNibName:@"MapPointViewEditBottomView" bundle:nil];
 
     //get keyboard appear and disappear event
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardDidShowNotification object:nil];
@@ -76,6 +82,7 @@ NSString* const PhotoAnnotationViewIdentifier = @"PhotoAnnotationView";
 	[self.mapView addGestureRecognizer:panRec];
 }
 
+//if draging map
 - (void)didDragMap:(UIGestureRecognizer*)gestureRecognizer
 {
 	if (gestureRecognizer.state == UIGestureRecognizerStateEnded)
@@ -96,15 +103,21 @@ NSString* const PhotoAnnotationViewIdentifier = @"PhotoAnnotationView";
 	return YES;
 }
 
-//if switch to this page
--(void) OnSwitchPage
-{
-	//TODO : switch to the right bottom controller
-}
-
 //keyboard show and start typing
-- (void)keyboardWillShow:(NSNotification*)aNotification {
-    self.setBottonViewShowWithKeyboardHeight;
+- (void)keyboardWillShow:(NSNotification*)notification {
+	NSDictionary* info = [notification userInfo];
+	//get the keyboard size
+	CGSize size = [[info objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
+	[UIView animateWithDuration:0.25 animations:^
+	{
+		CGRect newFrame = [self.bottomViewContainer frame];
+		newFrame.origin.y =barFrame_Y - size.height; // tweak here to adjust the moving position
+		[self.bottomViewContainer setFrame:newFrame];
+
+	}completion:^(BOOL finished)
+	{
+
+	}];
 }
 
 //hide the keyboard
@@ -122,6 +135,7 @@ NSString* const PhotoAnnotationViewIdentifier = @"PhotoAnnotationView";
 	[self.rootViewController setTitle:@"points On Map"];
 }
 
+//if switch to this page
 - (void)viewDidAppear:(BOOL)animated
 {
 	//set to the area
@@ -137,16 +151,25 @@ NSString* const PhotoAnnotationViewIdentifier = @"PhotoAnnotationView";
 	[self loadPhotosInRegion:region];
 }
 
-- (MKAnnotationView*)mapView:(MKMapView*)mapView viewForAnnotation:(id<MKAnnotation>)annotation {
+//Add a point on MapView
+//override the mapView viewForAnnotation function
+- (MKAnnotationView*)mapView:(MKMapView*)mapView viewForAnnotation:(id<MKAnnotation>)annotation
+{
+	//change the type into PhotoAnnotation
 	PhotoAnnotation* photoAnnotation = (PhotoAnnotation*)annotation;
+	//
 	MKAnnotationView* view = [mapView dequeueReusableAnnotationViewWithIdentifier:PhotoAnnotationViewIdentifier];
-	if (view == nil) {
+	if (view == nil)
+	{
 		view = [[MKAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:PhotoAnnotationViewIdentifier];
 	}
+	//the class will point to the map
 	AnnotationCallOutView* callOutView = [[[NSBundle mainBundle] loadNibNamed:@"AnnotationCallOutView" owner:nil options:nil] firstObject];
 	callOutView.translatesAutoresizingMaskIntoConstraints = NO;
+	//set the photo and the string context
 	[callOutView setPhoto:photoAnnotation.photo withNickname:[self.userManager getUser:photoAnnotation.photo.posterId].nickname];
 	view.canShowCallout = YES;
+	//set the position
 	view.frame = CGRectMake(-40, -40, 80, 80);
 	[view addSubview:callOutView fit:YES];
 	return view;
@@ -158,21 +181,25 @@ NSString* const PhotoAnnotationViewIdentifier = @"PhotoAnnotationView";
 	[self.photoManager loadPhotosNear:region withHandler:[self updateAnnoationsWithTag:region.hash]];
 }
 
+//update all the map points
 #pragma mark - Code Blocks
 - (PhotoHandler)updateAnnoationsWithTag:(NSInteger)tag {
-	return ^(NSError* error, NSArray* photos) {
+	return ^(NSError* error, NSArray* mapPoints) {
 		if (self.mapView.tag != tag) {
 			return;
 		}
-		[_nearByPhotos removeAllObjects];
+		[_nearByMapPoints removeAllObjects];
 		[self.mapView removeAnnotations:_annotations];
 		[_annotations removeAllObjects];
-		if (error == nil) {
-			[_nearByPhotos addObjectsFromArray:photos];
-			for (MapPoint* photo in photos) {
+		if (error == nil)
+		{
+			[_nearByMapPoints addObjectsFromArray:mapPoints];
+			for (MapPoint* mapPoint in mapPoints)
+			{
 				PhotoAnnotation* annotation = [PhotoAnnotation new];
-				annotation.photo = photo;
-				annotation.poster = [self.userManager getUser:photo.posterId].nickname;
+				annotation.photo = mapPoint;
+				//TODO : delete this
+				annotation.poster = [self.userManager getUser:mapPoint.posterId].nickname;
 				[_annotations addObject:annotation];
 			}
 		}
@@ -185,6 +212,7 @@ NSString* const PhotoAnnotationViewIdentifier = @"PhotoAnnotationView";
 {
 	pressDownTime=PressTime;
 }
+
 
 - (void)PressButtonUp:(float )PressUpTime
 {
@@ -236,21 +264,6 @@ NSString* const PhotoAnnotationViewIdentifier = @"PhotoAnnotationView";
     {
         self.bottomViewContainer.userInteractionEnabled=false;
     }
-}
-
-//can see the whole view when has keyboard
--(void) setBottonViewShowWithKeyboardHeight
-{
-	[UIView animateWithDuration:0.25 animations:^
-	{
-		CGRect newFrame = [self.bottomViewContainer frame];
-		newFrame.origin.y =barFrame_Y - 300; // tweak here to adjust the moving position
-		[self.bottomViewContainer setFrame:newFrame];
-
-	}completion:^(BOOL finished)
-	{
-
-	}];
 }
 
 //show the whole view

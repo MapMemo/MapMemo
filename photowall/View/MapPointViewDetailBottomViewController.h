@@ -1,5 +1,5 @@
 //
-//  MapPointView_EditBarController.h
+//  MapPointViewDetailBottomViewController.h
 //  photowall
 //
 //  Created by andy840119 on 2017/05/30.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MapPointView_EditBarController : UIViewController
+@interface MapPointViewDetailBottomViewController : UIViewController
 
 @end

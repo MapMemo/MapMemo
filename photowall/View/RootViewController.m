@@ -124,17 +124,6 @@
 
 }
 
-//
-#pragma mark - UIImagePickerControllerDelegate
-- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info {
-	[picker dismissViewControllerAnimated:YES completion:nil];
-	UIImage* image = [info valueForKey:UIImagePickerControllerOriginalImage];
-	NSData* pngData = UIImagePNGRepresentation(image);
-	[self.photoManager uploadPhoto:pngData withHandler:^(NSError* error, NSArray* photos) {
-		[_mapPointGridViewController refreshPhotos];
-	}];
-}
-
 //switch the page
 #pragma mark - Private Methods
 - (void)setSelectedIndex:(NSInteger)index
