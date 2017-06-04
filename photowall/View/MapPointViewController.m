@@ -30,7 +30,7 @@ NSString* const PhotoAnnotationViewIdentifier = @"PhotoAnnotationView";
     MapPointViewDetailBottomViewController* _viewMapPointBarController;
 
 	//point edit or create view
-	MapPointViewEditBottomViewController* _editMapPointBarController;
+	MapPointViewEditBottomViewController* _editMapPointBottomController;
 
 	//if hasn't focus any point
 	MapPointViewBottomViewController* _mapPointBarController;
@@ -65,14 +65,21 @@ NSString* const PhotoAnnotationViewIdentifier = @"PhotoAnnotationView";
 	//set the position_Y
 	barFrame_Y=400.0f;
 
+    //construct bottom page
     _viewMapPointBarController=[[MapPointViewDetailBottomViewController alloc] initWithNibName:@"MapPointViewDetailBottomView" bundle:nil];
-    _editMapPointBarController=[[MapPointViewEditBottomViewController alloc] initWithNibName:@"MapPointViewEditBottomView" bundle:nil];
+    _editMapPointBottomController=[[MapPointViewEditBottomViewController alloc] initWithNibName:@"MapPointViewEditBottomView" bundle:nil];
+    _mapPointBarController=[[MapPointViewBottomViewController alloc] initWithNibName:@"MapPointViewBottomView" bundle:nil];
+    //set value
+    _viewMapPointBarController.mapPointViewController=self;
+    _editMapPointBottomController.mapPointViewController=self;
+    _mapPointBarController.mapPointViewController=self;
+
+    //idol , view ,edit
+    _barControllers = @[_mapPointBarController,  _viewMapPointBarController,_editMapPointBottomController ];
 
     //get keyboard appear and disappear event
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardDidShowNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillBeHidden:) name:UIKeyboardWillHideNotification object:nil];
-
-    _barControllers = @[  _viewMapPointBarController,_editMapPointBarController ];
 
     //set now page index is 0
     _selectedIndex = 1;
@@ -233,6 +240,34 @@ NSString* const PhotoAnnotationViewIdentifier = @"PhotoAnnotationView";
 -(void) LongPressMapButton
 {
 
+}
+
+//display the bottom edit view
+-(void) SwitchToEditBottomView : (CLLocationCoordinate2D *) coordinate
+{
+    //TODO : if already hase point ,set to the edit controller
+    MapPoint *point= [self getMapPointByCLLocationCoordinate2D:coordinate];
+    //set the point to the controller
+    [_editMapPointBottomController setMapPoint:point];
+    //set to the edit mode
+    [self setSelectedIndex:1];
+}
+
+//display the bottom deatil view by latitude,set the position
+-(void) SwitchToDetailBottomView :(CLLocationCoordinate2D *) coordinate
+{
+    //TODO : if already hase point ,set to the edit controller
+    MapPoint *point= [self getMapPointByCLLocationCoordinate2D:coordinate];
+    //set the point to the controller
+    [_viewMapPointBarController setMapPoint:point];
+    //set to the view mode
+    [self setSelectedIndex:1];
+}
+
+//get the nearest
+-(MapPoint *) getMapPointByCLLocationCoordinate2D:(CLLocationCoordinate2D *) coordinate
+{
+    return 0;
 }
 
 //switch the page

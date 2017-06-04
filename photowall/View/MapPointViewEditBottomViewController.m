@@ -11,6 +11,7 @@
 
 @interface MapPointViewEditBottomViewController ()
 
+- (void)setMapPoint:(MapPoint *)mapPoint;
 @end
 
 //TODO : flow up the textbox when typing
@@ -55,6 +56,8 @@
 	 */
 }
 
-
-
+- (void)setMapPoint:(MapPoint *)setMapPoint
+{
+    return nil;
+}
 @end

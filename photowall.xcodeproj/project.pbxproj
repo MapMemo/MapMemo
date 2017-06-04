@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		040D468A1ECECD510002C83E /* Model.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = 040D46891ECECD510002C83E /* Model.xcmappingmodel */; };
+		04CCB8241EE45CC5006B4D0D /* ChangableMapButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 04CCB8221EE45CC5006B4D0D /* ChangableMapButton.m */; };
 		0901072C0D2144C2D01D103C /* Pods_photowall_photowallTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03D7C38FF52C51B46ED445C4 /* Pods_photowall_photowallTests.framework */; };
 		12D2F010D2A9930CF09BA07A /* MapPointViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 12D2F66E58C3348F7B72C026 /* MapPointViewController.m */; };
 		12D2F01476708D0619CD1B89 /* MapPointViewBottomViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 12D2F2AF1AC2F77A579EC9C7 /* MapPointViewBottomViewController.m */; };
@@ -95,6 +96,8 @@
 /* Begin PBXFileReference section */
 		03D7C38FF52C51B46ED445C4 /* Pods_photowall_photowallTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_photowall_photowallTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		040D46891ECECD510002C83E /* Model.xcmappingmodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcmappingmodel; path = Model.xcmappingmodel; sourceTree = "<group>"; };
+		04CCB8211EE45CC5006B4D0D /* ChangableMapButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ChangableMapButton.h; path = View/ChangableMapButton.h; sourceTree = "<group>"; };
+		04CCB8221EE45CC5006B4D0D /* ChangableMapButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ChangableMapButton.m; path = View/ChangableMapButton.m; sourceTree = "<group>"; };
 		12D2F066F6F30979308F1929 /* FriendCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FriendCell.m; path = View/FriendCell.m; sourceTree = "<group>"; };
 		12D2F0777FC10D2632FAA311 /* PhotoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PhotoCell.h; path = View/PhotoCell.h; sourceTree = "<group>"; };
 		12D2F0BADFFFDF29091D9DC3 /* RootView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = RootView.xib; path = View/RootView.xib; sourceTree = "<group>"; };
@@ -269,6 +272,15 @@
 			name = Common;
 			sourceTree = "<group>";
 		};
+		12D2F22BDD53899FB590049F /* ChangeableButton */ = {
+			isa = PBXGroup;
+			children = (
+				04CCB8211EE45CC5006B4D0D /* ChangableMapButton.h */,
+				04CCB8221EE45CC5006B4D0D /* ChangableMapButton.m */,
+			);
+			name = ChangeableButton;
+			sourceTree = "<group>";
+		};
 		12D2F4AAA5289C8397D55700 /* LoginPage */ = {
 			isa = PBXGroup;
 			children = (
@@ -334,6 +346,7 @@
 				12D2FF2557C6851A95F7D231 /* MapPointViewController.h */,
 				12D2F66E58C3348F7B72C026 /* MapPointViewController.m */,
 				12D2F888E5599AFE20AC6AD5 /* Annovation */,
+				12D2F22BDD53899FB590049F /* ChangeableButton */,
 			);
 			name = MapPointMapView;
 			sourceTree = "<group>";
@@ -848,6 +861,7 @@
 				040D468A1ECECD510002C83E /* Model.xcmappingmodel in Sources */,
 				1E0DCE081EB48CBC00C6316E /* MapPointRegion+Utils.m in Sources */,
 				1E18E7A61E88C1A500200DC0 /* KeyChainSecuredAuthenticator.m in Sources */,
+				04CCB8241EE45CC5006B4D0D /* ChangableMapButton.m in Sources */,
 				1E9E464F1E99D86B008613AB /* MapPointManager.m in Sources */,
 				1E9E46491E99CF84008613AB /* UIImageView+WebImage.m in Sources */,
 				12D2FF270075F4C632266567 /* LoginViewController.m in Sources */,

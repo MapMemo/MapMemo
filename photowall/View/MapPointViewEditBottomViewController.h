@@ -8,11 +8,14 @@
 
 #import <UIKit/UIKit.h>
 #import "MapPointViewBottomViewController.h"
+#import "MapPoint.h"
 
 @class MapPointManager;
 
 @interface MapPointViewEditBottomViewController : MapPointViewBottomViewController<UIImagePickerControllerDelegate>
 
 @property MapPointManager* photoManager;
+
+- (void)setMapPoint:(MapPoint *)setMapPoint;
 
 @end

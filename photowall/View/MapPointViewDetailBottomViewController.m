@@ -8,6 +8,7 @@
 
 #import "MapPointViewDetailBottomViewController.h"
 #import "MapPointViewController.h"
+#import "MapPoint.h"
 
 @interface MapPointViewDetailBottomViewController ()
 
@@ -35,4 +36,7 @@
 }
 */
 
+- (void)setMapPoint:(MapPoint *)point {
+
+}
 @end

@@ -14,5 +14,5 @@
 @interface MapPointViewDetailBottomViewController : MapPointViewBottomViewController
 
 
-
+- (void)setMapPoint:(MapPoint *)point;
 @end

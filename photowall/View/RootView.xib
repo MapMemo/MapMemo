@@ -1,21 +1,21 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RootViewController">
             <connections>
+                <outlet property="MapPointViewTabButton" destination="fjj-QX-rUh" id="gy3-ER-90o"/>
                 <outlet property="friendsTabButton" destination="15l-jl-87d" id="UsN-fI-C4B"/>
                 <outlet property="mapListViewTabButton" destination="chj-TL-zYX" id="fGj-M0-u3p"/>
                 <outlet property="mapPointHisteryTabButton" destination="mdH-se-bap" id="jgb-TF-pOP"/>
                 <outlet property="profileTabButton" destination="2Pw-kg-8KZ" id="FvK-Ck-Eqa"/>
-                <outlet property="MapPointViewTabButton" destination="fjj-QX-rUh" id="gy3-ER-90o"/>
                 <outlet property="view" destination="Oso-Ge-tBu" id="b4j-8X-zbI"/>
                 <outlet property="viewContainer" destination="k8s-6U-GZA" id="n2E-ff-5Xj"/>
             </connections>
@@ -60,7 +60,7 @@
                             <rect key="frame" x="150" y="35" width="75" height="40"/>
                             <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.69999999999999996" colorSpace="calibratedRGB"/>
                         </view>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fjj-QX-rUh" userLabel="MapButtonBackground">
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fjj-QX-rUh" userLabel="MapButtonBackground" customClass="ChangableMapButton">
                             <rect key="frame" x="150" y="0.0" width="75" height="75"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <constraints>
