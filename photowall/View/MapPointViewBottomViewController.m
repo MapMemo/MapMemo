@@ -1,19 +1,19 @@
 //
-//  MapPointViewDetailBottomViewController.m
+//  MapPointViewBottomViewController.m
 //  photowall
 //
-//  Created by andy840119 on 2017/05/30.
+//  Created by andy840119 on 2017/06/04.
 //  Copyright © 2017年 Picowork. All rights reserved.
 //
 
-#import "MapPointViewDetailBottomViewController.h"
+#import "MapPointViewBottomViewController.h"
 #import "MapPointViewController.h"
 
-@interface MapPointViewDetailBottomViewController ()
+@interface MapPointViewBottomViewController ()
 
 @end
 
-@implementation MapPointViewDetailBottomViewController
+@implementation MapPointViewBottomViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];

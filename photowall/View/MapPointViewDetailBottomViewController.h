@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MapPointViewBottomViewController.h"
 
-@interface MapPointViewDetailBottomViewController : UIViewController
+@class MapPointViewController;
+
+@interface MapPointViewDetailBottomViewController : MapPointViewBottomViewController
+
+
 
 @end

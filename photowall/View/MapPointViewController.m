@@ -12,7 +12,7 @@
 #import "MapPointManager.h"
 
 #import "PhotoAnnotation.h"
-#import "MapPointCallOutView.h"
+#import "MapPointCallOutViewController.h"
 
 #import "UIView+Utils.h"
 #import "MapPointRegion+Utils.h"
@@ -26,11 +26,14 @@ NSString* const PhotoAnnotationViewIdentifier = @"PhotoAnnotationView";
 //https://cg2010studio.com/2014/04/08/ios-%E4%BD%BF%E7%94%A8%E5%9C%B0%E5%9C%96%E7%8D%B2%E5%BE%97%E7%B6%93%E7%B7%AF%E5%BA%A6/
 @implementation MapPointViewController {
 
-    //Map List View
+    //point detail view
     MapPointViewDetailBottomViewController* _viewMapPointBarController;
 
-	//Friend list
+	//point edit or create view
 	MapPointViewEditBottomViewController* _editMapPointBarController;
+
+	//if hasn't focus any point
+	MapPointViewBottomViewController* _mapPointBarController;
 
 
     NSInteger _selectedIndex;
@@ -164,13 +167,14 @@ NSString* const PhotoAnnotationViewIdentifier = @"PhotoAnnotationView";
 		view = [[MKAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:PhotoAnnotationViewIdentifier];
 	}
 	//the class will point to the map
-	MapPointCallOutView* callOutView = [[[NSBundle mainBundle] loadNibNamed:@"MapPointCallOutView" owner:nil options:nil] firstObject];
+	MapPointCallOutViewController* callOutView = [[[NSBundle mainBundle] loadNibNamed:@"MapPointCallOutView" owner:nil options:nil] firstObject];
 	callOutView.translatesAutoresizingMaskIntoConstraints = NO;
 	//set the photo and the string context
+
     [callOutView setPhoto:photoAnnotation.photo withContextString:[self.userManager getUser:photoAnnotation.photo.posterId].nickname];
 	view.canShowCallout = YES;
 	//set the position
-	view.frame = CGRectMake(-40, -40, 80, 80);
+	view.frame = CGRectMake(-20, -20, 40, 40);
 	[view addSubview:callOutView fit:YES];
 	return view;
 }

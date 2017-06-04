@@ -48,7 +48,7 @@
 	NSData* pngData = UIImagePNGRepresentation(image);
 
 	//andy840119
-	//
+	/*
 	[self.photoManager uploadPhoto:pngData withHandler:^(NSError* error, NSArray* photos) {
 		[_mapPointGridViewController refreshPhotos];
 	}];

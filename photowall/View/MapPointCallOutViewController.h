@@ -1,5 +1,5 @@
 //
-//  MapPointCallOutView.h
+//  MapPointCallOutViewController.h
 //  photowall
 //
 //  Created by Spirit on 4/30/17.
@@ -11,7 +11,7 @@
 @class MapPoint;
 
 //use to show single map view
-@interface MapPointCallOutView : UIView
+@interface MapPointCallOutViewController : UIView
 
 @property (weak, nonatomic) IBOutlet UILabel* nicknameLabel;
 @property (weak, nonatomic) IBOutlet UIImageView* photoView;
