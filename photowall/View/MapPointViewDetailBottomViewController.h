@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "MapPointViewBottomViewController.h"
+#import "MapPointManager.h"
 
 @class MapPointViewController;
 
