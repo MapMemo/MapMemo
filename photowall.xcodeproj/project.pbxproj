@@ -71,8 +71,8 @@
 		1ECB6F911E86676200BA0D77 /* RestClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ECB6F901E86676200BA0D77 /* RestClient.m */; };
 		1ED6B94F1E8FE31700CF0D63 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ED6B94D1E8FE31700CF0D63 /* RootViewController.m */; };
 		1ED6B9501E8FE31700CF0D63 /* RootView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1ED6B94E1E8FE31700CF0D63 /* RootView.xib */; };
-		1EDAF8771EB5891600BC48B3 /* AnnotationCallOutView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EDAF8761EB5891600BC48B3 /* AnnotationCallOutView.m */; };
-		1EDAF8791EB5893700BC48B3 /* AnnotationCallOutView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1EDAF8781EB5893700BC48B3 /* AnnotationCallOutView.xib */; };
+		1EDAF8771EB5891600BC48B3 /* MapPointCallOutView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EDAF8761EB5891600BC48B3 /* MapPointCallOutView.m */; };
+		1EDAF8791EB5893700BC48B3 /* MapPointCallOutView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1EDAF8781EB5893700BC48B3 /* MapPointCallOutView.xib */; };
 		1EDAF87D1EB5930100BC48B3 /* PhotoShowcaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EDAF87B1EB5930100BC48B3 /* PhotoShowcaseViewController.m */; };
 		1EDAF87E1EB5930100BC48B3 /* PhotoShowcaseView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1EDAF87C1EB5930100BC48B3 /* PhotoShowcaseView.xib */; };
 		1EDAF8821EB5AD6600BC48B3 /* PhotoShowcaseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EDAF8801EB5AD6600BC48B3 /* PhotoShowcaseCell.m */; };
@@ -197,9 +197,9 @@
 		1ED6B94C1E8FE31700CF0D63 /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 5; lastKnownFileType = sourcecode.c.h; name = RootViewController.h; path = View/RootViewController.h; sourceTree = "<group>"; };
 		1ED6B94D1E8FE31700CF0D63 /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RootViewController.m; path = View/RootViewController.m; sourceTree = "<group>"; };
 		1ED6B94E1E8FE31700CF0D63 /* RootView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = RootView.xib; path = View/RootView.xib; sourceTree = "<group>"; };
-		1EDAF8751EB5891600BC48B3 /* AnnotationCallOutView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AnnotationCallOutView.h; path = View/AnnotationCallOutView.h; sourceTree = "<group>"; };
-		1EDAF8761EB5891600BC48B3 /* AnnotationCallOutView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AnnotationCallOutView.m; path = View/AnnotationCallOutView.m; sourceTree = "<group>"; };
-		1EDAF8781EB5893700BC48B3 /* AnnotationCallOutView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AnnotationCallOutView.xib; path = View/AnnotationCallOutView.xib; sourceTree = "<group>"; };
+		1EDAF8751EB5891600BC48B3 /* MapPointCallOutView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MapPointCallOutView.h; path = View/MapPointCallOutView.h; sourceTree = "<group>"; };
+		1EDAF8761EB5891600BC48B3 /* MapPointCallOutView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MapPointCallOutView.m; path = View/MapPointCallOutView.m; sourceTree = "<group>"; };
+		1EDAF8781EB5893700BC48B3 /* MapPointCallOutView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MapPointCallOutView.xib; path = View/MapPointCallOutView.xib; sourceTree = "<group>"; };
 		1EDAF87A1EB5930100BC48B3 /* PhotoShowcaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PhotoShowcaseViewController.h; path = View/PhotoShowcaseViewController.h; sourceTree = "<group>"; };
 		1EDAF87B1EB5930100BC48B3 /* PhotoShowcaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PhotoShowcaseViewController.m; path = View/PhotoShowcaseViewController.m; sourceTree = "<group>"; };
 		1EDAF87C1EB5930100BC48B3 /* PhotoShowcaseView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PhotoShowcaseView.xib; path = View/PhotoShowcaseView.xib; sourceTree = "<group>"; };
@@ -405,9 +405,9 @@
 				1E0DCDFD1EB4781800C6316E /* PhotoGridSectionHeader.xib */,
 				1EC8C3CB1EB4E0B600029BF0 /* PhotoAnnotation.h */,
 				1EC8C3CC1EB4E0B600029BF0 /* PhotoAnnotation.m */,
-				1EDAF8751EB5891600BC48B3 /* AnnotationCallOutView.h */,
-				1EDAF8761EB5891600BC48B3 /* AnnotationCallOutView.m */,
-				1EDAF8781EB5893700BC48B3 /* AnnotationCallOutView.xib */,
+				1EDAF8751EB5891600BC48B3 /* MapPointCallOutView.h */,
+				1EDAF8761EB5891600BC48B3 /* MapPointCallOutView.m */,
+				1EDAF8781EB5893700BC48B3 /* MapPointCallOutView.xib */,
 				1EDAF87A1EB5930100BC48B3 /* PhotoShowcaseViewController.h */,
 				1EDAF87B1EB5930100BC48B3 /* PhotoShowcaseViewController.m */,
 				1EDAF87C1EB5930100BC48B3 /* PhotoShowcaseView.xib */,
@@ -586,7 +586,7 @@
 				04A116BD1EC5B030000147AB /* LoginInTestViewController.xib in Resources */,
 				1ED6B9501E8FE31700CF0D63 /* RootView.xib in Resources */,
 				1E13CA831E90C1DD000DBF74 /* FriendsListView.xib in Resources */,
-				1EDAF8791EB5893700BC48B3 /* AnnotationCallOutView.xib in Resources */,
+				1EDAF8791EB5893700BC48B3 /* MapPointCallOutView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -737,7 +737,7 @@
 				1EBCF1AE1EAC929E00C2FDFA /* PhotoCell.m in Sources */,
 				1E13CA8C1E90C297000DBF74 /* MapPointGridViewController.m in Sources */,
 				1E9E464F1E99D86B008613AB /* MapPointManager.m in Sources */,
-				1EDAF8771EB5891600BC48B3 /* AnnotationCallOutView.m in Sources */,
+				1EDAF8771EB5891600BC48B3 /* MapPointCallOutView.m in Sources */,
 				1E9E46491E99CF84008613AB /* UIImageView+WebImage.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
