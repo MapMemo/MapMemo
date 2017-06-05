@@ -17,7 +17,8 @@ enum MapPointViewMode
 {
     notThisPage=0,//if not on this page
     emptyAndReadyForEdit=1, //if there is not map in the center (selected area)
-    forceExistmapPoint=2 //if there have mapPoint in the map
+    onEdit=2,//onEditMap
+    forceExistmapPoint=3 //if there have mapPoint in the map
 };
 
 @interface MapPointViewController : PageUIViewController<MKMapViewDelegate,UIGestureRecognizerDelegate>

@@ -29,11 +29,15 @@
             break;
 
         case emptyAndReadyForEdit:
-            changeImage=[UIImage imageNamed:@"MapButton"];
+            changeImage=[UIImage imageNamed:@"MapEditButton"];
+            break;
+
+        case onEdit:
+            changeImage=[UIImage imageNamed:@"MapEditCancelButton"];
             break;
 
         case forceExistmapPoint:
-            changeImage=[UIImage imageNamed:@"MapButton"];
+            changeImage=[UIImage imageNamed:@"MapEditButton"];
             break;
 
     }

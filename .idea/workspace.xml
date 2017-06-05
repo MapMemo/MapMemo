@@ -2,17 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="80bc2a7f-e5b6-43ea-9e3f-bb333bfd5340" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/photowall/View/ChangableMapButton.h" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/photowall/View/ChangableMapButton.m" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/photowall/Images.xcassets/MapEditButton.imageset/MapButtonEdit-1.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/photowall/Images.xcassets/MapEditButton.imageset/MapButtonEdit-2.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/photowall/Images.xcassets/MapEditButton.imageset/MapButtonEdit.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/photowall/Images.xcassets/MapEditCancelButton.imageset/MapButtonCancelEdit-1.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/photowall/Images.xcassets/MapEditCancelButton.imageset/MapButtonCancelEdit-2.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/photowall/Images.xcassets/MapEditCancelButton.imageset/MapButtonCancelEdit.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/photowall/Images.xcassets/MapEditButton.imageset/Contents.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/photowall/Images.xcassets/MapEditCancelButton.imageset/Contents.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/photowall.xcodeproj/project.pbxproj" afterPath="$PROJECT_DIR$/photowall.xcodeproj/project.pbxproj" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/photowall/View/ChangableMapButton.m" afterPath="$PROJECT_DIR$/photowall/View/ChangableMapButton.m" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/photowall/View/MapPointViewController.h" afterPath="$PROJECT_DIR$/photowall/View/MapPointViewController.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/photowall/View/MapPointViewController.m" afterPath="$PROJECT_DIR$/photowall/View/MapPointViewController.m" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/photowall/View/MapPointViewDetailBottomViewController.h" afterPath="$PROJECT_DIR$/photowall/View/MapPointViewDetailBottomViewController.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/photowall/View/MapPointViewDetailBottomViewController.m" afterPath="$PROJECT_DIR$/photowall/View/MapPointViewDetailBottomViewController.m" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/photowall/View/MapPointViewEditBottomViewController.h" afterPath="$PROJECT_DIR$/photowall/View/MapPointViewEditBottomViewController.h" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/photowall/View/MapPointViewEditBottomViewController.m" afterPath="$PROJECT_DIR$/photowall/View/MapPointViewEditBottomViewController.m" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/photowall/View/RootView.xib" afterPath="$PROJECT_DIR$/photowall/View/RootView.xib" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -39,8 +39,18 @@
       <file leaf-file-name="ChangableMapButton.m" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/photowall/View/ChangableMapButton.m">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="142">
-              <caret line="23" column="25" lean-forward="true" selection-start-line="23" selection-start-column="25" selection-end-line="23" selection-end-column="25" />
+            <state relative-caret-position="250">
+              <caret line="29" column="0" lean-forward="true" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MapPointViewController.h" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/photowall/View/MapPointViewController.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="227">
+              <caret line="20" column="33" lean-forward="false" selection-start-line="20" selection-start-column="33" selection-end-line="20" selection-end-column="33" />
               <folding />
             </state>
           </provider>
@@ -114,8 +124,8 @@
         <option value="$PROJECT_DIR$/photowall/View/MapPointViewEditBottomViewController.h" />
         <option value="$PROJECT_DIR$/photowall/View/MapPointViewDetailBottomViewController.m" />
         <option value="$PROJECT_DIR$/photowall/View/MapPointViewController.m" />
-        <option value="$PROJECT_DIR$/photowall/View/MapPointViewController.h" />
         <option value="$PROJECT_DIR$/photowall/View/ChangableMapButton.h" />
+        <option value="$PROJECT_DIR$/photowall/View/MapPointViewController.h" />
         <option value="$PROJECT_DIR$/photowall/View/ChangableMapButton.m" />
       </list>
     </option>
@@ -919,13 +929,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/photowall/View/MapPointViewController.h">
+    <entry file="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIButton.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="197">
-          <caret line="19" column="22" lean-forward="false" selection-start-line="19" selection-start-column="4" selection-end-line="19" selection-end-column="22" />
-          <folding>
-            <element signature="e#138#161#0" expanded="false" />
-          </folding>
+        <state relative-caret-position="182">
+          <caret line="50" column="34" lean-forward="false" selection-start-line="50" selection-start-column="27" selection-end-line="50" selection-end-column="34" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -939,18 +947,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIButton.h">
+    <entry file="file://$PROJECT_DIR$/photowall/View/MapPointViewController.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="182">
-          <caret line="50" column="34" lean-forward="false" selection-start-line="50" selection-start-column="27" selection-end-line="50" selection-end-column="34" />
+        <state relative-caret-position="227">
+          <caret line="20" column="33" lean-forward="false" selection-start-line="20" selection-start-column="33" selection-end-line="20" selection-end-column="33" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/photowall/View/ChangableMapButton.m">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="142">
-          <caret line="23" column="25" lean-forward="true" selection-start-line="23" selection-start-column="25" selection-end-line="23" selection-end-column="25" />
+        <state relative-caret-position="250">
+          <caret line="29" column="0" lean-forward="true" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
           <folding />
         </state>
       </provider>
