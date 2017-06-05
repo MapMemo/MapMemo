@@ -15,6 +15,7 @@
 #import "UIColor+Defaults.h"
 #import "UIImageView+WebImage.h"
 #import "UIViewController+Mask.h"
+#import "RootViewController.h"
 
 @implementation ProfileViewController
 

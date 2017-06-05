@@ -8,7 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+@class RootViewController;
+
 @interface PageUIViewController : UIViewController
 
+@property (nonatomic, weak) RootViewController* rootViewController;
 
 @end

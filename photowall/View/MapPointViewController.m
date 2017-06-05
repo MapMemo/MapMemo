@@ -18,6 +18,8 @@
 #import "MapPointRegion+Utils.h"
 #import "MapPointViewEditBottomViewController.h"
 #import "MapPointViewDetailBottomViewController.h"
+#import "RootViewController.h"
+#import "ChangableMapButton.h"
 
 NSString* const PhotoAnnotationViewIdentifier = @"PhotoAnnotationView";
 
@@ -152,6 +154,15 @@ NSString* const PhotoAnnotationViewIdentifier = @"PhotoAnnotationView";
 	MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(CLLocationCoordinate2DMake(25.044013, 121.533954), 500, 500);
 	[self.mapView setRegion:region animated:YES];
 	[self loadPhotosInRegion:[MapPointRegion fromMKCoordinateRegion:region]];
+
+	//
+	[self swithViewMode:emptyAndReadyForEdit];
+}
+
+//if switch to another view
+-(void)viewDidDisappear:(BOOL)animated 
+{
+	[self swithViewMode:notThisPage];
 }
 
 #pragma mark - MKMapViewDelegate
@@ -240,6 +251,13 @@ NSString* const PhotoAnnotationViewIdentifier = @"PhotoAnnotationView";
 -(void) LongPressMapButton
 {
 
+}
+
+//switch view mode;
+-(void)swithViewMode:(enum MapPointViewMode ) type
+{
+	self.mapPointViewMode=	type;
+	[self.rootViewController.mapPointViewTabButton switchButotnImage:type];
 }
 
 //display the bottom edit view

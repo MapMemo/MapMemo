@@ -14,7 +14,7 @@
 
 @interface MapPointGridViewController : PageUIViewController<UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 
-@property (nonatomic, weak) UIViewController* rootViewController;
+
 @property (nonatomic, weak) IBOutlet UICollectionView* photosView;
 
 @property (nonatomic) NSString* posterId;

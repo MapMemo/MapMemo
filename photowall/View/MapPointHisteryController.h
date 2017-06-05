@@ -14,8 +14,6 @@
 
 @interface MapPointHisteryController : PageUIViewController
 
-@property (weak, nonatomic) UIViewController* rootViewController;
-
 
 @property (weak, nonatomic) UserManager* userManager;
 @property (weak, nonatomic) MapPointManager* photoManager;

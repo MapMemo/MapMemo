@@ -18,6 +18,7 @@
 #import "UIColor+Defaults.h"
 
 #import "MapPointManager.h"
+#import "ChangableMapButton.h"
 
 @implementation RootViewController
 {

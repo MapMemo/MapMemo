@@ -15,7 +15,6 @@
 @interface FriendsViewController : PageUIViewController<UITableViewDelegate, UITableViewDataSource>
 
 @property (weak) UserManager* userManager;
-@property (weak) RootViewController* rootViewController;
 
 @property (weak, nonatomic) IBOutlet UITableView* friendsView;
 

@@ -21,6 +21,5 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint* topConstraint;
 
 @property (weak) AccountManager* accountManager;
-@property (weak) UIViewController* rootViewController;
 
 @end
