@@ -26,13 +26,12 @@ enum MapPointViewMode
 //show the view or edit page
 @property (weak, nonatomic) IBOutlet UIView* bottomViewContainer;
 
-@property (weak, nonatomic) UIViewController* rootViewController;
-
 @property (weak, nonatomic) IBOutlet MKMapView* mapView;
 
 @property (weak, nonatomic) UserManager* userManager;
 @property (weak, nonatomic) MapPointManager* photoManager;
 
+@property(nonatomic) enum MapPointViewMode mapPointViewMode;
 
 //Notofied by rootView
 - (void)PressButtonDown:(float)PressTime;

@@ -11,8 +11,9 @@
 @class UserManager;
 @class MapPointManager;
 @class AccountManager;
+@class ChangableMapButton;
 
-//RowView 頁E��E: FriendList,mapList,histery,setting(personal profile)
+//RowView 頁E��E: FriendList,mapList,histery,setting(personal profile)
 //RowView 正中閁E: Map(Add,Edit...)
 
 @interface RootViewController : UIViewController<UIImagePickerControllerDelegate, UINavigationControllerDelegate>
@@ -29,7 +30,7 @@
 @property (weak, nonatomic) IBOutlet UIButton* profileTabButton;
 
 //View map and add,enit new MapPoint in the map
-@property (weak, nonatomic) IBOutlet UIButton* mapPointViewTabButton;
+@property (weak, nonatomic) IBOutlet ChangableMapButton* mapPointViewTabButton;
 
 @property UserManager* userManager;
 @property MapPointManager* photoManager;

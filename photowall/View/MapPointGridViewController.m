@@ -16,6 +16,7 @@
 #import "PhotoShowcaseViewController.h"
 
 #import "NSDate+Utils.h"
+#import "RootViewController.h"
 
 @implementation MapPointGridViewController {
 	CGFloat _cellSize;

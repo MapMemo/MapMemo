@@ -12,7 +12,7 @@
 
 @class MapPointManager;
 
-@interface MapPointViewEditBottomViewController : MapPointViewBottomViewController<UIImagePickerControllerDelegate>
+@interface MapPointViewEditBottomViewController : MapPointViewBottomViewController<UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
 @property MapPointManager* photoManager;
 

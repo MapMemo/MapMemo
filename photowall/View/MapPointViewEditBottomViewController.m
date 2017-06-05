@@ -58,6 +58,6 @@
 
 - (void)setMapPoint:(MapPoint *)setMapPoint
 {
-    return nil;
+    //return nil;
 }
 @end
