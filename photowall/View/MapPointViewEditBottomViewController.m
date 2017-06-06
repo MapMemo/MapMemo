@@ -75,7 +75,7 @@
 
 	//get the position from the map
 	MapPointLocation *location;
-	location = self.getPositionFromMapViewCenter;
+	location = self.mapPointViewController.getPositionFromMapViewCenter;
 
 	NSString *userName=self.getUserName;
 
@@ -117,21 +117,6 @@
 - (void)setExistMapPoint:(MapPoint *)targetMapPoint
 {
 	self.uploadTargetMapPoint=targetMapPoint;
-}
-
-//get map Location
--(MapPointLocation *) getPositionFromMapViewCenter
-{
-	//get the controller
-	MapPointViewController *controller=self.mapPointViewController;
-	//get the uploadTargetMapPoint
-	MKMapView* mapView=controller.mapView;
-	//get the location
-	MapPointLocation * location = [[MapPointLocation alloc]
-			initWithLatitude:mapView.centerCoordinate.latitude
-				andLongitude:mapView.centerCoordinate.longitude];
-	//return the location
-	return location;
 }
 
 -(NSString *)getUserName

@@ -21,6 +21,7 @@
 #import "RootViewController.h"
 #import "ChangableMapButton.h"
 #import "AccountManager.h"
+#import "MapPoint.h"
 
 NSString* const PhotoAnnotationViewIdentifier = @"PhotoAnnotationView";
 
@@ -38,6 +39,8 @@ NSString* const PhotoAnnotationViewIdentifier = @"PhotoAnnotationView";
 	//if hasn't focus any point
 	MapPointViewBottomViewController* _mapPointBarController;
 
+    //now MapPoint dats
+    MapPoint *_nowMapPoint;
 
     NSInteger _selectedIndex;
     NSArray* _barControllers;
@@ -105,11 +108,64 @@ NSString* const PhotoAnnotationViewIdentifier = @"PhotoAnnotationView";
 	}
 	else
 	{
-		//TODO detect if area contains any mapPoints
-
-		//TODO : if contains ,catch the nearest center map Points
-		NSLog(@"draging...");
+		//if contains ,catch the nearest center map Points
+		MapPoint *nearestMapPoint=[self getNearestMapPoint];
+        //if catch is not same as last state
+        if(_nowMapPoint!=nearestMapPoint)
+        {
+            _nowMapPoint=nearestMapPoint;
+            [self changeViewData:_nowMapPoint];
+        }
 	}
+}
+
+//TODO : get the nearest mapPoint in the map area
+-(MapPoint *)getNearestMapPoint
+{
+	if(_nearByMapPoints==nil)
+		return nil;
+	if(_nearByMapPoints.count<=0)
+		return nil;
+
+	MapPointLocation * centerPosition = self.getPositionFromMapViewCenter;
+	MapPoint *nearestPoint=nil;
+	double nearestValue=10000;
+
+	for(MapPoint *singlePoint in _nearByMapPoints)
+	{
+		//get distence
+		double singleValue= [self calculteTwoDistence:centerPosition :singlePoint.location];
+		if(singleValue<nearestValue)
+		{
+			nearestPoint = singlePoint;
+			nearestValue = singleValue;
+		}
+	}
+    return nearestPoint;
+}
+
+-(double )calculteTwoDistence:(MapPointLocation *) position1 :(MapPointLocation *) position2
+{
+	double dx = (position2.latitude - position1.latitude);
+	double dy = (position2.longitude - position1.longitude);
+	double dist = sqrt(dx*dx + dy*dy);
+	return dist;
+}
+
+
+-(void) changeViewData : (MapPoint *) mapPoint
+{
+    [_viewMapPointBarController setExistMapPoint:mapPoint];
+
+    if(mapPoint!=nil)
+    {
+        //Show the detail
+
+    }
+    else
+    {
+        //swich to null page
+    }
 }
 
 - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer {
@@ -198,16 +254,22 @@ NSString* const PhotoAnnotationViewIdentifier = @"PhotoAnnotationView";
 	return view;
 }
 
+//update photos from region
 #pragma mark - Private Methods
-- (void)loadPhotosInRegion:(MapPointRegion*)region {
+- (void)loadPhotosInRegion:(MapPointRegion*)region
+{
+
 	self.mapView.tag = region.hash;
+	//get list photos form region
     [self.photoManager loadMapPointsNear:region withHandler:[self updateAnnoationsWithTag:region.hash]];
 }
 
 //update all the map points
 #pragma mark - Code Blocks
-- (PhotoHandler)updateAnnoationsWithTag:(NSInteger)tag {
-	return ^(NSError* error, NSArray* mapPoints) {
+- (PhotoHandler)updateAnnoationsWithTag:(NSInteger)tag
+{
+	return ^(NSError* error, NSArray* mapPoints)
+	{
 		if (self.mapView.tag != tag) {
 			return;
 		}
@@ -217,11 +279,11 @@ NSString* const PhotoAnnotationViewIdentifier = @"PhotoAnnotationView";
 		if (error == nil)
 		{
 			[_nearByMapPoints addObjectsFromArray:mapPoints];
+			//add the points that not in the map
 			for (MapPoint* mapPoint in mapPoints)
 			{
 				PhotoAnnotation* annotation = [PhotoAnnotation new];
 				annotation.photo = mapPoint;
-				//TODO : delete this
 				annotation.poster = [self.userManager getUser:mapPoint.posterId].nickname;
 				[_annotations addObject:annotation];
 			}
@@ -278,7 +340,7 @@ NSString* const PhotoAnnotationViewIdentifier = @"PhotoAnnotationView";
     //TODO : if already hase point ,set to the edit controller
     MapPoint *point= [self getMapPointByCLLocationCoordinate2D:coordinate];
     //set the point to the controller
-    [_viewMapPointBarController setMapPoint:point];
+	[_viewMapPointBarController setExistMapPoint:point];
     //set to the view mode
     [self setSelectedIndex:1];
 }
@@ -291,7 +353,8 @@ NSString* const PhotoAnnotationViewIdentifier = @"PhotoAnnotationView";
 
 //switch the page
 #pragma mark - Private Methods
-- (void)setSelectedIndex:(NSInteger)index {
+- (void)setSelectedIndex:(NSInteger)index
+{
 
     if (index < 0 || index > [_barControllers count])
     {
@@ -354,6 +417,19 @@ NSString* const PhotoAnnotationViewIdentifier = @"PhotoAnnotationView";
 
 	}];
 
+}
+
+//get map Location
+-(MapPointLocation *) getPositionFromMapViewCenter
+{
+	//get the uploadTargetMapPoint
+	MKMapView* mapView=self.mapView;
+	//get the location
+	MapPointLocation * location = [[MapPointLocation alloc]
+			initWithLatitude:mapView.centerCoordinate.latitude
+				andLongitude:mapView.centerCoordinate.longitude];
+	//return the location
+	return location;
 }
 
 

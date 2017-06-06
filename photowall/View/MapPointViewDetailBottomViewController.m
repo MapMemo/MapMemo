@@ -33,12 +33,19 @@
     if(self.nowViewMapPoint==targetMapPoint)
         return;
 
-    //TODO : cleanUp the view
+    self.nowViewMapPoint=targetMapPoint;
 
-    if(targetMapPoint!=nil)
+    //cleanUp the view
+    self.userLabel.text=@"";
+    self.contextLabel.text=@"";
+    self.imageView.image=nil;
+
+    if(self.nowViewMapPoint!=nil)
     {
         //TODO : add something to view
-
+        self.userLabel.text=self.nowViewMapPoint.posterId;
+        self.contextLabel.text=self.nowViewMapPoint.context;
+        self.imageView.image=self.imageView;
 
     }
 }

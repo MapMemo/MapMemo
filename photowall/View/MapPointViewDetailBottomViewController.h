@@ -15,5 +15,14 @@
 
 @interface MapPointViewDetailBottomViewController : MapPointViewBottomViewController
 
+//user
+@property (weak, nonatomic) IBOutlet UILabel *userLabel;
+
+//context
+@property (weak, nonatomic) IBOutlet UILabel *contextLabel;
+
+//image
+@property (weak, nonatomic) IBOutlet UIImageView *imageView;
+
 
 @end

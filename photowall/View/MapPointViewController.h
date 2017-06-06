@@ -13,6 +13,7 @@
 @class UserManager;
 @class MapPointManager;
 @class AccountManager;
+@class MapPointLocation;
 
 enum MapPointViewMode
 {
@@ -36,6 +37,9 @@ enum MapPointViewMode
 @property AccountManager* accountManager;
 
 @property(nonatomic) enum MapPointViewMode mapPointViewMode;
+
+//get map Location
+-(MapPointLocation *) getPositionFromMapViewCenter;
 
 
 //Notofied by rootView
