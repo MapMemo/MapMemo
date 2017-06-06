@@ -8,6 +8,7 @@
 
 #import "MapPointViewBottomViewController.h"
 #import "MapPointViewController.h"
+#import "MapPoint.h"
 
 @interface MapPointViewBottomViewController ()
 

@@ -9,10 +9,12 @@
 #import <UIKit/UIKit.h>
 
 @class MapPointViewController;
+@class MapPoint;
 
 @interface MapPointViewBottomViewController : UIViewController
 
 @property (weak, nonatomic)MapPointViewController *mapPointViewController;
 
+- (void)setExistMapPoint:(MapPoint *)targetMapPoint;
 
 @end

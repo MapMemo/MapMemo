@@ -11,6 +11,7 @@
 #import "MapPointViewController.h"
 #import "UserManager.h"
 #import "AccountManager.h"
+#import "RootViewController.h"
 
 @interface MapPointViewEditBottomViewController ()
 
@@ -55,8 +56,6 @@
     self.setDefaultImage;
 }
 
-
-
 // if selected upload image ,upload directly
 //and notified map to update
 #pragma mark - UIImagePickerControllerDelegate
@@ -71,7 +70,7 @@
 //upload image
 - (IBAction)ClickUploadImageButton:(id)sender
 {
-	//TODO : get now DataTime, but not use when upload
+	//get now DataTime, but not use when upload
 	NSDate* timestamp = [NSDate alloc];
 
 	//get the position from the map
@@ -96,16 +95,21 @@
 		if(self.uploadImage!=nil)
 			self.uploadTargetMapPoint.image = UIImagePNGRepresentation(self.uploadImage);
 	}
-	@catch (NSException *exception) {
-		NSLog(@"%@", exception.reason);
+	@catch (NSException *exception)
+	{
+		//if has error ,try upload default image
+		self.setDefaultImage;
+		self.uploadTargetMapPoint.image = UIImagePNGRepresentation(self.uploadImage);
 	}
 
-
+    NSLog(@"create MapPoint and prepare to upload");
 	//uplaod profile
-	[self.photoManager uploadMapPoint:self.uploadTargetMapPoint withHandler:^(NSError *error, NSArray *photos)
-    {
-		//refresh pages
-		//[_mapPointGridViewController refreshPhotos];
+	[self.mapPointViewController.photoManager uploadMapPoint:self.uploadTargetMapPoint withHandler:^(NSError *error, NSArray *photos)
+	{
+		//refresh mapPointView
+		//[self.mapPointViewController.rootViewController._mapPointGridViewController refreshPhotos];
+		//[self.mapPointViewController ];
+		NSLog(@"commit success");
 	}];
 }
 
@@ -138,7 +142,7 @@
 //set default image;
 -(void) setDefaultImage
 {
-    self.uploadImage=[UIImage imageNamed:@"MapButton"];
+	self.uploadImage=[UIImage imageNamed:@"MapButton"];
 }
 
 @end

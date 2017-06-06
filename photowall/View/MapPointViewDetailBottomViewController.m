@@ -11,6 +11,8 @@
 
 @interface MapPointViewDetailBottomViewController ()
 
+@property MapPoint *nowViewMapPoint;
+
 @end
 
 @implementation MapPointViewDetailBottomViewController
@@ -25,17 +27,19 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
+//TODO : update the info
+- (void)setExistMapPoint:(MapPoint *)targetMapPoint
+{
+    if(self.nowViewMapPoint==targetMapPoint)
+        return;
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+    //TODO : cleanUp the view
 
-- (void)setMapPoint:(MapPoint *)point {
+    if(targetMapPoint!=nil)
+    {
+        //TODO : add something to view
 
+
+    }
 }
 @end

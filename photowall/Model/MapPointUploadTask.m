@@ -43,9 +43,13 @@
 	//
 	CLAuthorizationStatus status = [CLLocationManager authorizationStatus];
 	//ask the authorize from manager;
-	if (status != kCLAuthorizationStatusAuthorizedWhenInUse) {
+	if (status != kCLAuthorizationStatusAuthorizedWhenInUse)
+	{
 		[_manager requestWhenInUseAuthorization];
 	}
+
+	//uploadImage
+	//self.upoadMapPoint;
 }
 
 //if upload fall
@@ -71,36 +75,37 @@
 #pragma mark - Private Methods
 - (void)uploadPhotoWithLocation:(CLLocation*)location
 {
-	RestRequest* request = [_client path:@"/photos"];
+    RestRequest* request = [_client path:@"/photos"];
 
-	//midified the location from MapPoint
+    //midified the location from MapPoint
     MapPointLocation* mapPointLocation=_mapPoint.location;
-	//ImageData
-	NSData* _imageData = _mapPoint.image;
+    //ImageData
+    NSData* _imageData = _mapPoint.image;
 
-	if (location != nil)//location
-	{
-		NSString* geolocation = [NSString stringWithFormat:@"geo:%@,%@", @(mapPointLocation.latitude), @(mapPointLocation.longitude)];
-		[request setValue:geolocation forHeader:@"Geolocation"];
+    if (mapPointLocation != nil)//location
+    {
+        NSString* geolocation = [NSString stringWithFormat:@"geo:%@,%@", @(mapPointLocation.latitude), @(mapPointLocation.longitude)];
+        [request setValue:geolocation forHeader:@"Geolocation"];
 
-	}
+    }
     if(_mapPoint.context!=nil)//context
     {
         [request setValue:_mapPoint.context forHeader:@"context"];
     }
-	[request upload:_imageData withMethod:@"POST" andHandler:^(RestResponse* response)//Image
-	{
-		if (_handler != nil)
-		{
-			//if upload success ,get the result
-			MapPoint* photo = nil;
-			if (response.succeeded)
+    [request upload:_imageData withMethod:@"POST" andHandler:^(RestResponse* response)//Image
+    {
+        if (_handler != nil)
+        {
+            //if upload success ,get the result
+            MapPoint* photo = nil;
+            if (response.succeeded)
             {
-				photo = [MapPoint photoFromJson:response.result];
-			}
-			_handler(response.succeeded ? nil : response.error, @[ photo ]);
-		}
-	}];
+                photo = [MapPoint photoFromJson:response.result];
+                NSLog(@"commit success");
+            }
+            _handler(response.succeeded ? nil : response.error, @[ photo ]);
+        }
+    }];
 }
 
 @end
