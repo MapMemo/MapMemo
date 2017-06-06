@@ -314,7 +314,7 @@ NSString* const PhotoAnnotationViewIdentifier = @"PhotoAnnotationView";
 	//show the view
 	self.setBottomViewShow;
     //TODO : if is edit barView,set touch as enable;
-    if(index==1)
+    if(index==2)
     {
         self.bottomViewContainer.userInteractionEnabled=true;
     }

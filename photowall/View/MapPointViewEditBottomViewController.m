@@ -60,6 +60,7 @@
 	//save the image from ImagePicker
 	[picker dismissViewControllerAnimated:YES completion:nil];
 	self.uploadImage = [info valueForKey:UIImagePickerControllerOriginalImage];
+
 }
 
 //upload image
@@ -74,17 +75,26 @@
 
 	NSString *userName=self.getUserName;
 
+	NSString *context=_contextUITextView.text;
+
 	//upload uploadTargetMapPoint
-	self.existMapPoint= [[MapPoint alloc]
+	self.uploadTargetMapPoint= [[MapPoint alloc]
 			initWithIdentifier:nil
 					  posterId:userName
 					 timestamp:timestamp
 				   andLocation:location
-					andContext:_contextUITextView.text];	//get context form textBox
+					andContext:context];	//get context form textBox
 
 
 	//convert image into data
-	self.uploadTargetMapPoint.image = UIImagePNGRepresentation(self.uploadImage);
+	@try {
+		if(self.uploadImage!=nil)
+			self.uploadTargetMapPoint.image = UIImagePNGRepresentation(self.uploadImage);
+	}
+	@catch (NSException *exception) {
+		NSLog(@"%@", exception.reason);
+	}
+
 
 	//uplaod profile
 	[self.photoManager uploadMapPoint:self.uploadTargetMapPoint withHandler:^(NSError *error, NSArray *photos) {
@@ -96,13 +106,12 @@
 //upload exist mapPoint
 - (void)setExistMapPoint:(MapPoint *)targetMapPoint
 {
-	self.existMapPoint=targetMapPoint;
+	self.uploadTargetMapPoint=targetMapPoint;
 }
 
 //get map Location
 -(MapPointLocation *) getPositionFromMapViewCenter
 {
-<<<<<<< HEAD
 	//get the controller
 	MapPointViewController *controller=self.mapPointViewController;
 	//get the uploadTargetMapPoint
@@ -113,9 +122,6 @@
 				andLongitude:mapView.centerCoordinate.longitude];
 	//return the location
 	return location;
-=======
-	
->>>>>>> origin/master
 }
 
 -(NSString *)getUserName
