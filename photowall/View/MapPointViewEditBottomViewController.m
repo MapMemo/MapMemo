@@ -32,6 +32,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    self.setDefaultImage;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -47,9 +48,13 @@
 //	picker.sourceType = UIImagePickerControllerSourceTypeCamera;
 	picker.delegate = self;
 	[self presentViewController:picker animated:YES completion:nil];
-
 }
 
+//if switch to viewMode
+-(void)viewWillAppear:(BOOL)animated
+{
+    self.setDefaultImage;
+}
 
 // if selected upload image ,upload directly
 //and notified map to update
@@ -139,7 +144,5 @@
 {
 	self.uploadImage=[UIImage imageNamed:@"MapButton"];
 }
-
-
 
 @end
