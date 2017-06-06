@@ -102,6 +102,7 @@
 //get map Location
 -(MapPointLocation *) getPositionFromMapViewCenter
 {
+<<<<<<< HEAD
 	//get the controller
 	MapPointViewController *controller=self.mapPointViewController;
 	//get the uploadTargetMapPoint
@@ -112,6 +113,9 @@
 				andLongitude:mapView.centerCoordinate.longitude];
 	//return the location
 	return location;
+=======
+	
+>>>>>>> origin/master
 }
 
 -(NSString *)getUserName
