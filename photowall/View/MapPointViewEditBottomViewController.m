@@ -31,6 +31,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    self.setDefaultImage;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -46,9 +47,13 @@
 //	picker.sourceType = UIImagePickerControllerSourceTypeCamera;
 	picker.delegate = self;
 	[self presentViewController:picker animated:YES completion:nil];
-
 }
 
+//if switch to viewMode
+-(void)viewWillAppear:(BOOL)animated
+{
+    self.setDefaultImage;
+}
 
 
 
@@ -97,7 +102,8 @@
 
 
 	//uplaod profile
-	[self.photoManager uploadMapPoint:self.uploadTargetMapPoint withHandler:^(NSError *error, NSArray *photos) {
+	[self.photoManager uploadMapPoint:self.uploadTargetMapPoint withHandler:^(NSError *error, NSArray *photos)
+    {
 		//refresh pages
 		//[_mapPointGridViewController refreshPhotos];
 	}];
@@ -127,6 +133,12 @@
 -(NSString *)getUserName
 {
 	return self.mapPointViewController.accountManager.me.identifier;
+}
+
+//set default image;
+-(void) setDefaultImage
+{
+    self.uploadImage=[UIImage imageNamed:@"MapButton"];
 }
 
 @end
