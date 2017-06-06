@@ -31,6 +31,7 @@
 #pragma mark - Public Methods
 - (void)uploadMapPoint:(MapPoint *)photoData withHandler:(PhotoHandler)handler
 {
+	NSLog(@"Create Task!");
 	//create uploadClass to upload
 	MapPointUploadTask* task = [[MapPointUploadTask alloc] initWithData:photoData];
 	//add uploadClass to task array

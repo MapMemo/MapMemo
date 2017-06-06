@@ -14,9 +14,7 @@
 
 @interface MapPointViewEditBottomViewController : MapPointViewBottomViewController<UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
-@property MapPointManager* photoManager;
 
-- (void)setExistMapPoint:(MapPoint *)targetMapPoint;
 
 //context textbox view
 @property (weak, nonatomic) IBOutlet UITextView *contextUITextView;
