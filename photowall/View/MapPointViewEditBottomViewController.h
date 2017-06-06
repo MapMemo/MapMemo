@@ -16,6 +16,14 @@
 
 @property MapPointManager* photoManager;
 
-- (void)setMapPoint:(MapPoint *)setMapPoint;
+- (void)setExistMapPoint:(MapPoint *)targetMapPoint;
+
+//context textbox view
+@property (weak, nonatomic) IBOutlet UITextView *contextUITextView;
+
+//uploadImage View
+@property (weak, nonatomic, readonly) IBOutlet UIImage *uploadImage;
+
+
 
 @end

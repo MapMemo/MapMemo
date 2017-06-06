@@ -20,6 +20,7 @@
 #import "MapPointViewDetailBottomViewController.h"
 #import "RootViewController.h"
 #import "ChangableMapButton.h"
+#import "AccountManager.h"
 
 NSString* const PhotoAnnotationViewIdentifier = @"PhotoAnnotationView";
 
@@ -84,7 +85,7 @@ NSString* const PhotoAnnotationViewIdentifier = @"PhotoAnnotationView";
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillBeHidden:) name:UIKeyboardWillHideNotification object:nil];
 
     //set now page index is 0
-    _selectedIndex = 1;
+    _selectedIndex = 2;
     //set index
     [self setSelectedIndex:_selectedIndex];
 
@@ -200,7 +201,7 @@ NSString* const PhotoAnnotationViewIdentifier = @"PhotoAnnotationView";
 #pragma mark - Private Methods
 - (void)loadPhotosInRegion:(MapPointRegion*)region {
 	self.mapView.tag = region.hash;
-	[self.photoManager loadPhotosNear:region withHandler:[self updateAnnoationsWithTag:region.hash]];
+    [self.photoManager loadMapPointsNear:region withHandler:[self updateAnnoationsWithTag:region.hash]];
 }
 
 //update all the map points
@@ -266,7 +267,7 @@ NSString* const PhotoAnnotationViewIdentifier = @"PhotoAnnotationView";
     //TODO : if already hase point ,set to the edit controller
     MapPoint *point= [self getMapPointByCLLocationCoordinate2D:coordinate];
     //set the point to the controller
-    [_editMapPointBottomController setMapPoint:point];
+	[_editMapPointBottomController setExistMapPoint:point];
     //set to the edit mode
     [self setSelectedIndex:1];
 }

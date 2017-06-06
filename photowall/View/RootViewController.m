@@ -73,6 +73,7 @@
 	_mapPointViewController.rootViewController = self;
 	_mapPointViewController.userManager = self.userManager;
 	_mapPointViewController.photoManager = self.photoManager;
+	_mapPointViewController.accountManager = self.accountManager;
 	//histery
 	_mapPointHisteryController.rootViewController = self;
 	_mapPointHisteryController.userManager = self.userManager;

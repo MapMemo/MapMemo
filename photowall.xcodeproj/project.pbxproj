@@ -71,7 +71,7 @@
 		1E9E464C1E99D853008613AB /* MapPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E9E464B1E99D853008613AB /* MapPoint.m */; };
 		1E9E464F1E99D86B008613AB /* MapPointManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E9E464E1E99D86B008613AB /* MapPointManager.m */; };
 		1E9E46511E99FCC3008613AB /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E9E46501E99FCC3008613AB /* CoreLocation.framework */; };
-		1E9E46541E9A0341008613AB /* LocationAwarePhotoUploadTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E9E46531E9A0341008613AB /* LocationAwarePhotoUploadTask.m */; };
+		1E9E46541E9A0341008613AB /* MapPointUploadTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E9E46531E9A0341008613AB /* MapPointUploadTask.m */; };
 		1EA8159E1E89063F00AD4B0F /* AccountManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EA8159D1E89063F00AD4B0F /* AccountManagerTests.m */; };
 		1EB67E7C1E88A07900BF4498 /* RestRequestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EB67E7B1E88A07900BF4498 /* RestRequestTests.m */; };
 		1EB8DF8F1E8F4B9300FB67B6 /* UserManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EB8DF8E1E8F4B9300FB67B6 /* UserManager.m */; };
@@ -199,8 +199,8 @@
 		1E9E464D1E99D86B008613AB /* MapPointManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MapPointManager.h; path = Model/MapPointManager.h; sourceTree = "<group>"; };
 		1E9E464E1E99D86B008613AB /* MapPointManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MapPointManager.m; path = Model/MapPointManager.m; sourceTree = "<group>"; };
 		1E9E46501E99FCC3008613AB /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
-		1E9E46521E9A0341008613AB /* LocationAwarePhotoUploadTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LocationAwarePhotoUploadTask.h; path = Model/LocationAwarePhotoUploadTask.h; sourceTree = "<group>"; };
-		1E9E46531E9A0341008613AB /* LocationAwarePhotoUploadTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LocationAwarePhotoUploadTask.m; path = Model/LocationAwarePhotoUploadTask.m; sourceTree = "<group>"; };
+		1E9E46521E9A0341008613AB /* MapPointUploadTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MapPointUploadTask.h; path = Model/MapPointUploadTask.h; sourceTree = "<group>"; };
+		1E9E46531E9A0341008613AB /* MapPointUploadTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MapPointUploadTask.m; path = Model/MapPointUploadTask.m; sourceTree = "<group>"; };
 		1EA8159D1E89063F00AD4B0F /* AccountManagerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AccountManagerTests.m; path = Model/AccountManagerTests.m; sourceTree = "<group>"; };
 		1EB67E7B1E88A07900BF4498 /* RestRequestTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RestRequestTests.m; path = RestClient/RestRequestTests.m; sourceTree = "<group>"; };
 		1EB8DF8D1E8F4B9300FB67B6 /* UserManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserManager.h; path = Model/UserManager.h; sourceTree = "<group>"; };
@@ -441,8 +441,8 @@
 				1E9E464B1E99D853008613AB /* MapPoint.m */,
 				1E9E464D1E99D86B008613AB /* MapPointManager.h */,
 				1E9E464E1E99D86B008613AB /* MapPointManager.m */,
-				1E9E46521E9A0341008613AB /* LocationAwarePhotoUploadTask.h */,
-				1E9E46531E9A0341008613AB /* LocationAwarePhotoUploadTask.m */,
+				1E9E46521E9A0341008613AB /* MapPointUploadTask.h */,
+				1E9E46531E9A0341008613AB /* MapPointUploadTask.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -850,7 +850,7 @@
 				1EBCF1AA1EAC8E8A00C2FDFA /* UIViewController+Mask.m in Sources */,
 				1E5B4F041E8619DD003F1239 /* photowall.xcdatamodeld in Sources */,
 				1ECB6F911E86676200BA0D77 /* RestClient.m in Sources */,
-				1E9E46541E9A0341008613AB /* LocationAwarePhotoUploadTask.m in Sources */,
+				1E9E46541E9A0341008613AB /* MapPointUploadTask.m in Sources */,
 				1E5B4EFB1E8619DD003F1239 /* AppDelegate.m in Sources */,
 				1E5B4EF81E8619DD003F1239 /* main.m in Sources */,
 				1E18E7B01E88E4AB00200DC0 /* NSString+Utils.m in Sources */,

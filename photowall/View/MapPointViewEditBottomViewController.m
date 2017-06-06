@@ -8,10 +8,19 @@
 
 #import "MapPointViewEditBottomViewController.h"
 #import "MapPointManager.h"
+#import "MapPointViewController.h"
+#import "UserManager.h"
+#import "AccountManager.h"
 
 @interface MapPointViewEditBottomViewController ()
 
-- (void)setMapPoint:(MapPoint *)mapPoint;
+- (void)mapPoint:(MapPoint *)mapPoint;
+
+//upload image
+@property (weak, nonatomic)UIImage *uploadImage;
+
+@property MapPoint *uploadTargetMapPoint;
+
 @end
 
 //TODO : flow up the textbox when typing
@@ -41,23 +50,73 @@
 }
 
 
-// if selected upload image and return to the mapViewPage ?
+
+
+// if selected upload image ,upload directly
+//and notified map to update
 #pragma mark - UIImagePickerControllerDelegate
-- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info {
-	[picker dismissViewControllerAnimated:YES completion:nil];
-	UIImage* image = [info valueForKey:UIImagePickerControllerOriginalImage];
-	NSData* pngData = UIImagePNGRepresentation(image);
-
-	//andy840119
-	/*
-	[self.photoManager uploadPhoto:pngData withHandler:^(NSError* error, NSArray* photos) {
-		[_mapPointGridViewController refreshPhotos];
-	}];
-	 */
-}
-
-- (void)setMapPoint:(MapPoint *)setMapPoint
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info
 {
-    //return nil;
+	//save the image from ImagePicker
+	[picker dismissViewControllerAnimated:YES completion:nil];
+	self.uploadImage = [info valueForKey:UIImagePickerControllerOriginalImage];
 }
+
+//upload image
+- (IBAction)ClickUploadImageButton:(id)sender
+{
+	//TODO : get now DataTime, but not use when upload
+	NSDate* timestamp = [NSDate alloc];
+
+	//get the position from the map
+	MapPointLocation *location;
+	location = self.getPositionFromMapViewCenter;
+
+	NSString *userName=self.getUserName;
+
+	//upload uploadTargetMapPoint
+	self.existMapPoint= [[MapPoint alloc]
+			initWithIdentifier:nil
+					  posterId:userName
+					 timestamp:timestamp
+				   andLocation:location
+					andContext:_contextUITextView.text];	//get context form textBox
+
+
+	//convert image into data
+	self.uploadTargetMapPoint.image = UIImagePNGRepresentation(self.uploadImage);
+
+	//uplaod profile
+	[self.photoManager uploadMapPoint:self.uploadTargetMapPoint withHandler:^(NSError *error, NSArray *photos) {
+		//refresh pages
+		//[_mapPointGridViewController refreshPhotos];
+	}];
+}
+
+//upload exist mapPoint
+- (void)setExistMapPoint:(MapPoint *)targetMapPoint
+{
+	self.existMapPoint=targetMapPoint;
+}
+
+//get map Location
+-(MapPointLocation *) getPositionFromMapViewCenter
+{
+	//get the controller
+	MapPointViewController *controller=self.mapPointViewController;
+	//get the uploadTargetMapPoint
+	MKMapView* mapView=controller.mapView;
+	//get the location
+	MapPointLocation * location = [[MapPointLocation alloc]
+			initWithLatitude:mapView.centerCoordinate.latitude
+				andLongitude:mapView.centerCoordinate.longitude];
+	//return the location
+	return location;
+}
+
+-(NSString *)getUserName
+{
+	return self.mapPointViewController.accountManager.me.identifier;
+}
+
 @end

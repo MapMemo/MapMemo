@@ -9,7 +9,7 @@
 #import "MapPointManager.h"
 
 #import "RestClient.h"
-#import "LocationAwarePhotoUploadTask.h"
+#import "MapPointUploadTask.h"
 
 #import "NSDate+Utils.h"
 
@@ -27,11 +27,17 @@
 	return self;
 }
 
+//upload uploadTargetMapPoint form here
 #pragma mark - Public Methods
-- (void)uploadPhoto:(NSData*)photoData withHandler:(PhotoHandler)handler {
-	LocationAwarePhotoUploadTask* task = [[LocationAwarePhotoUploadTask alloc] initWithData:photoData];
+- (void)uploadMapPoint:(MapPoint *)photoData withHandler:(PhotoHandler)handler
+{
+	//create uploadClass to upload
+	MapPointUploadTask* task = [[MapPointUploadTask alloc] initWithData:photoData];
+	//add uploadClass to task array
 	[_tasks addObject:task];
-	[task uploadWithClient:_client andHandler:^(NSError* error, NSArray* photos) {
+	//Upload
+	[task uploadWithClient:_client andHandler:^(NSError* error, NSArray* photos)
+	{
 		[_tasks removeObject:task];
 		if (handler != nil) {
 			handler(error, photos);
@@ -53,7 +59,8 @@
 	[request get:[self forwardPhotos:handler]];
 }
 
-- (void)loadPhotosNear:(MapPointRegion*)region withHandler:(PhotoHandler)handler {
+//load the uploadTargetMapPoint near the map regino
+- (void)loadMapPointsNear:(MapPointRegion *)region withHandler:(PhotoHandler)handler {
 	if (region == nil) {
 		if (handler != nil) {
 			handler(nil, @[]);

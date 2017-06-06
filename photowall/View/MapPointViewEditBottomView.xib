@@ -10,6 +10,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MapPointViewEditBottomViewController">
             <connections>
+                <outlet property="contextUITextView" destination="mgg-8G-FCd" id="hE1-YB-MdZ"/>
+                <outlet property="uploadImage" destination="B2S-al-Agi" id="3Gg-xs-F8x"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -18,35 +20,54 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Context" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fNd-Nt-yFD">
-                    <rect key="frame" x="42" y="33" width="60" height="21"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Context" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fNd-Nt-yFD">
+                    <rect key="frame" x="30" y="20" width="60" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="aaaaaa" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="mgg-8G-FCd">
-                    <rect key="frame" x="42" y="68" width="297" height="92"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                </textView>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tS2-29-3SA">
-                    <rect key="frame" x="42" y="180" width="42" height="30"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tS2-29-3SA">
+                    <rect key="frame" x="20" y="577" width="42" height="30"/>
                     <state key="normal" title="Image"/>
                     <connections>
                         <action selector="SelectImageButtonPressUp:" destination="-1" eventType="touchUpInside" id="oYO-Bx-Mbc"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QIm-0u-LNA">
-                    <rect key="frame" x="309" y="180" width="30" height="30"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QIm-0u-LNA">
+                    <rect key="frame" x="325" y="577" width="30" height="30"/>
                     <state key="normal" title="Add"/>
+                    <connections>
+                        <action selector="ClickUploadImageButton:" destination="-1" eventType="touchUpInside" id="XCY-GT-gIf"/>
+                    </connections>
                 </button>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="aaaaaa" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="mgg-8G-FCd">
+                    <rect key="frame" x="20" y="51" width="335" height="516"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                </textView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="B2S-al-Agi">
+                    <rect key="frame" x="83" y="587" width="42" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="20" id="pLR-jo-QQS"/>
+                        <constraint firstAttribute="height" constant="40" id="pNX-0t-kLh"/>
+                    </constraints>
+                </imageView>
             </subviews>
             <color key="backgroundColor" red="1" green="0.86593253693230321" blue="0.86183597947004109" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="QIm-0u-LNA" firstAttribute="top" secondItem="mgg-8G-FCd" secondAttribute="bottom" constant="10" id="5lj-6o-wzD"/>
+                <constraint firstAttribute="bottom" secondItem="tS2-29-3SA" secondAttribute="bottom" constant="60" id="6O6-zL-BKR"/>
+                <constraint firstItem="mgg-8G-FCd" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="E5H-ma-kh3"/>
+                <constraint firstItem="mgg-8G-FCd" firstAttribute="top" secondItem="fNd-Nt-yFD" secondAttribute="bottom" constant="10" id="ODf-eU-DfC"/>
+                <constraint firstAttribute="bottom" secondItem="B2S-al-Agi" secondAttribute="bottom" constant="40" id="OIH-ne-4yX"/>
+                <constraint firstItem="tS2-29-3SA" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="PoB-px-zQf"/>
+                <constraint firstAttribute="trailing" secondItem="mgg-8G-FCd" secondAttribute="trailing" constant="20" id="aD5-Sk-sxt"/>
+                <constraint firstItem="fNd-Nt-yFD" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="30" id="fL4-Lj-ris"/>
+                <constraint firstAttribute="trailing" secondItem="QIm-0u-LNA" secondAttribute="trailing" constant="20" id="fpu-DG-7sH"/>
+                <constraint firstAttribute="bottom" secondItem="QIm-0u-LNA" secondAttribute="bottom" constant="60" id="vWG-2O-7wg"/>
+                <constraint firstItem="fNd-Nt-yFD" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="20" id="zEW-na-PKs"/>
+            </constraints>
             <point key="canvasLocation" x="34.5" y="54.5"/>
         </view>
     </objects>

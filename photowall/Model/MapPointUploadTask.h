@@ -1,5 +1,5 @@
 //
-//  LocationAwarePhotoUploadTask.h
+//  MapPointUploadTask.h
 //  photowall
 //
 //  Created by Spirit on 4/9/17.
@@ -11,9 +11,9 @@
 
 #import "MapPointManager.h"
 
-@interface LocationAwarePhotoUploadTask : NSObject<CLLocationManagerDelegate>
+@interface MapPointUploadTask : NSObject<CLLocationManagerDelegate>
 
-- (instancetype)initWithData:(NSData*)data;
+- (instancetype)initWithData:(MapPoint*)data;
 
 - (void)uploadWithClient:(RestClient*)client andHandler:(PhotoHandler)handler;
 

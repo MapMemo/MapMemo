@@ -34,26 +34,31 @@
 
 @implementation MapPoint (JSON)
 
+//convert the result form json format
 + (instancetype)photoFromJson:(id)json {
 	NSString* identifier = [json objectForKey:@"id"];
 	NSString* posterId = [json objectForKey:@"posterId"];
 	NSDate* timestamp = [NSDate dateWithTimeIntervalSince1970:[[json objectForKey:@"timestamp"] doubleValue] / 1000];
 	MapPointLocation* location = nil;
 	id locationJson = [json objectForKey:@"location"];
+	NSString *context=[json objectForKey:@"context"];
 	if (locationJson != nil) {
 		double latitude = [[locationJson objectForKey:@"latitude"] doubleValue];
 		double longitude = [[locationJson objectForKey:@"longitude"] doubleValue];
 		location = [[MapPointLocation alloc] initWithLatitude:latitude andLongitude:longitude];
 	}
-	return [[MapPoint alloc] initWithIdentifier:identifier posterId:posterId timestamp:timestamp andLocation:location];
+	return [[MapPoint alloc] initWithIdentifier:identifier posterId:posterId timestamp:timestamp andLocation:location andContext:context];
 }
 
-- (instancetype)initWithIdentifier:(NSString*)identifier posterId:(NSString*)posterId timestamp:(NSDate*)timestamp andLocation:(MapPointLocation*)location {
+//initial with value
+- (instancetype)initWithIdentifier:(NSString*)identifier posterId:(NSString*)posterId timestamp:(NSDate*)timestamp andLocation:(MapPointLocation*)location andContext:(NSString*)context;
+{
 	if (self = [super init]) {
 		_identifier = identifier;
 		_posterId = posterId;
 		_timestamp = timestamp;
 		_location = location;
+		_context=context;
 	}
 	return self;
 }

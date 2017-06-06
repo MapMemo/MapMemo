@@ -1,44 +1,54 @@
 //
-//  LocationAwarePhotoUploadTask.m
+//  MapPointUploadTask.m
 //  photowall
 //
 //  Created by Spirit on 4/9/17.
 //  Copyright © 2017 Picowork. All rights reserved.
 //
 
-#import "LocationAwarePhotoUploadTask.h"
+#import "MapPointUploadTask.h"
 
 #import "RestClient.h"
 
-@implementation LocationAwarePhotoUploadTask
+@implementation MapPointUploadTask
 {
-	NSData* _data;
+	//TODO : change it into MapPoint
+	MapPoint *_mapPoint;
+
+
 	RestClient* _client;
 	PhotoHandler _handler;
+
 	// use to get the position
+    //but not use in here
 	CLLocationManager* _manager;
 }
 
 #pragma mark - Initializers
-- (instancetype)initWithData:(NSData*)data {
+- (instancetype)initWithData:(MapPoint*)data {
 	if (self = [super init]) {
-		_data = data;
+		//TODO : change it into MapPoint
+		_mapPoint = data;
 		_manager = [CLLocationManager new];
 		_manager.delegate = self;
 	}
 	return self;
 }
 
+//TODO : use the CLLocation form MapPoint, not get form system
 #pragma mark - Public Methods
 - (void)uploadWithClient:(RestClient*)client andHandler:(PhotoHandler)handler {
 	_client = client;
 	_handler = handler;
+	//
 	CLAuthorizationStatus status = [CLLocationManager authorizationStatus];
+	//ask the authorize from manager;
 	if (status != kCLAuthorizationStatusAuthorizedWhenInUse) {
 		[_manager requestWhenInUseAuthorization];
 	}
 }
 
+//if upload fall
 #pragma mark - CLLocationManagerDelegate
 - (void)locationManager:(CLLocationManager*)manager didFailWithError:(NSError*)error {
 	[self uploadPhotoWithLocation:nil];
@@ -50,26 +60,42 @@
 	}
 }
 
-- (void)locationManager:(CLLocationManager*)manager didUpdateLocations:(NSArray<CLLocation*> *)locations {
+//upload the photo from here
+- (void)locationManager:(CLLocationManager*)manager didUpdateLocations:(NSArray<CLLocation*> *)locations
+{
 	CLLocation* location = locations.firstObject;
 	[self uploadPhotoWithLocation:location];
 }
 
+//uplaod photo and get the result
 #pragma mark - Private Methods
 - (void)uploadPhotoWithLocation:(CLLocation*)location
 {
 	RestRequest* request = [_client path:@"/photos"];
-	if (location != nil) {
-		NSString* geolocation = [NSString stringWithFormat:@"geo:%@,%@", @(location.coordinate.latitude), @(location.coordinate.longitude)];
+
+	//midified the location from MapPoint
+    MapPointLocation* mapPointLocation=_mapPoint.location;
+	//ImageData
+	NSData* _imageData = _mapPoint.image;
+
+	if (location != nil)//location
+	{
+		NSString* geolocation = [NSString stringWithFormat:@"geo:%@,%@", @(mapPointLocation.latitude), @(mapPointLocation.longitude)];
 		[request setValue:geolocation forHeader:@"Geolocation"];
+
 	}
-	[request upload:_data withMethod:@"POST" andHandler:^(RestResponse* response)
+    if(_mapPoint.context!=nil)//context
+    {
+        [request setValue:_mapPoint.context forHeader:@"context"];
+    }
+	[request upload:_imageData withMethod:@"POST" andHandler:^(RestResponse* response)//Image
 	{
 		if (_handler != nil)
 		{
 			//if upload success ,get the result
 			MapPoint* photo = nil;
-			if (response.succeeded) {
+			if (response.succeeded)
+            {
 				photo = [MapPoint photoFromJson:response.result];
 			}
 			_handler(response.succeeded ? nil : response.error, @[ photo ]);

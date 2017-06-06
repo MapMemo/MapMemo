@@ -12,13 +12,14 @@
 
 @class UserManager;
 @class MapPointManager;
+@class AccountManager;
 
 enum MapPointViewMode
 {
     notThisPage=0,//if not on this page
     emptyAndReadyForEdit=1, //if there is not map in the center (selected area)
     onEdit=2,//onEditMap
-    forceExistmapPoint=3 //if there have mapPoint in the map
+    forceExistmapPoint=3 //if there have uploadTargetMapPoint in the map
 };
 
 @interface MapPointViewController : PageUIViewController<MKMapViewDelegate,UIGestureRecognizerDelegate>
@@ -29,9 +30,13 @@ enum MapPointViewMode
 @property (weak, nonatomic) IBOutlet MKMapView* mapView;
 
 @property (weak, nonatomic) UserManager* userManager;
+
 @property (weak, nonatomic) MapPointManager* photoManager;
 
+@property AccountManager* accountManager;
+
 @property(nonatomic) enum MapPointViewMode mapPointViewMode;
+
 
 //Notofied by rootView
 - (void)PressButtonDown:(float)PressTime;

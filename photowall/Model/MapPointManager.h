@@ -21,10 +21,10 @@ typedef void(^PhotoHandler)(NSError* error, NSArray* photos);
 
 - (instancetype)initWithClient:(RestClient*)client;
 
-- (void)uploadPhoto:(NSData*)photo withHandler:(PhotoHandler)handler;
+- (void)uploadMapPoint:(MapPoint *)photo withHandler:(PhotoHandler)handler;
 
 - (void)loadPhotosAfter:(NSDate*)after before:(NSDate*)before ofUser:(NSString*)userId withHandler:(PhotoHandler)handler;
 
-- (void)loadPhotosNear:(MapPointRegion*)region withHandler:(PhotoHandler)handler;
+- (void)loadMapPointsNear:(MapPointRegion *)region withHandler:(PhotoHandler)handler;
 
 @end

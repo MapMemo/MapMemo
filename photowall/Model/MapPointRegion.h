@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
+//set the region of map view
 @interface MapPointRegion : NSObject
 
 - (instancetype)initWithLatitude:(double)latitude longitude:(double)longitude andRadius:(double)radius;

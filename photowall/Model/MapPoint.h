@@ -23,20 +23,24 @@
 
 //user ID
 @property (nonatomic, readonly) NSString* posterId;
-//mapPoint ID ?
+//uploadTargetMapPoint ID ?
 @property (nonatomic, readonly) NSString* identifier;
 //PostTime
 @property (nonatomic, readonly) NSDate* timestamp;
 //Location
 @property (nonatomic, readonly) MapPointLocation* location;
 //memo
-@property (nonatomic, readonly) NSString* memo;
+@property (nonatomic) NSString* context;
 //small image path
 @property (nonatomic, readonly) NSString* thumbnailPath;
 //large Image path
 @property (nonatomic, readonly) NSString* fullSizeImagePath;
 
+//TODO : will move to "uploadMapPoint" class
+//uploadImage
+@property (nonatomic) NSData* image;
 
+- (instancetype)initWithIdentifier:(NSString *)identifier posterId:(NSString *)posterId timestamp:(NSDate *)timestamp andLocation:(MapPointLocation *)location andContext:(NSString *)context;
 @end
 
 //json of map point
