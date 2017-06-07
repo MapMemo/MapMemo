@@ -15,7 +15,7 @@
 //who post the point
 @property (nonatomic) NSString* poster;
 
-//maPoints
+//mapPoints
 @property (weak, nonatomic) MapPoint* photo;
 
 @end

@@ -12,6 +12,7 @@
 #import "MapPointManager.h"
 
 @class MapPointViewController;
+@class UserManager;
 
 @interface MapPointViewDetailBottomViewController : MapPointViewBottomViewController
 
@@ -23,6 +24,8 @@
 
 //image
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
+
+@property UserManager *userManager;
 
 
 @end

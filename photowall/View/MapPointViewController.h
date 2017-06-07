@@ -36,15 +36,10 @@ enum MapPointViewMode
 
 @property AccountManager* accountManager;
 
+//update the mode
 @property(nonatomic) enum MapPointViewMode mapPointViewMode;
 
 //get map Location
 -(MapPointLocation *) getPositionFromMapViewCenter;
-
-
-//Notofied by rootView
-- (void)PressButtonDown:(float)PressTime;
-//Notified by rootView
-- (void)PressButtonUp:(float)PressUpTime;
 
 @end
