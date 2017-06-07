@@ -63,7 +63,10 @@
 {
 	//save the image from ImagePicker
 	[picker dismissViewControllerAnimated:YES completion:nil];
+	//get selected image
 	self.uploadImage = [info valueForKey:UIImagePickerControllerOriginalImage];
+	//update View
+	[self.mapPointViewController updateView:[self mapPointViewController].mapPointViewMode];
 
 }
 
@@ -114,17 +117,20 @@
 }
 
 //upload exist mapPoint
+#pragma mark function
 - (void)setExistMapPoint:(MapPoint *)targetMapPoint
 {
 	self.uploadTargetMapPoint=targetMapPoint;
 }
 
+#pragma mark private function
 -(NSString *)getUserName
 {
 	return self.mapPointViewController.accountManager.me.identifier;
 }
 
 //set default image;
+#pragma mark private function
 -(void) setDefaultImage
 {
 	self.uploadImage=[UIImage imageNamed:@"MapButton"];

@@ -51,7 +51,6 @@ NSString* const PhotoAnnotationViewIdentifier = @"PhotoAnnotationView";
 	//if pressDeltaTime > 1000ms,set as longPress
     float TriggerDeltaPressTime;
 
-	float pressDownTime;
     float barFrame_Y;
 }
 
@@ -91,8 +90,12 @@ NSString* const PhotoAnnotationViewIdentifier = @"PhotoAnnotationView";
 }
 
 #pragma mark - event
-- (void)viewWillAppear:(BOOL)animated {
+- (void)viewWillAppear:(BOOL)animated
+{
     [super viewWillAppear:animated];
+    //update view
+    [self updateView:emptyAndReadyForEdit];
+    //update title
     [self.rootViewController setTitle:@"points On Map"];
 }
 
@@ -105,8 +108,6 @@ NSString* const PhotoAnnotationViewIdentifier = @"PhotoAnnotationView";
     [self.mapView setRegion:region animated:YES];
     [self loadPhotosInRegion:[MapPointRegion fromMKCoordinateRegion:region]];
 
-    //update view
-    [self updateView:self.mapPointViewMode];
 }
 
 //if switch to another view
@@ -291,36 +292,56 @@ NSString* const PhotoAnnotationViewIdentifier = @"PhotoAnnotationView";
 	};
 }
 
-
-
-
-
-
-
-
-
 #pragma mark - event
-- (void)PressButtonDown:(float )PressTime
+- (void)PressButtonDown
 {
-	pressDownTime=PressTime;
+
 }
 
 #pragma mark - event
-- (void)PressButtonUp:(float )PressUpTime
+- (void)PressButtonUp
 {
-	float deltaTime=PressUpTime-pressDownTime;
-
+	float deltaTime = self.rootViewController.mapPointViewTabButton.getButtonPressTime;
+    //TODO : set all press is short press
+    deltaTime=0;
 	//see as long press
 	if(deltaTime>TriggerDeltaPressTime)
 	{
-		[self LongPressMapButton];
+		[self LongPressUpMapButton];
 	}
+    else
+    {
+        self.SlowPressUpMapButton;
+    }
 }
 
 //long press Button,
--(void) LongPressMapButton
+-(void) LongPressUpMapButton
 {
 
+}
+
+//slowPressUpButton
+-(void) SlowPressUpMapButton
+{
+    switch(self.mapPointViewMode)
+    {
+        case notThisPage:
+            //do nothing
+            break;
+
+        case emptyAndReadyForEdit:
+            [self updateView:onEdit];//show edit page
+            break;
+
+        case onEdit:
+            [self updateView:emptyAndReadyForEdit];//cancel the edit
+            break;
+
+        case forceExistmapPoint:
+            [self updateView:onEdit];//show edit page
+            break;
+    }
 }
 
 //update view
@@ -345,10 +366,14 @@ NSString* const PhotoAnnotationViewIdentifier = @"PhotoAnnotationView";
     {
         case notThisPage:
             [self setSelectedIndex:_mapPointBarController];//did not appear view
+            //hide the view
+            self.setBottonViewHide;
             break;
 
         case emptyAndReadyForEdit:
             [self setSelectedIndex:_mapPointBarController];//did not appear view
+            //hide the view
+            self.setBottonViewHide;
             break;
 
         case onEdit:
@@ -368,12 +393,19 @@ NSString* const PhotoAnnotationViewIdentifier = @"PhotoAnnotationView";
 {
 	//get now controller
     UIViewController* controller = targetView;
-	//hide the view
-	//self.setBottonViewHide;
+    //hide the view
+    self.setBottonViewHide;
+
+    //remove all views
+    NSArray *viewsToRemove = [self.bottomViewContainer subviews];
+    for (UIView *v in viewsToRemove) {
+        [v removeFromSuperview];
+    }
     //add view
     [self.bottomViewContainer addSubview:controller.view fit:YES];
+    
 	//show the view
-	//self.setBottomViewShow;
+	self.setBottomViewShow;
 }
 
 //update is interactive or not

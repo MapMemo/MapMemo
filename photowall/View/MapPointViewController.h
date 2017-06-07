@@ -42,4 +42,13 @@ enum MapPointViewMode
 //get map Location
 -(MapPointLocation *) getPositionFromMapViewCenter;
 
+//Notofied by rootView
+- (void)PressButtonDown;
+//Notified by rootView
+- (void)PressButtonUp;
+
+//update view
+-(void)updateView:(enum MapPointViewMode ) type;
+
+
 @end
