@@ -12,8 +12,20 @@
 #import "MapPointManager.h"
 
 @class MapPointViewController;
+@class UserManager;
 
 @interface MapPointViewDetailBottomViewController : MapPointViewBottomViewController
+
+//user
+@property (weak, nonatomic) IBOutlet UILabel *userLabel;
+
+//context
+@property (weak, nonatomic) IBOutlet UILabel *contextLabel;
+
+//image
+@property (weak, nonatomic) IBOutlet UIImageView *imageView;
+
+@property UserManager *userManager;
 
 
 @end

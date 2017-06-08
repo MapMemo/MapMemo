@@ -63,7 +63,10 @@
 {
 	//save the image from ImagePicker
 	[picker dismissViewControllerAnimated:YES completion:nil];
+	//get selected image
 	self.uploadImage = [info valueForKey:UIImagePickerControllerOriginalImage];
+	//update View
+	[self.mapPointViewController updateView:[self mapPointViewController].mapPointViewMode];
 
 }
 
@@ -75,7 +78,7 @@
 
 	//get the position from the map
 	MapPointLocation *location;
-	location = self.getPositionFromMapViewCenter;
+	location = self.mapPointViewController.getPositionFromMapViewCenter;
 
 	NSString *userName=self.getUserName;
 
@@ -114,32 +117,20 @@
 }
 
 //upload exist mapPoint
+#pragma mark function
 - (void)setExistMapPoint:(MapPoint *)targetMapPoint
 {
 	self.uploadTargetMapPoint=targetMapPoint;
 }
 
-//get map Location
--(MapPointLocation *) getPositionFromMapViewCenter
-{
-	//get the controller
-	MapPointViewController *controller=self.mapPointViewController;
-	//get the uploadTargetMapPoint
-	MKMapView* mapView=controller.mapView;
-	//get the location
-	MapPointLocation * location = [[MapPointLocation alloc]
-			initWithLatitude:mapView.centerCoordinate.latitude
-				andLongitude:mapView.centerCoordinate.longitude];
-	//return the location
-	return location;
-}
-
+#pragma mark private function
 -(NSString *)getUserName
 {
 	return self.mapPointViewController.accountManager.me.identifier;
 }
 
 //set default image;
+#pragma mark private function
 -(void) setDefaultImage
 {
 	self.uploadImage=[UIImage imageNamed:@"MapButton"];

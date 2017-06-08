@@ -111,19 +111,16 @@
 //center circle button down
 - (IBAction)takePictureButtonDown:(id)sender
 {
-    //TODO : send the time button pressdown
-
+    //send the notification to View
+	_mapPointViewController.PressButtonDown;
 }
 
 //center circle button up
 - (IBAction)takePictureButtonPressed:(id)sender
 {
     [self setSelectedIndex:(0)];
-
-    //TODO : send if the page is in show or not
-    
-    //TODO : sned the time button up,for detecting is longPress or not
-
+    //send the notification to View
+	[_mapPointViewController PressButtonUp];
 }
 
 //switch the page

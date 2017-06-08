@@ -13,6 +13,7 @@
 @class UserManager;
 @class MapPointManager;
 @class AccountManager;
+@class MapPointLocation;
 
 enum MapPointViewMode
 {
@@ -35,12 +36,19 @@ enum MapPointViewMode
 
 @property AccountManager* accountManager;
 
+//update the mode
 @property(nonatomic) enum MapPointViewMode mapPointViewMode;
 
+//get map Location
+-(MapPointLocation *) getPositionFromMapViewCenter;
 
 //Notofied by rootView
-- (void)PressButtonDown:(float)PressTime;
+- (void)PressButtonDown;
 //Notified by rootView
-- (void)PressButtonUp:(float)PressUpTime;
+- (void)PressButtonUp;
+
+//update view
+-(void)updateView:(enum MapPointViewMode ) type;
+
 
 @end

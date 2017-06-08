@@ -6,6 +6,7 @@
 //  Copyright © 2017 Picowork. All rights reserved.
 //
 
+#import <MapKit/MapKit.h>
 #import "MapPointViewController.h"
 
 #import "UserManager.h"
@@ -21,11 +22,12 @@
 #import "RootViewController.h"
 #import "ChangableMapButton.h"
 #import "AccountManager.h"
+#import "MapPoint.h"
 
 NSString* const PhotoAnnotationViewIdentifier = @"PhotoAnnotationView";
 
 
-//TODO : about get the map center position :
+//about get the map center position :
 //https://cg2010studio.com/2014/04/08/ios-%E4%BD%BF%E7%94%A8%E5%9C%B0%E5%9C%96%E7%8D%B2%E5%BE%97%E7%B6%93%E7%B7%AF%E5%BA%A6/
 @implementation MapPointViewController {
 
@@ -38,10 +40,8 @@ NSString* const PhotoAnnotationViewIdentifier = @"PhotoAnnotationView";
 	//if hasn't focus any point
 	MapPointViewBottomViewController* _mapPointBarController;
 
-
-    NSInteger _selectedIndex;
-    NSArray* _barControllers;
-    UIViewController* _currentController;
+    //now MapPoint dats
+    MapPoint *_nowMapPoint;
 
 	//all the points int the mapView
 	NSMutableArray* _annotations;
@@ -52,11 +52,10 @@ NSString* const PhotoAnnotationViewIdentifier = @"PhotoAnnotationView";
 	//if pressDeltaTime > 1000ms,set as longPress
     float TriggerDeltaPressTime;
 
-	float pressDownTime;
-
     float barFrame_Y;
 }
 
+#pragma mark - event
 - (void)viewDidLoad
 {
 	[super viewDidLoad];
@@ -74,96 +73,167 @@ NSString* const PhotoAnnotationViewIdentifier = @"PhotoAnnotationView";
     _mapPointBarController=[[MapPointViewBottomViewController alloc] initWithNibName:@"MapPointViewBottomView" bundle:nil];
     //set value
     _viewMapPointBarController.mapPointViewController=self;
+    _viewMapPointBarController.userManager=self.userManager;
     _editMapPointBottomController.mapPointViewController=self;
     _mapPointBarController.mapPointViewController=self;
-
-    //idol , view ,edit
-    _barControllers = @[_mapPointBarController,  _viewMapPointBarController,_editMapPointBottomController ];
 
     //get keyboard appear and disappear event
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardDidShowNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillBeHidden:) name:UIKeyboardWillHideNotification object:nil];
 
-    //set now page index is 0
-    _selectedIndex = 2;
-    //set index
-    [self setSelectedIndex:_selectedIndex];
-
-	//add map event
+    //add map event
 	UIPanGestureRecognizer* panRec = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(didDragMap:)];
 	[panRec setDelegate:self];
 	[self.mapView addGestureRecognizer:panRec];
+
+    //set initial state and update view
+    [self updateView:emptyAndReadyForEdit];
 }
 
-//if draging map
-- (void)didDragMap:(UIGestureRecognizer*)gestureRecognizer
+#pragma mark - event
+- (void)viewWillAppear:(BOOL)animated
 {
-	if (gestureRecognizer.state == UIGestureRecognizerStateEnded)
-	{
-		//
-		NSLog(@"drag ended");
-	}
-	else
-	{
-		//TODO detect if area contains any mapPoints
-
-		//TODO : if contains ,catch the nearest center map Points
-		NSLog(@"draging...");
-	}
+    [super viewWillAppear:animated];
+    //update view
+    [self updateView:emptyAndReadyForEdit];
+    //update title
+    [self.rootViewController setTitle:@"points On Map"];
 }
 
-- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer {
-	return YES;
+//if switch to this view
+#pragma mark - event
+- (void)viewDidAppear:(BOOL)animated
+{
+    //set to the area
+    MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(CLLocationCoordinate2DMake(25.044013, 121.533954), 500, 500);
+    [self.mapView setRegion:region animated:YES];
+    [self loadPhotosInRegion:[MapPointRegion fromMKCoordinateRegion:region]];
+
+}
+
+//if switch to another view
+#pragma mark - event
+-(void)viewWillDisappear:(BOOL)animated
+{
+    //update view and set not on this view
+    [self updateView:notThisPage];
+}
+
+#pragma mark - event
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer
+{
+    return YES;
 }
 
 //keyboard show and start typing
+#pragma mark - event
 - (void)keyboardWillShow:(NSNotification*)notification {
-	NSDictionary* info = [notification userInfo];
-	//get the keyboard size
-	CGSize size = [[info objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
-	[UIView animateWithDuration:0.25 animations:^
-	{
-		CGRect newFrame = [self.bottomViewContainer frame];
-		newFrame.origin.y =barFrame_Y - size.height; // tweak here to adjust the moving position
-		[self.bottomViewContainer setFrame:newFrame];
+    NSDictionary* info = [notification userInfo];
+    //get the keyboard size
+    CGSize size = [[info objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
+    [UIView animateWithDuration:0.25 animations:^
+    {
+		//move the bottom view
+        CGRect newFrame = [self.bottomViewContainer frame];
+        newFrame.origin.y =barFrame_Y - size.height + 40; // tweak here to adjust the moving position
+        [self.bottomViewContainer setFrame:newFrame];
 
-	}completion:^(BOOL finished)
-	{
+		//
 
-	}];
+
+    }completion:^(BOOL finished)
+    {
+
+    }];
 }
 
 //hide the keyboard
-- (void)keyboardWillBeHidden:(NSNotification*)aNotification {
-	self.setBottomViewShow;
+#pragma mark - event
+- (void)keyboardWillBeHidden:(NSNotification*)aNotification
+{
+    self.setBottomViewShow;
 }
 
+//if touch another place ,end editing
+#pragma mark - event
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
     [self.view endEditing:YES];
 }
 
-- (void)viewWillAppear:(BOOL)animated {
-	[super viewWillAppear:animated];
-	[self.rootViewController setTitle:@"points On Map"];
+//if draging map
+#pragma mark - event
+- (void)didDragMap:(UIGestureRecognizer*)gestureRecognizer
+{
+	if (gestureRecognizer.state == UIGestureRecognizerStateEnded)
+	{
+		//stop draging
+		NSLog(@"drag ended");
+	}
+	else
+	{
+		//if contains ,catch the nearest center map Points
+		MapPoint *nearestMapPoint= [self getNearestCenterMapPoint:self.getZoomLevel/150000];
+
+        //if catch is not same as last state
+        if(_nowMapPoint!=nearestMapPoint)
+        {
+            //update the mapPoint and the view
+            _nowMapPoint=nearestMapPoint;
+            if(_nowMapPoint!=nil)
+            {
+                //Show the detail
+                [self updateView:forceExistmapPoint];
+            }
+            else
+            {
+                //swich to null page
+                [self updateView:emptyAndReadyForEdit];
+            }
+        }
+	}
 }
 
-//if switch to this page
-- (void)viewDidAppear:(BOOL)animated
+//TODO : get the nearest mapPoint in the map area
+#pragma mark - function
+-(MapPoint *)getNearestCenterMapPoint:(double)maximunValue
 {
-	//set to the area
-	MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(CLLocationCoordinate2DMake(25.044013, 121.533954), 500, 500);
-	[self.mapView setRegion:region animated:YES];
-	[self loadPhotosInRegion:[MapPointRegion fromMKCoordinateRegion:region]];
+	if(_nearByMapPoints==nil)
+		return nil;
+	if(_nearByMapPoints.count<=0)
+		return nil;
 
-	//
-	[self swithViewMode:emptyAndReadyForEdit];
+	MapPointLocation * centerPosition = self.getPositionFromMapViewCenter;
+	MapPoint *nearestPoint=nil;
+	double nearestValue=10000;
+
+	for(MapPoint *singlePoint in _nearByMapPoints)
+	{
+		//get distence
+		double singleValue= [self calculteTwoDistence:centerPosition :singlePoint.location];
+		if(singleValue<nearestValue)
+		{
+			nearestPoint = singlePoint;
+			nearestValue = singleValue;
+		}
+	}
+
+    //if is near than assign value
+    //NSLog([NSNumber numberWithDouble:maximunValue].stringValue);
+    //NSLog([NSNumber numberWithDouble:nearestValue].stringValue);
+    if(nearestValue>maximunValue)
+        return nil;
+
+    return nearestPoint;
 }
 
-//if switch to another view
--(void)viewDidDisappear:(BOOL)animated 
+#pragma mark - calculate
+-(double )calculteTwoDistence:(MapPointLocation *) position1 :(MapPointLocation *) position2
 {
-	[self swithViewMode:notThisPage];
+	double dx = (position2.latitude - position1.latitude);
+	double dy = (position2.longitude - position1.longitude);
+	double dist = sqrt(dx*dx + dy*dy);
+	return dist;
 }
 
 #pragma mark - MKMapViewDelegate
@@ -198,16 +268,22 @@ NSString* const PhotoAnnotationViewIdentifier = @"PhotoAnnotationView";
 	return view;
 }
 
+//update photos from region
 #pragma mark - Private Methods
-- (void)loadPhotosInRegion:(MapPointRegion*)region {
+- (void)loadPhotosInRegion:(MapPointRegion*)region
+{
+
 	self.mapView.tag = region.hash;
+	//get list photos form region
     [self.photoManager loadMapPointsNear:region withHandler:[self updateAnnoationsWithTag:region.hash]];
 }
 
 //update all the map points
 #pragma mark - Code Blocks
-- (PhotoHandler)updateAnnoationsWithTag:(NSInteger)tag {
-	return ^(NSError* error, NSArray* mapPoints) {
+- (PhotoHandler)updateAnnoationsWithTag:(NSInteger)tag
+{
+	return ^(NSError* error, NSArray* mapPoints)
+	{
 		if (self.mapView.tag != tag) {
 			return;
 		}
@@ -217,11 +293,11 @@ NSString* const PhotoAnnotationViewIdentifier = @"PhotoAnnotationView";
 		if (error == nil)
 		{
 			[_nearByMapPoints addObjectsFromArray:mapPoints];
+			//add the points that not in the map
 			for (MapPoint* mapPoint in mapPoints)
 			{
 				PhotoAnnotation* annotation = [PhotoAnnotation new];
 				annotation.photo = mapPoint;
-				//TODO : delete this
 				annotation.poster = [self.userManager getUser:mapPoint.posterId].nickname;
 				[_annotations addObject:annotation];
 			}
@@ -230,101 +306,132 @@ NSString* const PhotoAnnotationViewIdentifier = @"PhotoAnnotationView";
 	};
 }
 
-
-- (void)PressButtonDown:(float )PressTime
+#pragma mark - event
+- (void)PressButtonDown
 {
-	pressDownTime=PressTime;
+
 }
 
-
-- (void)PressButtonUp:(float )PressUpTime
+#pragma mark - event
+- (void)PressButtonUp
 {
-	float deltaTime=PressUpTime-pressDownTime;
-
+	float deltaTime = self.rootViewController.mapPointViewTabButton.getButtonPressTime;
 	//see as long press
 	if(deltaTime>TriggerDeltaPressTime)
 	{
-		[self LongPressMapButton];
+		[self LongPressUpMapButton];
 	}
+    else
+    {
+        self.SlowPressUpMapButton;
+    }
 }
 
 //long press Button,
--(void) LongPressMapButton
+-(void) LongPressUpMapButton
 {
 
 }
 
-//switch view mode;
--(void)swithViewMode:(enum MapPointViewMode ) type
+//slowPressUpButton
+-(void) SlowPressUpMapButton
 {
-	self.mapPointViewMode=	type;
-	[self.rootViewController.mapPointViewTabButton switchButotnImage:type];
+    switch(self.mapPointViewMode)
+    {
+        case notThisPage:
+            //do nothing
+            break;
+
+        case emptyAndReadyForEdit:
+            [self updateView:onEdit];//show edit page
+            break;
+
+        case onEdit://cancel edit
+            if(_nowMapPoint!=nil)
+                [self updateView:forceExistmapPoint];
+            else
+                [self updateView:emptyAndReadyForEdit];
+            break;
+
+        case forceExistmapPoint:
+            [self updateView:onEdit];//show edit page
+            break;
+    }
 }
 
-//display the bottom edit view
--(void) SwitchToEditBottomView : (CLLocationCoordinate2D *) coordinate
+//update view
+-(void)updateView:(enum MapPointViewMode ) type
 {
-    //TODO : if already hase point ,set to the edit controller
-    MapPoint *point= [self getMapPointByCLLocationCoordinate2D:coordinate];
-    //set the point to the controller
-	[_editMapPointBottomController setExistMapPoint:point];
-    //set to the edit mode
-    [self setSelectedIndex:1];
+    self.mapPointViewMode=	type;
+    //update bottomContainer and interactive or not
+    [self updateBottmeView:self.mapPointViewMode];
+    //update Info to container
+    [_viewMapPointBarController setExistMapPoint:_nowMapPoint];
+    //update button Icon
+    [self.rootViewController.mapPointViewTabButton switchButotnImage:self.mapPointViewMode];
+
 }
 
-//display the bottom deatil view by latitude,set the position
--(void) SwitchToDetailBottomView :(CLLocationCoordinate2D *) coordinate
+//update bottom view
+-(void) updateBottmeView:(enum MapPointViewMode ) type
 {
-    //TODO : if already hase point ,set to the edit controller
-    MapPoint *point= [self getMapPointByCLLocationCoordinate2D:coordinate];
-    //set the point to the controller
-    [_viewMapPointBarController setMapPoint:point];
-    //set to the view mode
-    [self setSelectedIndex:1];
-}
+    [self updateInteractable:false];
 
-//get the nearest
--(MapPoint *) getMapPointByCLLocationCoordinate2D:(CLLocationCoordinate2D *) coordinate
-{
-    return 0;
+    switch(type)
+    {
+        case notThisPage:
+            [self setSelectedIndex:_mapPointBarController];//did not appear view
+            //hide the view
+            self.setBottonViewHide;
+            break;
+
+        case emptyAndReadyForEdit:
+            [self setSelectedIndex:_mapPointBarController];//did not appear view
+            //hide the view
+            self.setBottonViewHide;
+            break;
+
+        case onEdit:
+            [self setSelectedIndex:_editMapPointBottomController];//edit view
+            [self updateInteractable:true];
+            break;
+
+        case forceExistmapPoint:
+            [self setSelectedIndex:_viewMapPointBarController];//detail voew
+            break;
+    }
 }
 
 //switch the page
 #pragma mark - Private Methods
-- (void)setSelectedIndex:(NSInteger)index {
-
-    if (index < 0 || index > [_barControllers count])
-    {
-		self.setBottonViewHide;
-        return;
-    }
-    _selectedIndex = index;
+- (void)setSelectedIndex:(MapPointViewBottomViewController *)targetView
+{
 	//get now controller
-    UIViewController* controller = [_barControllers objectAtIndex:index];
-    if (_currentController == controller)
-    {
-        return;
+    UIViewController* controller = targetView;
+    //hide the view
+    self.setBottonViewHide;
+
+    //remove all views
+    NSArray *viewsToRemove = [self.bottomViewContainer subviews];
+    for (UIView *v in viewsToRemove) {
+        [v removeFromSuperview];
     }
-	//hide the view
-	self.setBottonViewHide;
-	//switch the view
-    [_currentController.view removeFromSuperview];
+    //add view
     [self.bottomViewContainer addSubview:controller.view fit:YES];
-    _currentController = controller;
+
 	//show the view
 	self.setBottomViewShow;
-    //TODO : if is edit barView,set touch as enable;
-    if(index==2)
-    {
-        self.bottomViewContainer.userInteractionEnabled=true;
-    }
-    else
-    {
-        self.bottomViewContainer.userInteractionEnabled=false;
-    }
+}
+
+//update is interactive or not
+#pragma mark - Private Methods
+-(void) updateInteractable:(bool)editable
+{
+    self.bottomViewContainer.userInteractionEnabled=editable;
 }
 
 //show the whole view
+#pragma mark - Private Methods
 -(void) setBottomViewShow
 {
 	[UIView animateWithDuration:0.25 animations:^
@@ -341,6 +448,7 @@ NSString* const PhotoAnnotationViewIdentifier = @"PhotoAnnotationView";
 }
 
 //hide the view
+#pragma mark - Private Methods
 -(void) setBottonViewHide
 {
 	[UIView animateWithDuration:0.25 animations:^
@@ -354,6 +462,34 @@ NSString* const PhotoAnnotationViewIdentifier = @"PhotoAnnotationView";
 
 	}];
 
+}
+
+//get map Location
+-(MapPointLocation *) getPositionFromMapViewCenter
+{
+	//get the uploadTargetMapPoint
+	MKMapView* mapView=self.mapView;
+	//get the location
+	MapPointLocation * location = [[MapPointLocation alloc]
+			initWithLatitude:mapView.centerCoordinate.latitude
+				andLongitude:mapView.centerCoordinate.longitude];
+	//return the location
+	return location;
+}
+
+
+#define MERCATOR_RADIUS 85445659.44705395
+#define MAX_GOOGLE_LEVELS 20
+//get zoon region
+- (double)getZoomLevel
+{
+    //all taiwan : 9427.435253675447,point : 0.06511818684892541
+    //taipei tech : 19.70400032439055,point : 0.0001382921443705329
+
+	CLLocationDegrees longitudeDelta = self.mapView.region.span.longitudeDelta;
+	CGFloat mapWidthInPixels = self.mapView.bounds.size.width;
+	double zoomScale = longitudeDelta * MERCATOR_RADIUS * M_PI / (180.0 * mapWidthInPixels);
+	return zoomScale;
 }
 
 

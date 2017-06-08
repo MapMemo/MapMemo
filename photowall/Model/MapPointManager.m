@@ -61,6 +61,7 @@
 }
 
 //load the uploadTargetMapPoint near the map regino
+//ask from backend
 - (void)loadMapPointsNear:(MapPointRegion *)region withHandler:(PhotoHandler)handler {
 	if (region == nil) {
 		if (handler != nil) {
