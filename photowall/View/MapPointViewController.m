@@ -6,6 +6,7 @@
 //  Copyright © 2017 Picowork. All rights reserved.
 //
 
+#import <MapKit/MapKit.h>
 #import "MapPointViewController.h"
 
 #import "UserManager.h"
@@ -112,7 +113,7 @@ NSString* const PhotoAnnotationViewIdentifier = @"PhotoAnnotationView";
 
 //if switch to another view
 #pragma mark - event
--(void)viewDidDisappear:(BOOL)animated
+-(void)viewWillDisappear:(BOOL)animated
 {
     //update view and set not on this view
     [self updateView:notThisPage];
@@ -132,9 +133,13 @@ NSString* const PhotoAnnotationViewIdentifier = @"PhotoAnnotationView";
     CGSize size = [[info objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
     [UIView animateWithDuration:0.25 animations:^
     {
+		//move the bottom view
         CGRect newFrame = [self.bottomViewContainer frame];
-        newFrame.origin.y =barFrame_Y - size.height; // tweak here to adjust the moving position
+        newFrame.origin.y =barFrame_Y - size.height + 40; // tweak here to adjust the moving position
         [self.bottomViewContainer setFrame:newFrame];
+
+		//
+
 
     }completion:^(BOOL finished)
     {
@@ -144,7 +149,8 @@ NSString* const PhotoAnnotationViewIdentifier = @"PhotoAnnotationView";
 
 //hide the keyboard
 #pragma mark - event
-- (void)keyboardWillBeHidden:(NSNotification*)aNotification {
+- (void)keyboardWillBeHidden:(NSNotification*)aNotification
+{
     self.setBottomViewShow;
 }
 
@@ -167,7 +173,8 @@ NSString* const PhotoAnnotationViewIdentifier = @"PhotoAnnotationView";
 	else
 	{
 		//if contains ,catch the nearest center map Points
-		MapPoint *nearestMapPoint= [self getNearestCenterMapPoint];
+		MapPoint *nearestMapPoint= [self getNearestCenterMapPoint:self.getZoomLevel/150000];
+
         //if catch is not same as last state
         if(_nowMapPoint!=nearestMapPoint)
         {
@@ -189,7 +196,7 @@ NSString* const PhotoAnnotationViewIdentifier = @"PhotoAnnotationView";
 
 //TODO : get the nearest mapPoint in the map area
 #pragma mark - function
--(MapPoint *)getNearestCenterMapPoint
+-(MapPoint *)getNearestCenterMapPoint:(double)maximunValue
 {
 	if(_nearByMapPoints==nil)
 		return nil;
@@ -210,6 +217,13 @@ NSString* const PhotoAnnotationViewIdentifier = @"PhotoAnnotationView";
 			nearestValue = singleValue;
 		}
 	}
+
+    //if is near than assign value
+    //NSLog([NSNumber numberWithDouble:maximunValue].stringValue);
+    //NSLog([NSNumber numberWithDouble:nearestValue].stringValue);
+    if(nearestValue>maximunValue)
+        return nil;
+
     return nearestPoint;
 }
 
@@ -302,8 +316,6 @@ NSString* const PhotoAnnotationViewIdentifier = @"PhotoAnnotationView";
 - (void)PressButtonUp
 {
 	float deltaTime = self.rootViewController.mapPointViewTabButton.getButtonPressTime;
-    //TODO : set all press is short press
-    deltaTime=0;
 	//see as long press
 	if(deltaTime>TriggerDeltaPressTime)
 	{
@@ -334,8 +346,11 @@ NSString* const PhotoAnnotationViewIdentifier = @"PhotoAnnotationView";
             [self updateView:onEdit];//show edit page
             break;
 
-        case onEdit:
-            [self updateView:emptyAndReadyForEdit];//cancel the edit
+        case onEdit://cancel edit
+            if(_nowMapPoint!=nil)
+                [self updateView:forceExistmapPoint];
+            else
+                [self updateView:emptyAndReadyForEdit];
             break;
 
         case forceExistmapPoint:
@@ -403,7 +418,7 @@ NSString* const PhotoAnnotationViewIdentifier = @"PhotoAnnotationView";
     }
     //add view
     [self.bottomViewContainer addSubview:controller.view fit:YES];
-    
+
 	//show the view
 	self.setBottomViewShow;
 }
@@ -461,5 +476,21 @@ NSString* const PhotoAnnotationViewIdentifier = @"PhotoAnnotationView";
 	//return the location
 	return location;
 }
+
+
+#define MERCATOR_RADIUS 85445659.44705395
+#define MAX_GOOGLE_LEVELS 20
+//get zoon region
+- (double)getZoomLevel
+{
+    //all taiwan : 9427.435253675447,point : 0.06511818684892541
+    //taipei tech : 19.70400032439055,point : 0.0001382921443705329
+
+	CLLocationDegrees longitudeDelta = self.mapView.region.span.longitudeDelta;
+	CGFloat mapWidthInPixels = self.mapView.bounds.size.width;
+	double zoomScale = longitudeDelta * MERCATOR_RADIUS * M_PI / (180.0 * mapWidthInPixels);
+	return zoomScale;
+}
+
 
 @end
