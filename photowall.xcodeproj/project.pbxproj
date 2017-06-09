@@ -16,14 +16,15 @@
 		12D2F04402DBB51537E5B924 /* LoginView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 12D2FED5F6977A4EAC051770 /* LoginView.xib */; };
 		12D2F06E2DE22972BE4FAD41 /* MaskView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 12D2F95591EBA5D3A0481CD1 /* MaskView.xib */; };
 		12D2F1A95495C2E5DA3AC2C6 /* RootView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 12D2F0BADFFFDF29091D9DC3 /* RootView.xib */; };
-		12D2F1B5E404EFF7C648416D /* MapPointCallOutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 12D2FCBBA921245538447CC2 /* MapPointCallOutViewController.m */; };
+		12D2F1B5E404EFF7C648416D /* MapPointSpotController.m in Sources */ = {isa = PBXBuildFile; fileRef = 12D2FCBBA921245538447CC2 /* MapPointSpotController.m */; };
 		12D2F1F80A37F2BD5B387F61 /* PageUIViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 12D2FEAD9A4F29B2260CEE23 /* PageUIViewController.m */; };
 		12D2F26FDD6109FC15D9EBCA /* MapPointViewEditBottomViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 12D2F62FCFBC0A03DCC593B0 /* MapPointViewEditBottomViewController.m */; };
 		12D2F2DDD027869F189CC375 /* PhotoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 12D2F760D4C07E3DF377D574 /* PhotoCell.m */; };
 		12D2F2DE0EEDA6DCA1D992FD /* TestView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 12D2F73933E23E7A26598F61 /* TestView.xib */; };
 		12D2F2E7259F5D84A0CD3D70 /* LoginInTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 12D2F322866CA30733982ADF /* LoginInTestViewController.m */; };
-		12D2F3326157223CE75CFA1A /* MapPointCallOutView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 12D2F1017D20D475D4021DB4 /* MapPointCallOutView.xib */; };
+		12D2F3326157223CE75CFA1A /* MapPointSpot.xib in Resources */ = {isa = PBXBuildFile; fileRef = 12D2F1017D20D475D4021DB4 /* MapPointSpot.xib */; };
 		12D2F39A63A114836C3F867C /* MapPointViewDetailBottomViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 12D2F4C8DE2A5C8DEDB629E2 /* MapPointViewDetailBottomViewController.m */; };
+		12D2F39F685EBDE3653A3909 /* MapPointHistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 12D2FA06D2080A9BFEBAE9EF /* MapPointHistoryViewController.m */; };
 		12D2F3D246281AC77E2DF76A /* MapPointViewEditBottomView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 12D2F587BC669EC521AACFED /* MapPointViewEditBottomView.xib */; };
 		12D2F49891286363F6D36E8E /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 12D2FB6FFE573BC9E7160549 /* ProfileViewController.m */; };
 		12D2F4A76672DAE48498F8CF /* PhotoShowcaseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 12D2FE60778BA91AE11588D1 /* PhotoShowcaseCell.m */; };
@@ -33,15 +34,14 @@
 		12D2F67C4BF0242192F40F21 /* MapPointViewDetailBottomView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 12D2F890413415F6FE6CE4D0 /* MapPointViewDetailBottomView.xib */; };
 		12D2F68195F9723F5D9EB389 /* FriendsListView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 12D2F5C6665F171C3E40CF9C /* FriendsListView.xib */; };
 		12D2F6DF37E56F6DC450D1E1 /* PhotoShowcaseView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 12D2FE8E7E0CB75359F46ADD /* PhotoShowcaseView.xib */; };
+		12D2F795F413550CFFEFDBD0 /* MapPointHistoryView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 12D2FFA6DFC1CD1B37E4BC4B /* MapPointHistoryView.xib */; };
 		12D2F99895E08FA7EB9FF4AF /* PhotoAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 12D2FBBF9AC3098D3C22BF6F /* PhotoAnnotation.m */; };
 		12D2FA321F4C2FAF838D1ECC /* MapPointViewBottomView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 12D2F3507279295804367C6C /* MapPointViewBottomView.xib */; };
-		12D2FA4FA9391083C73190A5 /* MapPointHistery.xib in Resources */ = {isa = PBXBuildFile; fileRef = 12D2FD41D880BED2207BB699 /* MapPointHistery.xib */; };
 		12D2FB73BABE1F6E33D0CD9A /* PhotoShowcaseCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 12D2FC354E1ED8D6FC5E13B1 /* PhotoShowcaseCell.xib */; };
 		12D2FB9466D6ECA4DAB611CC /* FriendCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 12D2F066F6F30979308F1929 /* FriendCell.m */; };
 		12D2FC18D2A379A0E3796BF9 /* PhotoShowcaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 12D2F55861EDD5C593E02540 /* PhotoShowcaseViewController.m */; };
 		12D2FC50846ACCD4F3FBC06A /* PhotoGridSectionHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 12D2FDD02662D94A5238FAA8 /* PhotoGridSectionHeader.m */; };
 		12D2FD278FE2D3F933831CF6 /* FriendCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 12D2F4AD73E91FB6A7864FFE /* FriendCell.xib */; };
-		12D2FEB1ADDD2007DDA31F54 /* MapPointHisteryController.m in Sources */ = {isa = PBXBuildFile; fileRef = 12D2F70680EFC1DEAD25A12C /* MapPointHisteryController.m */; };
 		12D2FEBEE9220936CEA93F73 /* PhotoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 12D2F1803E22512F2A6EB6FE /* PhotoCell.xib */; };
 		12D2FF15F2524B86D492B79A /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 12D2F76CA54B3141AF2913B8 /* RootViewController.m */; };
 		12D2FF225D436204536F60C0 /* MapPointGridViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 12D2F5060A77CE8EE99F1486 /* MapPointGridViewController.m */; };
@@ -102,10 +102,9 @@
 		12D2F0777FC10D2632FAA311 /* PhotoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PhotoCell.h; path = View/PhotoCell.h; sourceTree = "<group>"; };
 		12D2F0BADFFFDF29091D9DC3 /* RootView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = RootView.xib; path = View/RootView.xib; sourceTree = "<group>"; };
 		12D2F0BD2388A1F1BAC2F6F1 /* FriendCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FriendCell.h; path = View/FriendCell.h; sourceTree = "<group>"; };
-		12D2F1017D20D475D4021DB4 /* MapPointCallOutView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = MapPointCallOutView.xib; path = View/MapPointCallOutView.xib; sourceTree = "<group>"; };
+		12D2F1017D20D475D4021DB4 /* MapPointSpot.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = MapPointSpot.xib; path = View/MapPointSpot.xib; sourceTree = "<group>"; };
 		12D2F108BABAC6224A6A9E00 /* PhotoShowcaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PhotoShowcaseViewController.h; path = View/PhotoShowcaseViewController.h; sourceTree = "<group>"; };
 		12D2F1803E22512F2A6EB6FE /* PhotoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = PhotoCell.xib; path = View/PhotoCell.xib; sourceTree = "<group>"; };
-		12D2F2A426CAF4AD872B5B95 /* MapPointHisteryController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MapPointHisteryController.h; path = View/MapPointHisteryController.h; sourceTree = "<group>"; };
 		12D2F2AF1AC2F77A579EC9C7 /* MapPointViewBottomViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MapPointViewBottomViewController.m; path = View/MapPointViewBottomViewController.m; sourceTree = "<group>"; };
 		12D2F322866CA30733982ADF /* LoginInTestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginInTestViewController.m; sourceTree = "<group>"; };
 		12D2F34E4170E879C5AD8256 /* PhotoGridSectionHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = PhotoGridSectionHeader.xib; path = View/PhotoGridSectionHeader.xib; sourceTree = "<group>"; };
@@ -124,25 +123,25 @@
 		12D2F66E58C3348F7B72C026 /* MapPointViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MapPointViewController.m; path = View/MapPointViewController.m; sourceTree = "<group>"; };
 		12D2F67CDC4901D15040DD32 /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RootViewController.h; path = View/RootViewController.h; sourceTree = "<group>"; };
 		12D2F6B2E82195B564106227 /* FriendsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FriendsViewController.m; path = View/FriendsViewController.m; sourceTree = "<group>"; };
-		12D2F70680EFC1DEAD25A12C /* MapPointHisteryController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MapPointHisteryController.m; path = View/MapPointHisteryController.m; sourceTree = "<group>"; };
 		12D2F73933E23E7A26598F61 /* TestView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TestView.xib; sourceTree = "<group>"; };
 		12D2F760D4C07E3DF377D574 /* PhotoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PhotoCell.m; path = View/PhotoCell.m; sourceTree = "<group>"; };
 		12D2F76CA54B3141AF2913B8 /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RootViewController.m; path = View/RootViewController.m; sourceTree = "<group>"; };
 		12D2F7ED55D99E6CC5D073B3 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginViewController.h; path = View/LoginViewController.h; sourceTree = "<group>"; };
+		12D2F83A6CF879D0A68BAE1D /* MapPointHistoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MapPointHistoryViewController.h; path = View/MapPointHistoryViewController.h; sourceTree = "<group>"; };
 		12D2F85A11AAFC72EC96090E /* FriendsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FriendsViewController.h; path = View/FriendsViewController.h; sourceTree = "<group>"; };
 		12D2F890413415F6FE6CE4D0 /* MapPointViewDetailBottomView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = MapPointViewDetailBottomView.xib; path = View/MapPointViewDetailBottomView.xib; sourceTree = "<group>"; };
 		12D2F90432F9D4B88EA0B8E0 /* PhotoAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PhotoAnnotation.h; path = View/PhotoAnnotation.h; sourceTree = "<group>"; };
 		12D2F95591EBA5D3A0481CD1 /* MaskView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = MaskView.xib; path = View/MaskView.xib; sourceTree = "<group>"; };
 		12D2F9EAA9EBDEE9F3047514 /* MapPointViewBottomViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MapPointViewBottomViewController.h; path = View/MapPointViewBottomViewController.h; sourceTree = "<group>"; };
-		12D2FA5F9C174E07C33E5DDF /* MapPointCallOutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MapPointCallOutViewController.h; path = View/MapPointCallOutViewController.h; sourceTree = "<group>"; };
+		12D2FA06D2080A9BFEBAE9EF /* MapPointHistoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MapPointHistoryViewController.m; path = View/MapPointHistoryViewController.m; sourceTree = "<group>"; };
+		12D2FA5F9C174E07C33E5DDF /* MapPointSpotController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MapPointSpotController.h; path = View/MapPointSpotController.h; sourceTree = "<group>"; };
 		12D2FB6FFE573BC9E7160549 /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProfileViewController.m; path = View/ProfileViewController.m; sourceTree = "<group>"; };
 		12D2FBBF9AC3098D3C22BF6F /* PhotoAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PhotoAnnotation.m; path = View/PhotoAnnotation.m; sourceTree = "<group>"; };
 		12D2FBC61032601BCC033E6D /* LoginInTestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginInTestViewController.h; sourceTree = "<group>"; };
 		12D2FC271379747C656B1AD3 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginViewController.m; path = View/LoginViewController.m; sourceTree = "<group>"; };
 		12D2FC354E1ED8D6FC5E13B1 /* PhotoShowcaseCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = PhotoShowcaseCell.xib; path = View/PhotoShowcaseCell.xib; sourceTree = "<group>"; };
-		12D2FCBBA921245538447CC2 /* MapPointCallOutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MapPointCallOutViewController.m; path = View/MapPointCallOutViewController.m; sourceTree = "<group>"; };
+		12D2FCBBA921245538447CC2 /* MapPointSpotController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MapPointSpotController.m; path = View/MapPointSpotController.m; sourceTree = "<group>"; };
 		12D2FD38E71FEA7159754F9B /* ProfileView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ProfileView.xib; path = View/ProfileView.xib; sourceTree = "<group>"; };
-		12D2FD41D880BED2207BB699 /* MapPointHistery.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = MapPointHistery.xib; path = View/MapPointHistery.xib; sourceTree = "<group>"; };
 		12D2FDD02662D94A5238FAA8 /* PhotoGridSectionHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PhotoGridSectionHeader.m; path = View/PhotoGridSectionHeader.m; sourceTree = "<group>"; };
 		12D2FDFAC9F05EFE705EA7DC /* PageUIViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PageUIViewController.h; path = View/PageUIViewController.h; sourceTree = "<group>"; };
 		12D2FE05EC2281E1095C0943 /* PhotoGridSectionHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PhotoGridSectionHeader.h; path = View/PhotoGridSectionHeader.h; sourceTree = "<group>"; };
@@ -154,6 +153,7 @@
 		12D2FED9CB3507E09D9C9A3E /* PhotoShowcaseCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PhotoShowcaseCell.h; path = View/PhotoShowcaseCell.h; sourceTree = "<group>"; };
 		12D2FEEF4105631CCD8CCD8E /* LoginInTestViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginInTestViewController.xib; sourceTree = "<group>"; };
 		12D2FF2557C6851A95F7D231 /* MapPointViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MapPointViewController.h; path = View/MapPointViewController.h; sourceTree = "<group>"; };
+		12D2FFA6DFC1CD1B37E4BC4B /* MapPointHistoryView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = MapPointHistoryView.xib; path = View/MapPointHistoryView.xib; sourceTree = "<group>"; };
 		12D2FFC92529DB60EA488FE7 /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProfileViewController.h; path = View/ProfileViewController.h; sourceTree = "<group>"; };
 		1AE073FC1196A431F3A8B0B9 /* Pods-photowall.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-photowall.release.xcconfig"; path = "Pods/Target Support Files/Pods-photowall/Pods-photowall.release.xcconfig"; sourceTree = "<group>"; };
 		1E0804FD1E9D323700C43CEB /* UIColor+Defaults.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIColor+Defaults.h"; path = "Utils/UIColor+Defaults.h"; sourceTree = "<group>"; };
@@ -253,6 +253,16 @@
 			name = MapPointListView;
 			sourceTree = "<group>";
 		};
+		12D2F0988D1453A5FA8D77C3 /* MapPointHistoryView */ = {
+			isa = PBXGroup;
+			children = (
+				12D2F83A6CF879D0A68BAE1D /* MapPointHistoryViewController.h */,
+				12D2FA06D2080A9BFEBAE9EF /* MapPointHistoryViewController.m */,
+				12D2FFA6DFC1CD1B37E4BC4B /* MapPointHistoryView.xib */,
+			);
+			name = MapPointHistoryView;
+			sourceTree = "<group>";
+		};
 		12D2F1E554B9C7E0D6D0EB19 /* Detail */ = {
 			isa = PBXGroup;
 			children = (
@@ -300,10 +310,10 @@
 				12D2FD5C71ABCBD3378AE009 /* FriendListView */,
 				12D2F05515451E2FCE900EC9 /* MapPointListView */,
 				12D2F874DB64289924766879 /* MapPointMapView */,
-				12D2F98778F0792076058854 /* MapPointHistoryView */,
 				12D2FB39CB84C20A063EF567 /* UserProfile */,
 				12D2FDFAC9F05EFE705EA7DC /* PageUIViewController.h */,
 				12D2FEAD9A4F29B2260CEE23 /* PageUIViewController.m */,
+				12D2F0988D1453A5FA8D77C3 /* MapPointHistoryView */,
 			);
 			name = SwitchableView;
 			sourceTree = "<group>";
@@ -371,22 +381,12 @@
 			name = RootPage;
 			sourceTree = "<group>";
 		};
-		12D2F98778F0792076058854 /* MapPointHistoryView */ = {
-			isa = PBXGroup;
-			children = (
-				12D2FD41D880BED2207BB699 /* MapPointHistery.xib */,
-				12D2F2A426CAF4AD872B5B95 /* MapPointHisteryController.h */,
-				12D2F70680EFC1DEAD25A12C /* MapPointHisteryController.m */,
-			);
-			name = MapPointHistoryView;
-			sourceTree = "<group>";
-		};
 		12D2FAA2CC0D9532DDD0506A /* MapPoint */ = {
 			isa = PBXGroup;
 			children = (
-				12D2F1017D20D475D4021DB4 /* MapPointCallOutView.xib */,
-				12D2FA5F9C174E07C33E5DDF /* MapPointCallOutViewController.h */,
-				12D2FCBBA921245538447CC2 /* MapPointCallOutViewController.m */,
+				12D2F1017D20D475D4021DB4 /* MapPointSpot.xib */,
+				12D2FA5F9C174E07C33E5DDF /* MapPointSpotController.h */,
+				12D2FCBBA921245538447CC2 /* MapPointSpotController.m */,
 			);
 			name = MapPoint;
 			sourceTree = "<group>";
@@ -719,9 +719,8 @@
 				12D2FA321F4C2FAF838D1ECC /* MapPointViewBottomView.xib in Resources */,
 				12D2F3D246281AC77E2DF76A /* MapPointViewEditBottomView.xib in Resources */,
 				12D2F67C4BF0242192F40F21 /* MapPointViewDetailBottomView.xib in Resources */,
-				12D2F3326157223CE75CFA1A /* MapPointCallOutView.xib in Resources */,
+				12D2F3326157223CE75CFA1A /* MapPointSpot.xib in Resources */,
 				12D2FFE5385B9786C9661F35 /* MapPointView.xib in Resources */,
-				12D2FA4FA9391083C73190A5 /* MapPointHistery.xib in Resources */,
 				12D2FF7ECE887A605B915761 /* ProfileView.xib in Resources */,
 				12D2F1A95495C2E5DA3AC2C6 /* RootView.xib in Resources */,
 				12D2FEBEE9220936CEA93F73 /* PhotoCell.xib in Resources */,
@@ -729,6 +728,7 @@
 				12D2F58EB3A8CACD2388C9BA /* PhotoGridSectionHeader.xib in Resources */,
 				12D2FB73BABE1F6E33D0CD9A /* PhotoShowcaseCell.xib in Resources */,
 				12D2F2DE0EEDA6DCA1D992FD /* TestView.xib in Resources */,
+				12D2F795F413550CFFEFDBD0 /* MapPointHistoryView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -872,9 +872,8 @@
 				12D2F01476708D0619CD1B89 /* MapPointViewBottomViewController.m in Sources */,
 				12D2F26FDD6109FC15D9EBCA /* MapPointViewEditBottomViewController.m in Sources */,
 				12D2F39A63A114836C3F867C /* MapPointViewDetailBottomViewController.m in Sources */,
-				12D2F1B5E404EFF7C648416D /* MapPointCallOutViewController.m in Sources */,
+				12D2F1B5E404EFF7C648416D /* MapPointSpotController.m in Sources */,
 				12D2F010D2A9930CF09BA07A /* MapPointViewController.m in Sources */,
-				12D2FEB1ADDD2007DDA31F54 /* MapPointHisteryController.m in Sources */,
 				12D2F49891286363F6D36E8E /* ProfileViewController.m in Sources */,
 				12D2F1F80A37F2BD5B387F61 /* PageUIViewController.m in Sources */,
 				12D2FF15F2524B86D492B79A /* RootViewController.m in Sources */,
@@ -883,6 +882,7 @@
 				12D2FC50846ACCD4F3FBC06A /* PhotoGridSectionHeader.m in Sources */,
 				12D2FC18D2A379A0E3796BF9 /* PhotoShowcaseViewController.m in Sources */,
 				12D2F99895E08FA7EB9FF4AF /* PhotoAnnotation.m in Sources */,
+				12D2F39F685EBDE3653A3909 /* MapPointHistoryViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

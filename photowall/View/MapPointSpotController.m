@@ -1,18 +1,18 @@
 //
-//  MapPointCallOutViewController.m
+//  MapPointSpotController.m
 //  photowall
 //
 //  Created by Spirit on 4/30/17.
 //  Copyright © 2017 Picowork. All rights reserved.
 //
 
-#import "MapPointCallOutViewController.h"
+#import "MapPointSpotController.h"
 
 #import "MapPoint.h"
 
 #import "UIImageView+WebImage.h"
 
-@implementation MapPointCallOutViewController
+@implementation MapPointSpotController
 
 - (void)setPhoto:(MapPoint *)photo withContextString:(NSString*)context {
 	self.nicknameLabel.text = context;

@@ -12,13 +12,13 @@
 #import "FriendsViewController.h"
 #import "MapPointViewController.h"
 #import "MapPointGridViewController.h"
-#import "MapPointHisteryController.h"
 
 #import "UIView+Utils.h"
 #import "UIColor+Defaults.h"
 
 #import "MapPointManager.h"
 #import "ChangableMapButton.h"
+#import "MapPointHistoryViewController.h"
 
 @implementation RootViewController
 {
@@ -28,7 +28,7 @@
 	//Map List View
 	MapPointGridViewController* _mapPointGridViewController;
 	//Histery
-	MapPointHisteryController *_mapPointHisteryController;
+	MapPointHistoryViewController *_mapPointHisteryController;
 	//Profile
 	ProfileViewController* _profileViewController;
 	//MapView
@@ -53,7 +53,7 @@
 	_tabButtons = @[ _mapPointViewTabButton,_friendsTabButton, _mapListViewTabButton, _mapPointHisteryTabButton, _profileTabButton ];
 
 	//all page
-	_mapPointHisteryController=[[MapPointHisteryController alloc] initWithNibName:@"MapPointHistery" bundle:nil];
+	_mapPointHisteryController=[[MapPointHistoryViewController alloc] initWithNibName:@"MapPointHistoryView" bundle:nil];
 	_profileViewController = [[ProfileViewController alloc] initWithNibName:@"ProfileView" bundle:nil];
 	_mapPointViewController = [[MapPointViewController alloc] initWithNibName:@"MapPointView" bundle:nil];
 	_mapPointGridViewController = [[MapPointGridViewController alloc] initWithNibName:@"MapPointGridView" bundle:nil];

@@ -13,7 +13,7 @@
 #import "MapPointManager.h"
 
 #import "PhotoAnnotation.h"
-#import "MapPointCallOutViewController.h"
+#import "MapPointSpotController.h"
 
 #import "UIView+Utils.h"
 #import "MapPointRegion+Utils.h"
@@ -256,7 +256,7 @@ NSString* const PhotoAnnotationViewIdentifier = @"PhotoAnnotationView";
 		view = [[MKAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:PhotoAnnotationViewIdentifier];
 	}
 	//the class will point to the map
-	MapPointCallOutViewController* callOutView = [[[NSBundle mainBundle] loadNibNamed:@"MapPointCallOutView" owner:nil options:nil] firstObject];
+	MapPointSpotController* callOutView = [[[NSBundle mainBundle] loadNibNamed:@"MapPointSpot" owner:nil options:nil] firstObject];
 	callOutView.translatesAutoresizingMaskIntoConstraints = NO;
 	//set the photo and the string context
 
