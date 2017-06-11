@@ -11,7 +11,7 @@
 #import "UserManager.h"
 #import "MapPointManager.h"
 
-#import "PhotoCell.h"
+#import "HistoryCell.h"
 #import "PhotoGridSectionHeader.h"
 #import "PhotoShowcaseViewController.h"
 
@@ -32,9 +32,9 @@
     [super viewDidLoad];
     _cache = [NSMutableArray new];
     _photos = [NSMutableDictionary new];
-    _cellSize = ([UIScreen mainScreen].bounds.size.width - 3) / 4;
-    UINib* cellNib = [UINib nibWithNibName:@"PhotoCell" bundle:nil];
-    [self.photosView registerNib:cellNib forCellWithReuseIdentifier:PhotoCellIdentifier];
+    _cellSize = [UIScreen mainScreen].bounds.size.width;//([UIScreen mainScreen].bounds.size.width - 3) / 4;
+    UINib* cellNib = [UINib nibWithNibName:@"HistoryCell" bundle:nil];
+    [self.photosView registerNib:cellNib forCellWithReuseIdentifier:HistoryCellIdentifier];
     UINib* headerNib = [UINib nibWithNibName:@"PhotoGridSectionHeader" bundle:nil];
     [self.photosView registerNib:headerNib forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:PhotoGridSectionHeaderIdentifier];
     self.photosView.delegate = self;
@@ -48,7 +48,7 @@
 }
 
 #pragma mark - Public Methods
-- (void)refreshPhotos 
+- (void)refreshPhotos
 {
     [self.photoManager loadPhotosAfter:_latest before:nil ofUser:self.posterId withHandler:[self indexPhotosAndUpdateView]];
 }
@@ -56,7 +56,7 @@
 #pragma mark - UICollectionViewDataSource
 - (UICollectionViewCell*)collectionView:(UICollectionView*)collectionView cellForItemAtIndexPath:(NSIndexPath*)indexPath {
     MapPoint* photo = [[_cache objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
-    PhotoCell* cell = (PhotoCell*)[collectionView dequeueReusableCellWithReuseIdentifier:PhotoCellIdentifier forIndexPath:indexPath];
+    HistoryCell* cell = (HistoryCell*)[collectionView dequeueReusableCellWithReuseIdentifier:HistoryCellIdentifier forIndexPath:indexPath];
     [cell setPhoto:photo];
     cell.posterName.text = [self.userManager getUser:photo.posterId].nickname;
     return cell;
@@ -79,7 +79,7 @@
 
 #pragma mark - UICollectionViewDelegateFlowLayout
 - (CGSize)collectionView:(UICollectionView*)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath*)indexPath {
-    return CGSizeMake(_cellSize, _cellSize);
+    return CGSizeMake(_cellSize, _cellSize/4);
 }
 
 - (CGSize)collectionView:(UICollectionView*)collectionView layout:(UICollectionViewLayout*)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section {

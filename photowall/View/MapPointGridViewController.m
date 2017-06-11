@@ -17,6 +17,8 @@
 
 #import "NSDate+Utils.h"
 #import "RootViewController.h"
+#import "DetailMapPointView.h"
+#import "UIView+Utils.h"
 
 @implementation MapPointGridViewController {
 	CGFloat _cellSize;
@@ -41,7 +43,8 @@
 	self.photosView.dataSource = self;
 }
 
-- (void)viewWillAppear:(BOOL)animated {
+- (void)viewWillAppear:(BOOL)animated
+{
 	[super viewWillAppear:animated];
 	[self.rootViewController setTitle:@"MapPointGridView"];
 	[self refreshPhotos];
@@ -53,7 +56,8 @@
 }
 
 #pragma mark - UICollectionViewDataSource
-- (UICollectionViewCell*)collectionView:(UICollectionView*)collectionView cellForItemAtIndexPath:(NSIndexPath*)indexPath {
+- (UICollectionViewCell*)collectionView:(UICollectionView*)collectionView cellForItemAtIndexPath:(NSIndexPath*)indexPath
+{
 	MapPoint* photo = [[_cache objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
 	PhotoCell* cell = (PhotoCell*)[collectionView dequeueReusableCellWithReuseIdentifier:PhotoCellIdentifier forIndexPath:indexPath];
 	[cell setPhoto:photo];
@@ -69,10 +73,12 @@
 	return [_cache count];
 }
 
-- (UICollectionReusableView*)collectionView:(UICollectionView*)collectionView viewForSupplementaryElementOfKind:(NSString*)kind atIndexPath:(NSIndexPath*)indexPath {
+//TODO : split by user account
+- (UICollectionReusableView*)collectionView:(UICollectionView*)collectionView viewForSupplementaryElementOfKind:(NSString*)kind atIndexPath:(NSIndexPath*)indexPath
+{
 	MapPoint* photo = [[_cache objectAtIndex:indexPath.section] objectAtIndex:0];
 	PhotoGridSectionHeader* header = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:PhotoGridSectionHeaderIdentifier forIndexPath:indexPath];
-	header.dateLabel.text = photo.timestamp.dayString;
+	header.dateLabel.text = [self.userManager getUser:photo.posterId].nickname;//photo.timestamp.dayString;
 	return header;
 }
 
@@ -98,7 +104,8 @@
 	return UIEdgeInsetsMake(0, 0, 0, 0);
 }
 
-- (void)scrollViewDidEndDecelerating:(UIScrollView*)scrollView {
+- (void)scrollViewDidEndDecelerating:(UIScrollView*)scrollView
+{
 	float bottomEdge = scrollView.contentOffset.y + scrollView.frame.size.height;
 	if (scrollView.contentOffset.y <= 0) {
 		[self refreshPhotos];
@@ -108,9 +115,11 @@
 	}
 }
 
-- (void)collectionView:(UICollectionView*)collectionView didSelectItemAtIndexPath:(NSIndexPath*)indexPath {
+//todo : midified to show single MapPoint view
+- (void)collectionView:(UICollectionView*)collectionView didSelectItemAtIndexPath:(NSIndexPath*)indexPath
+{
 	MapPoint* photo = [[_cache objectAtIndex:indexPath.section] objectAtIndex:indexPath.item];
-	PhotoShowcaseViewController* controller = [[PhotoShowcaseViewController alloc] initWithNibName:@"PhotoShowcaseView" bundle:nil];
+	DetailMapPointView* controller = [[DetailMapPointView alloc] initWithNibName:@"DetailMapPointView" bundle:nil];
 	NSMutableArray* photos = [NSMutableArray new];
 	for (NSArray* section in _cache) {
 		[photos addObjectsFromArray:section];
@@ -118,19 +127,25 @@
 	controller.host = self.rootViewController;
 	controller.photos = photos;
 	controller.currentPhotoIndex = [photos indexOfObject:photo];
-	[self.rootViewController presentViewController:controller animated:YES completion:nil];
+	[self.rootViewController.viewContainer addSubview:controller.view fit:YES];
+
+	//[self.rootViewController presentViewController:controller animated:YES completion:nil];
 }
 
 #pragma mark - Private Methods
-- (void)addPhotos:(NSArray*)photos {
-	for (MapPoint* photo in photos) {
+- (void)addPhotos:(NSArray*)photos
+{
+	for (MapPoint* photo in photos)
+	{
 		if (_latest == nil || photo.timestamp.timeIntervalSince1970 > _latest.timeIntervalSince1970) {
 			_latest = photo.timestamp;
 		}
 		if (_oldest == nil || photo.timestamp.timeIntervalSince1970 < _oldest.timeIntervalSince1970) {
 			_oldest = photo.timestamp;
 		}
-		NSString* key = photo.timestamp.dayString;
+
+		//Midified classfied by userOD
+		NSString* key = photo.posterId  ;//photo.timestamp.dayString;
 		NSMutableDictionary* section = [_photos objectForKey:key];
 		if (section == nil) {
 			section = [NSMutableDictionary new];

@@ -14,6 +14,7 @@
 @class MapPointManager;
 @class AccountManager;
 @class MapPointLocation;
+@class MapPointMKMapView;
 
 enum MapPointViewMode
 {
@@ -28,7 +29,7 @@ enum MapPointViewMode
 //show the view or edit page
 @property (weak, nonatomic) IBOutlet UIView* bottomViewContainer;
 
-@property (weak, nonatomic) IBOutlet MKMapView* mapView;
+@property (weak, nonatomic) IBOutlet MapPointMKMapView* mapView;
 
 @property (weak, nonatomic) UserManager* userManager;
 

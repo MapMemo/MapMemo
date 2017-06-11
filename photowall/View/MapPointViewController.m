@@ -23,6 +23,7 @@
 #import "ChangableMapButton.h"
 #import "AccountManager.h"
 #import "MapPoint.h"
+#import "MapPointMKMapView.h"
 
 NSString* const PhotoAnnotationViewIdentifier = @"PhotoAnnotationView";
 
@@ -65,7 +66,7 @@ NSString* const PhotoAnnotationViewIdentifier = @"PhotoAnnotationView";
 	TriggerDeltaPressTime=1000;
 
 	//set the position_Y
-	barFrame_Y=400.0f;
+	barFrame_Y=380.0f;
 
     //construct bottom page
     _viewMapPointBarController=[[MapPointViewDetailBottomViewController alloc] initWithNibName:@"MapPointViewDetailBottomView" bundle:nil];
