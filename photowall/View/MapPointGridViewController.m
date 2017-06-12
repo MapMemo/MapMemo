@@ -119,7 +119,7 @@
 - (void)collectionView:(UICollectionView*)collectionView didSelectItemAtIndexPath:(NSIndexPath*)indexPath
 {
 	MapPoint* photo = [[_cache objectAtIndex:indexPath.section] objectAtIndex:indexPath.item];
-	DetailMapPointView* controller = [[DetailMapPointView alloc] initWithNibName:@"DetailMapPointView" bundle:nil];
+	PhotoShowcaseViewController* controller = [[PhotoShowcaseViewController alloc] initWithNibName:@"PhotoShowcaseView" bundle:nil];
 	NSMutableArray* photos = [NSMutableArray new];
 	for (NSArray* section in _cache) {
 		[photos addObjectsFromArray:section];
@@ -127,9 +127,8 @@
 	controller.host = self.rootViewController;
 	controller.photos = photos;
 	controller.currentPhotoIndex = [photos indexOfObject:photo];
-	[self.rootViewController.viewContainer addSubview:controller.view fit:YES];
-
-	//[self.rootViewController presentViewController:controller animated:YES completion:nil];
+	//self.rootViewController.viewContainer addSubview:controller.view fit:YES];
+	[self.rootViewController presentViewController:controller animated:YES completion:nil];
 }
 
 #pragma mark - Private Methods

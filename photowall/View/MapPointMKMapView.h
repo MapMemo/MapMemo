@@ -10,4 +10,8 @@
 
 @interface MapPointMKMapView : MKMapView
 
+@property(nonatomic, strong) id userManager;
+
+- (void)updateListMapPointToMapView:(NSArray *)mapPoints;
+
 @end

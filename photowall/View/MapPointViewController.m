@@ -66,7 +66,8 @@ NSString* const PhotoAnnotationViewIdentifier = @"PhotoAnnotationView";
 	TriggerDeltaPressTime=1000;
 
 	//set the position_Y
-	barFrame_Y=380.0f;
+	//barFrame_Y=380.0f;
+	barFrame_Y=[self.bottomViewContainer frame].origin.y-40;
 
     //construct bottom page
     _viewMapPointBarController=[[MapPointViewDetailBottomViewController alloc] initWithNibName:@"MapPointViewDetailBottomView" bundle:nil];
@@ -89,6 +90,8 @@ NSString* const PhotoAnnotationViewIdentifier = @"PhotoAnnotationView";
 
     //set initial state and update view
     [self updateView:emptyAndReadyForEdit];
+	//set to the position
+	self.setToNowPosition;
 }
 
 #pragma mark - event
@@ -106,9 +109,7 @@ NSString* const PhotoAnnotationViewIdentifier = @"PhotoAnnotationView";
 - (void)viewDidAppear:(BOOL)animated
 {
     //set to the area
-    MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(CLLocationCoordinate2DMake(25.044013, 121.533954), 500, 500);
-    [self.mapView setRegion:region animated:YES];
-    [self loadPhotosInRegion:[MapPointRegion fromMKCoordinateRegion:region]];
+
 
 }
 
@@ -126,6 +127,13 @@ NSString* const PhotoAnnotationViewIdentifier = @"PhotoAnnotationView";
     return YES;
 }
 
+-(void)setToNowPosition
+{
+	MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(CLLocationCoordinate2DMake(25.044013, 121.533954), 500, 500);
+	[self.mapView setRegion:region animated:YES];
+	[self loadPhotosInRegion:[MapPointRegion fromMKCoordinateRegion:region]];
+}
+
 //keyboard show and start typing
 #pragma mark - event
 - (void)keyboardWillShow:(NSNotification*)notification {
@@ -136,22 +144,52 @@ NSString* const PhotoAnnotationViewIdentifier = @"PhotoAnnotationView";
     {
 		//move the bottom view
         CGRect newFrame = [self.bottomViewContainer frame];
-        newFrame.origin.y =barFrame_Y - size.height + 40; // tweak here to adjust the moving position
+        newFrame.origin.y =barFrame_Y - size.height; // tweak here to adjust the moving position
         [self.bottomViewContainer setFrame:newFrame];
 
-		//
+		//[self.mapView setFrame:newFrame];
 
 
-    }completion:^(BOOL finished)
+	}completion:^(BOOL finished)
     {
 
     }];
+
+
+	//TODO : show the map
+	[UIView animateWithDuration:0.25 animations:^
+	{
+		//move the bottom view
+		CGRect newFrame = [self.mapView frame];
+		newFrame.origin.y = - size.height;
+		[self.mapView setFrame:newFrame];
+		[self.mapPointerLabel setFrame:newFrame];
+
+
+	}completion:^(BOOL finished)
+	{
+
+	}];
 }
 
 //hide the keyboard
 #pragma mark - event
 - (void)keyboardWillBeHidden:(NSNotification*)aNotification
 {
+	//TODO : hide the map
+	[UIView animateWithDuration:0.25 animations:^
+	{
+		//move the bottom view
+		CGRect newFrame = [self.mapView frame];
+		newFrame.origin.y =0;
+		[self.mapView setFrame:newFrame];
+		[self.mapPointerLabel setFrame:newFrame];
+
+	}completion:^(BOOL finished)
+	{
+
+	}];
+
     self.setBottomViewShow;
 }
 

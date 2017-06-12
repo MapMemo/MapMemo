@@ -10,8 +10,11 @@
 #import "RootViewController.h"
 #import "MapPoint.h"
 #import "PhotoShowcaseViewController.h"
+#import "UserManager.h"
 
 @interface DetailMapPointView ()
+
+    @property MapPoint *mapPoint;
 
 @end
 
@@ -31,10 +34,25 @@
                                                                    style:UIBarButtonItemStylePlain
                                                                   target:self
                                                                   action:@selector(backAction:)];
+}
 
-    //self.navigationItem.leftBarButtonItem = backButton;
-    [self.host setTitle:@"Detail"];
-    [self.host navigationItem].leftBarButtonItem=backButton;
+
+- (void)tapped:(UITapGestureRecognizer*)tap
+{
+    NSLog(@"%@", tap.view);
+}
+
+
+
+//show the mapView
+-(void) setMapPoint:(MapPoint *)mapPoint
+{
+
+    self.mapPoint=mapPoint;
+    self.contextLabel.text=self.mapPoint.context;
+    self.userLabel.text=[self.userManager getUser:self.mapPoint.posterId].nickname;
+    //self.dateLabel.text=self.mapPoint.timestamp;
+    //self.photoUIImage(MapPoint *)mapPoint
 }
 
 - (void)backAction:(id)sender
@@ -42,6 +60,7 @@
     [self.host navigationItem].leftBarButtonItem=nil;
     [self.host.presentingViewController dismissViewControllerAnimated:YES completion:NULL];
 }
+
 
 
 //if need to show the detail photos

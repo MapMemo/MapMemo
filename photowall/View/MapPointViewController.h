@@ -40,6 +40,9 @@ enum MapPointViewMode
 //update the mode
 @property(nonatomic) enum MapPointViewMode mapPointViewMode;
 
+@property (weak, nonatomic) IBOutlet UILabel *mapPointerLabel;
+
+
 //get map Location
 -(MapPointLocation *) getPositionFromMapViewCenter;
 

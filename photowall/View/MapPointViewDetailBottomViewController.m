@@ -9,6 +9,7 @@
 #import "MapPointViewDetailBottomViewController.h"
 #import "MapPoint.h"
 #import "UserManager.h"
+#import "UIImageView+WebImage.h"
 
 @interface MapPointViewDetailBottomViewController ()
 
@@ -47,8 +48,9 @@
         //TODO : add something to view
         self.userLabel.text=[self.userManager getUser:self.nowViewMapPoint.posterId].nickname;//userName
         self.contextLabel.text=self.nowViewMapPoint.context;//context
-        self.imageView.image=[UIImage imageWithContentsOfFile:self.nowViewMapPoint.thumbnailPath];//imagePath
-        //[self.photoView setImageWithPath:photo.thumbnailPath andPlaceholder:nil];
+        //self.imageView.image=[UIImage imageWithContentsOfFile:self.nowViewMapPoint.thumbnailPath];//imagePath
+        [self.imageView setImageWithPath:self.nowViewMapPoint.thumbnailPath andPlaceholder:nil];
+
     }
 }
 @end

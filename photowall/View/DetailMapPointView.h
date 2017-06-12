@@ -9,12 +9,24 @@
 #import <UIKit/UIKit.h>
 
 @class RootViewController;
+@class MapPoint;
+@class UserManager;
 
 @interface DetailMapPointView : UIViewController
 
-@property (nonatomic) NSArray* photos;
-@property (nonatomic) NSInteger currentPhotoIndex;
+@property (nonatomic, weak) UserManager* userManager;
+
 @property (weak, nonatomic) UIViewController* host;
-@property (weak, nonatomic) IBOutlet UICollectionView* showcaseView;
+
+@property (weak, nonatomic) IBOutlet UILabel *contextLabel;
+
+@property (weak, nonatomic) IBOutlet UILabel *dateLabel;
+
+@property (weak, nonatomic) IBOutlet UILabel *userLabel;
+
+@property (weak, nonatomic) IBOutlet UIImageView *photoUIImageView;
+
+-(void) setMapPoint:(MapPoint *)mapPoint;
+
 
 @end

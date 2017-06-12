@@ -11,6 +11,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MapPointViewController">
             <connections>
                 <outlet property="bottomViewContainer" destination="lvv-uj-gZ4" id="hIX-I6-fPo"/>
+                <outlet property="mapPointerLabel" destination="0Vh-vb-rY7" id="nQM-49-VMG"/>
                 <outlet property="mapView" destination="g3n-hg-vdF" id="Trj-Ik-ijd"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -27,11 +28,7 @@
                     </connections>
                 </mapView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Vh-vb-rY7">
-                    <rect key="frame" x="97" y="273" width="180" height="120"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="120" id="VG1-i8-kqu"/>
-                        <constraint firstAttribute="width" constant="180" id="xGl-yK-WV7"/>
-                    </constraints>
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                     <attributedString key="attributedText">
                         <fragment>
                             <string key="content">┌               ┐
@@ -57,17 +54,20 @@
                 </view>
             </subviews>
             <constraints>
-                <constraint firstItem="0Vh-vb-rY7" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="5pV-3F-p03"/>
                 <constraint firstAttribute="bottom" secondItem="g3n-hg-vdF" secondAttribute="bottom" id="8GR-2K-v8R"/>
                 <constraint firstItem="g3n-hg-vdF" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="I1m-m7-F0d"/>
+                <constraint firstItem="0Vh-vb-rY7" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="SxT-Ni-WgE"/>
                 <constraint firstItem="g3n-hg-vdF" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="UU9-dc-WSr"/>
+                <constraint firstItem="0Vh-vb-rY7" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="WZl-xg-YcE"/>
+                <constraint firstAttribute="trailing" secondItem="0Vh-vb-rY7" secondAttribute="trailing" id="YJu-SE-zho"/>
                 <constraint firstAttribute="bottom" secondItem="lvv-uj-gZ4" secondAttribute="bottom" id="aFN-J4-Y74"/>
+                <constraint firstAttribute="bottom" secondItem="0Vh-vb-rY7" secondAttribute="bottom" id="hvN-fu-3EH"/>
                 <constraint firstAttribute="trailing" secondItem="g3n-hg-vdF" secondAttribute="trailing" id="qms-bN-mKs"/>
                 <constraint firstAttribute="trailing" secondItem="lvv-uj-gZ4" secondAttribute="trailing" id="tu0-IU-Ha7"/>
                 <constraint firstItem="lvv-uj-gZ4" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="uLg-v8-LIS"/>
-                <constraint firstItem="0Vh-vb-rY7" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="yJR-Rz-Oez"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="42.5" y="59.5"/>
         </view>
     </objects>
 </document>

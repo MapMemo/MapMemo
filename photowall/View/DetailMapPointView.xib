@@ -10,6 +10,10 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DetailMapPointView">
             <connections>
+                <outlet property="contextLabel" destination="HLr-6C-nrH" id="jLa-bp-JuN"/>
+                <outlet property="dateLabel" destination="HEj-uf-DF6" id="sAA-np-DTs"/>
+                <outlet property="photoUIImageView" destination="yzR-Lf-iDL" id="ZGr-ea-Htb"/>
+                <outlet property="userLabel" destination="aAh-ZZ-ANE" id="E05-94-1Sb"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
