@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina5_5" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DetailMapPointView">
+            <connections>
+                <outlet property="contextLabel" destination="HLr-6C-nrH" id="jLa-bp-JuN"/>
+                <outlet property="dateLabel" destination="HEj-uf-DF6" id="sAA-np-DTs"/>
+                <outlet property="photoUIImageView" destination="yzR-Lf-iDL" id="ZGr-ea-Htb"/>
+                <outlet property="userLabel" destination="aAh-ZZ-ANE" id="E05-94-1Sb"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="ZGD-fb-vb6" userLabel="MapView">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="285"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="285" id="ui7-vQ-YBu"/>
+                    </constraints>
+                </mapView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="User" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aAh-ZZ-ANE">
+                    <rect key="frame" x="181" y="305" width="37" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HEj-uf-DF6">
+                    <rect key="frame" x="191" y="356" width="36" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Context" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HLr-6C-nrH">
+                    <rect key="frame" x="30" y="452" width="60" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="yzR-Lf-iDL" userLabel="ImageView">
+                    <rect key="frame" x="20" y="305" width="141" height="117"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="141" id="HUK-tL-tAv"/>
+                        <constraint firstAttribute="height" constant="117" id="SHb-eO-3Pn"/>
+                    </constraints>
+                </imageView>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="yzR-Lf-iDL" firstAttribute="top" secondItem="ZGD-fb-vb6" secondAttribute="bottom" constant="20" id="18Y-W9-fqF"/>
+                <constraint firstItem="HLr-6C-nrH" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="30" id="1S7-LF-hEb"/>
+                <constraint firstItem="ZGD-fb-vb6" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="2r2-6X-UFr"/>
+                <constraint firstItem="HLr-6C-nrH" firstAttribute="top" secondItem="yzR-Lf-iDL" secondAttribute="bottom" constant="30" id="4ZN-Md-nEg"/>
+                <constraint firstItem="aAh-ZZ-ANE" firstAttribute="leading" secondItem="yzR-Lf-iDL" secondAttribute="trailing" constant="20" id="DZf-EY-0RB"/>
+                <constraint firstItem="yzR-Lf-iDL" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="K2O-iD-1vE"/>
+                <constraint firstItem="HEj-uf-DF6" firstAttribute="top" secondItem="aAh-ZZ-ANE" secondAttribute="bottom" constant="30" id="KrA-7e-olt"/>
+                <constraint firstItem="ZGD-fb-vb6" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="ckC-M9-TF7"/>
+                <constraint firstAttribute="trailing" secondItem="ZGD-fb-vb6" secondAttribute="trailing" id="mgG-wr-Sdz"/>
+                <constraint firstItem="aAh-ZZ-ANE" firstAttribute="top" secondItem="ZGD-fb-vb6" secondAttribute="bottom" constant="20" id="oBw-3Q-wQc"/>
+                <constraint firstItem="HEj-uf-DF6" firstAttribute="leading" secondItem="yzR-Lf-iDL" secondAttribute="trailing" constant="30" id="uD3-ax-c97"/>
+            </constraints>
+            <point key="canvasLocation" x="25" y="52"/>
+        </view>
+    </objects>
+</document>

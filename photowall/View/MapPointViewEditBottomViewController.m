@@ -31,8 +31,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
-    self.setDefaultImage;
+    // Do any additional setup after loading the view from its nib
 }
 
 - (void)didReceiveMemoryWarning {
@@ -53,7 +52,6 @@
 //if switch to viewMode
 -(void)viewWillAppear:(BOOL)animated
 {
-    self.setDefaultImage;
 }
 
 // if selected upload image ,upload directly
@@ -78,7 +76,7 @@
 
 	//get the position from the map
 	MapPointLocation *location;
-	location = self.mapPointViewController.getPositionFromMapViewCenter;
+	location = self.getLocation;
 
 	NSString *userName=self.getUserName;
 
@@ -92,28 +90,38 @@
 				   andLocation:location
 					andContext:context];	//get context form textBox
 
+	self.uploadTargetMapPoint.context=context;
 
-	//convert image into data
-	@try {
-		if(self.uploadImage!=nil)
-			self.uploadTargetMapPoint.image = UIImagePNGRepresentation(self.uploadImage);
+	@try
+	{
+		//convert image into data
+		//if(self.uploadImage==nil)
+			self.uploadImage = self.getDefaultImage;
+
+		self.uploadTargetMapPoint.image = UIImagePNGRepresentation(self.uploadImage);
+
+		NSLog(@"create MapPoint and prepare to upload");
+		//uplaod profile
+		[self.mapPointViewController.photoManager uploadMapPoint:self.uploadTargetMapPoint withHandler:^(NSError *error, NSArray *photos)
+		{
+			//refresh mapPointView
+			//[self.mapPointViewController.rootViewController._mapPointGridViewController refreshPhotos];
+			//[self.mapPointViewController ];
+			NSLog(@"commit success");
+		}];
+
+		//update map view
+		[self.mapPointViewController updateView: emptyAndReadyForEdit];
 	}
 	@catch (NSException *exception)
 	{
-		//if has error ,try upload default image
-		self.setDefaultImage;
-		self.uploadTargetMapPoint.image = UIImagePNGRepresentation(self.uploadImage);
+		NSLog(exception.reason);
 	}
+}
 
-    NSLog(@"create MapPoint and prepare to upload");
-	//uplaod profile
-	[self.mapPointViewController.photoManager uploadMapPoint:self.uploadTargetMapPoint withHandler:^(NSError *error, NSArray *photos)
-	{
-		//refresh mapPointView
-		//[self.mapPointViewController.rootViewController._mapPointGridViewController refreshPhotos];
-		//[self.mapPointViewController ];
-		NSLog(@"commit success");
-	}];
+-(MapPointLocation *) getLocation
+{
+	return self.mapPointViewController.getPositionFromMapViewCenter;
 }
 
 //upload exist mapPoint
@@ -131,9 +139,9 @@
 
 //set default image;
 #pragma mark private function
--(void) setDefaultImage
+-(UIImage *) getDefaultImage
 {
-	self.uploadImage=[UIImage imageNamed:@"MapButton"];
+	return [UIImage imageNamed:@"Plus_icon"];
 }
 
 @end
