@@ -50,7 +50,6 @@
         self.contextLabel.text=self.nowViewMapPoint.context;//context
         //self.imageView.image=[UIImage imageWithContentsOfFile:self.nowViewMapPoint.thumbnailPath];//imagePath
         [self.imageView setImageWithPath:self.nowViewMapPoint.thumbnailPath andPlaceholder:nil];
-
     }
 }
 @end

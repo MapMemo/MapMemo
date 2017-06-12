@@ -15,12 +15,10 @@
 
 @interface MapPointViewEditBottomViewController ()
 
-- (void)mapPoint:(MapPoint *)mapPoint;
+@property MapPoint *uploadTargetMapPoint;
 
 //upload image
-@property (weak, nonatomic)UIImage *uploadImage;
-
-@property MapPoint *uploadTargetMapPoint;
+@property UIImage *uploadImage;
 
 @end
 
@@ -46,7 +44,8 @@
 	picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
 //	picker.sourceType = UIImagePickerControllerSourceTypeCamera;
 	picker.delegate = self;
-	[self presentViewController:picker animated:YES completion:nil];
+	//[self presentViewController:picker animated:YES completion:nil];
+	[self.mapPointViewController.rootViewController presentViewController:picker animated:YES completion:nil];
 }
 
 //if switch to viewMode
@@ -59,44 +58,40 @@
 #pragma mark - UIImagePickerControllerDelegate
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info
 {
+	//change the view into this
+	[self.mapPointViewController.rootViewController presentViewController:self.mapPointViewController animated:YES completion:nil];
 	//save the image from ImagePicker
 	[picker dismissViewControllerAnimated:YES completion:nil];
 	//get selected image
 	self.uploadImage = [info valueForKey:UIImagePickerControllerOriginalImage];
-	//update View
-	[self.mapPointViewController updateView:[self mapPointViewController].mapPointViewMode];
+	//update view
+	self.updateView;
+	//update map view view
+	[self.mapPointViewController updateView: onEdit];
 
 }
 
 //upload image
 - (IBAction)ClickUploadImageButton:(id)sender
 {
-	//get now DataTime, but not use when upload
-	NSDate* timestamp = [NSDate alloc];
+	[self uploadMapPoint];
+}
 
-	//get the position from the map
-	MapPointLocation *location;
-	location = self.getLocation;
+//upload image
+-(void)uploadMapPoint
+{
+	if(self.uploadTargetMapPoint==nil)
+		self.setNewEdit;
 
-	NSString *userName=self.getUserName;
-
+	//set context;
 	NSString *context=_contextUITextView.text;
-
-	//upload uploadTargetMapPoint
-	self.uploadTargetMapPoint= [[MapPoint alloc]
-			initWithIdentifier:nil
-					  posterId:userName
-					 timestamp:timestamp
-				   andLocation:location
-					andContext:context];	//get context form textBox
-
 	self.uploadTargetMapPoint.context=context;
 
 	@try
 	{
 		//convert image into data
-		//if(self.uploadImage==nil)
-			self.uploadImage = self.getDefaultImage;
+		if(self.uploadImage==nil)
+		self.uploadImage = self.getDefaultImage;
 
 		self.uploadTargetMapPoint.image = UIImagePNGRepresentation(self.uploadImage);
 
@@ -117,18 +112,58 @@
 	{
 		NSLog(exception.reason);
 	}
+
+	//clean the edit date
+	self.uploadTargetMapPoint=nil;
+	self.uploadImage=nil;
+	[self updateView];
 }
 
--(MapPointLocation *) getLocation
-{
-	return self.mapPointViewController.getPositionFromMapViewCenter;
-}
+
 
 //upload exist mapPoint
 #pragma mark function
 - (void)setExistMapPoint:(MapPoint *)targetMapPoint
 {
 	self.uploadTargetMapPoint=targetMapPoint;
+	//update view
+	[self updateView];
+}
+
+//new upload MapPoint
+-(void)setNewEdit
+{
+	NSString *userName=self.getUserName;
+
+	//get the position from the map
+	MapPointLocation *location;
+	location = self.getLocation;
+
+	//get now DataTime, but not use when upload
+	NSDate* timestamp = [NSDate alloc];
+
+	//upload uploadTargetMapPoint
+	self.uploadTargetMapPoint= [[MapPoint alloc]
+			initWithIdentifier:nil
+					  posterId:userName
+					 timestamp:timestamp
+				   andLocation:location
+					andContext:@""];	//get context form textBox
+
+	//update view
+	[self updateView];
+}
+
+//update view
+-(void)updateView
+{
+	self.uploadImageView.image=self.uploadImage;
+}
+
+#pragma mark private function
+-(MapPointLocation *) getLocation
+{
+	return self.mapPointViewController.getPositionFromMapViewCenter;
 }
 
 #pragma mark private function

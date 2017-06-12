@@ -33,13 +33,13 @@ NSString* const PhotoAnnotationViewIdentifier = @"PhotoAnnotationView";
 @implementation MapPointViewController {
 
     //point detail view
-    MapPointViewDetailBottomViewController* _viewMapPointBarController;
+    MapPointViewDetailBottomViewController* _detailBottomController;
 
 	//point edit or create view
-	MapPointViewEditBottomViewController* _editMapPointBottomController;
+	MapPointViewEditBottomViewController* _editBottomController;
 
 	//if hasn't focus any point
-	MapPointViewBottomViewController* _mapPointBarController;
+	MapPointViewBottomViewController* _bottomController;
 
     //now MapPoint dats
     MapPoint *_nowMapPoint;
@@ -67,17 +67,17 @@ NSString* const PhotoAnnotationViewIdentifier = @"PhotoAnnotationView";
 
 	//set the position_Y
 	//barFrame_Y=380.0f;
-	barFrame_Y=[self.bottomViewContainer frame].origin.y-40;
+	barFrame_Y=[self.bottomViewContainer frame].origin.y - 60;
 
     //construct bottom page
-    _viewMapPointBarController=[[MapPointViewDetailBottomViewController alloc] initWithNibName:@"MapPointViewDetailBottomView" bundle:nil];
-    _editMapPointBottomController=[[MapPointViewEditBottomViewController alloc] initWithNibName:@"MapPointViewEditBottomView" bundle:nil];
-    _mapPointBarController=[[MapPointViewBottomViewController alloc] initWithNibName:@"MapPointViewBottomView" bundle:nil];
+    _detailBottomController=[[MapPointViewDetailBottomViewController alloc] initWithNibName:@"MapPointViewDetailBottomView" bundle:nil];
+    _editBottomController=[[MapPointViewEditBottomViewController alloc] initWithNibName:@"MapPointViewEditBottomView" bundle:nil];
+    _bottomController=[[MapPointViewBottomViewController alloc] initWithNibName:@"MapPointViewBottomView" bundle:nil];
     //set value
-    _viewMapPointBarController.mapPointViewController=self;
-    _viewMapPointBarController.userManager=self.userManager;
-    _editMapPointBottomController.mapPointViewController=self;
-    _mapPointBarController.mapPointViewController=self;
+    _detailBottomController.mapPointViewController=self;
+    _detailBottomController.userManager=self.userManager;
+    _editBottomController.mapPointViewController=self;
+    _bottomController.mapPointViewController=self;
 
     //get keyboard appear and disappear event
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardDidShowNotification object:nil];
@@ -393,8 +393,10 @@ NSString* const PhotoAnnotationViewIdentifier = @"PhotoAnnotationView";
             break;
 
         case forceExistmapPoint:
-            [self updateView:onEdit];//show edit page
-            break;
+			[self updateView:onEdit];//show edit page
+			//TODO : set target
+			//[_editMapPointBottomController setExistMapPoint:_nowMapPoint];
+			break;
     }
 }
 
@@ -405,7 +407,7 @@ NSString* const PhotoAnnotationViewIdentifier = @"PhotoAnnotationView";
     //update bottomContainer and interactive or not
     [self updateBottmeView:self.mapPointViewMode];
     //update Info to container
-    [_viewMapPointBarController setExistMapPoint:_nowMapPoint];
+    [_detailBottomController setExistMapPoint:_nowMapPoint];
     //update button Icon
     [self.rootViewController.mapPointViewTabButton switchButotnImage:self.mapPointViewMode];
 
@@ -419,24 +421,24 @@ NSString* const PhotoAnnotationViewIdentifier = @"PhotoAnnotationView";
     switch(type)
     {
         case notThisPage:
-            [self setSelectedIndex:_mapPointBarController];//did not appear view
+            [self setSelectedIndex:_bottomController];//did not appear view
             //hide the view
             self.setBottonViewHide;
             break;
 
         case emptyAndReadyForEdit:
-            [self setSelectedIndex:_mapPointBarController];//did not appear view
+            [self setSelectedIndex:_bottomController];//did not appear view
             //hide the view
             self.setBottonViewHide;
             break;
 
         case onEdit:
-            [self setSelectedIndex:_editMapPointBottomController];//edit view
+            [self setSelectedIndex:_editBottomController];//edit view
             [self updateInteractable:true];
             break;
 
         case forceExistmapPoint:
-            [self setSelectedIndex:_viewMapPointBarController];//detail voew
+            [self setSelectedIndex:_detailBottomController];//detail voew
             break;
     }
 }

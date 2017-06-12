@@ -48,7 +48,7 @@
 		[_manager requestWhenInUseAuthorization];
 	}
 
-	//uploadImage
+	//uploadImageView
 	//self.upoadMapPoint;
 }
 
@@ -102,8 +102,8 @@
             {
                 photo = [MapPoint photoFromJson:response.result];
                 NSLog(@"commit success");
+                _handler(response.succeeded ? nil : response.error, @[ photo ]);
             }
-            _handler(response.succeeded ? nil : response.error, @[ photo ]);
         }
     }];
 }

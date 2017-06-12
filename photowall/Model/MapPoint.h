@@ -37,7 +37,7 @@
 @property (nonatomic, readonly) NSString* fullSizeImagePath;
 
 //TODO : will move to "uploadMapPoint" class
-//uploadImage
+//uploadImageView
 @property (nonatomic) NSData* image;
 
 - (instancetype)initWithIdentifier:(NSString *)identifier posterId:(NSString *)posterId timestamp:(NSDate *)timestamp andLocation:(MapPointLocation *)location andContext:(NSString *)context;
