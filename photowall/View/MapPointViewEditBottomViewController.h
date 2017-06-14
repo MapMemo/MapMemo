@@ -21,8 +21,10 @@
 //uploadImageView View
 @property (weak, nonatomic, readonly) IBOutlet UIImageView *uploadImageView;
 
+//if this edit is new edit
 -(void)setNewEdit;
 
+//upload function
 -(void)uploadMapPoint;
 
 @end

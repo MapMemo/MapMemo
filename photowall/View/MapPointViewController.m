@@ -193,7 +193,7 @@ NSString* const PhotoAnnotationViewIdentifier = @"PhotoAnnotationView";
     self.setBottomViewShow;
 }
 
-//if touch another place ,end editing
+//if touch another place ,end keyboard
 #pragma mark - event
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {

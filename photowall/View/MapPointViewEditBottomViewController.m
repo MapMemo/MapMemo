@@ -12,6 +12,7 @@
 #import "UserManager.h"
 #import "AccountManager.h"
 #import "RootViewController.h"
+#import "UIImageView+WebImage.h"
 
 @interface MapPointViewEditBottomViewController ()
 
@@ -119,13 +120,17 @@
 	[self updateView];
 }
 
-
-
 //upload exist mapPoint
 #pragma mark function
 - (void)setExistMapPoint:(MapPoint *)targetMapPoint
 {
 	self.uploadTargetMapPoint=targetMapPoint;
+	if(self.uploadImageView!=nil)
+	{
+		//set image
+		[self.uploadImageView setImageWithPath:self.uploadTargetMapPoint.thumbnailPath andPlaceholder:nil];
+		self.uploadImage=self.uploadImageView.image;
+	}
 	//update view
 	[self updateView];
 }
