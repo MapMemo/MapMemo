@@ -118,9 +118,10 @@
 //center circle button up
 - (IBAction)takePictureButtonPressed:(id)sender
 {
-    [self setSelectedIndex:(0)];
     //send the notification to View
 	[_mapPointViewController PressButtonUp];
+	//
+	[self setSelectedIndex:(0)];
 }
 
 //switch the page

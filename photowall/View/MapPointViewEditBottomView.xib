@@ -55,6 +55,7 @@
                 </button>
             </subviews>
             <color key="backgroundColor" red="1" green="0.86593253693230321" blue="0.86183597947004109" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <gestureRecognizers/>
             <constraints>
                 <constraint firstItem="QIm-0u-LNA" firstAttribute="top" secondItem="mgg-8G-FCd" secondAttribute="bottom" constant="10" id="5lj-6o-wzD"/>
                 <constraint firstItem="B2S-al-Agi" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="10" id="HU6-KT-DQv"/>
@@ -69,7 +70,15 @@
                 <constraint firstAttribute="bottom" secondItem="QIm-0u-LNA" secondAttribute="bottom" constant="60" id="vWG-2O-7wg"/>
                 <constraint firstItem="fNd-Nt-yFD" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="20" id="zEW-na-PKs"/>
             </constraints>
+            <connections>
+                <outletCollection property="gestureRecognizers" destination="kHo-nc-yCZ" appends="YES" id="hz9-bA-ri1"/>
+            </connections>
             <point key="canvasLocation" x="34.5" y="54.5"/>
         </view>
+        <swipeGestureRecognizer direction="down" id="kHo-nc-yCZ">
+            <connections>
+                <action selector="EditViewSwipeDown:" destination="-1" id="xEq-ik-g7E"/>
+            </connections>
+        </swipeGestureRecognizer>
     </objects>
 </document>

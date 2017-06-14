@@ -49,9 +49,18 @@
 	[self.mapPointViewController.rootViewController presentViewController:picker animated:YES completion:nil];
 }
 
+- (IBAction)EditViewSwipeDown:(id)sender
+{
+
+	//if swipe down, cancel edit
+    self.closeEditView;
+}
+
+
 //if switch to viewMode
 -(void)viewWillAppear:(BOOL)animated
 {
+    
 }
 
 // if selected upload image ,upload directly
@@ -106,8 +115,8 @@
 			NSLog(@"commit success");
 		}];
 
-		//update map view
-		[self.mapPointViewController updateView: emptyAndReadyForEdit];
+		self.closeEditView;
+
 	}
 	@catch (NSException *exception)
 	{
@@ -182,6 +191,12 @@
 -(UIImage *) getDefaultImage
 {
 	return [UIImage imageNamed:@"Plus_icon"];
+}
+
+-(void)closeEditView
+{
+	//update map view
+	[self.mapPointViewController updateView: emptyAndReadyForEdit];
 }
 
 @end
