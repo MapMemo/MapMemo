@@ -385,12 +385,15 @@ NSString* const PhotoAnnotationViewIdentifier = @"PhotoAnnotationView";
             [self updateView:onEdit];//show edit page
             break;
 
-        case onEdit://cancel edit
-            if(_nowMapPoint!=nil)
-                [self updateView:forceExistmapPoint];
-            else
+        case onEdit://commit edit
+			//upload
+			[_editBottomController uploadMapPoint];
+
+			//if(_nowMapPoint!=nil)
+            //    [self updateView:forceExistmapPoint];
+            //else
                 [self updateView:emptyAndReadyForEdit];
-            break;
+            //break;
 
         case forceExistmapPoint:
 			[self updateView:onEdit];//show edit page

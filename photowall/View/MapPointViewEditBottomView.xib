@@ -26,13 +26,13 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" text="aaaaaa" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="mgg-8G-FCd">
-                    <rect key="frame" x="120" y="51" width="235" height="516"/>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="aaaaaa" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="mgg-8G-FCd">
+                    <rect key="frame" x="120" y="20" width="235" height="617"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                 </textView>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="B2S-al-Agi">
+                <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="B2S-al-Agi">
                     <rect key="frame" x="10" y="51" width="100" height="100"/>
                     <gestureRecognizers/>
                     <constraints>
@@ -49,10 +49,11 @@
             <constraints>
                 <constraint firstItem="B2S-al-Agi" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="10" id="HU6-KT-DQv"/>
                 <constraint firstItem="mgg-8G-FCd" firstAttribute="leading" secondItem="B2S-al-Agi" secondAttribute="trailing" constant="10" id="Ju9-MR-2ve"/>
-                <constraint firstItem="mgg-8G-FCd" firstAttribute="top" secondItem="fNd-Nt-yFD" secondAttribute="bottom" constant="10" id="ODf-eU-DfC"/>
+                <constraint firstItem="mgg-8G-FCd" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="20" id="Ptn-9a-dOL"/>
                 <constraint firstAttribute="trailing" secondItem="mgg-8G-FCd" secondAttribute="trailing" constant="20" id="aD5-Sk-sxt"/>
                 <constraint firstItem="fNd-Nt-yFD" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="30" id="fL4-Lj-ris"/>
                 <constraint firstItem="B2S-al-Agi" firstAttribute="top" secondItem="fNd-Nt-yFD" secondAttribute="bottom" constant="10" id="kd4-7n-N6R"/>
+                <constraint firstAttribute="bottom" secondItem="mgg-8G-FCd" secondAttribute="bottom" constant="30" id="xY3-Jt-Kkn"/>
                 <constraint firstItem="fNd-Nt-yFD" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="20" id="zEW-na-PKs"/>
             </constraints>
             <connections>
