@@ -132,8 +132,27 @@
 		return;
 	}
 	_selectedIndex = index;
-	for (NSUInteger i = 0; i < _tabButtons.count; i++) {
+	for (NSUInteger i = 0; i < _tabButtons.count; i++)
+	{
 		[[_tabButtons objectAtIndex:i] setSelected:(i == index)];
+
+		@try {
+			//set selected button is blue
+			if(i==0)
+			{
+				//do nothing
+			}
+			else if(i == index)
+				[[_tabButtons objectAtIndex:i] setBackgroundColor:[UIColor blueColor]];
+			else
+				[[_tabButtons objectAtIndex:i] setBackgroundColor:[UIColor whiteColor]];
+		}
+		@catch (NSException *exception)
+		{
+
+		}
+
+
 	}
 	UIViewController* controller = [_viewControllers objectAtIndex:index];
 	if (_currentController == controller) {

@@ -38,7 +38,7 @@
                             <constraints>
                                 <constraint firstAttribute="height" constant="45" id="k6t-85-KAr"/>
                             </constraints>
-                            <state key="normal" image="FriendListIcon"/>
+                            <state key="normal" image="friends_normal"/>
                             <state key="selected" image="friends_selected"/>
                             <connections>
                                 <action selector="tabButtonPressed:" destination="-1" eventType="touchUpInside" id="SVf-dF-d8C"/>
@@ -50,7 +50,7 @@
                             <constraints>
                                 <constraint firstAttribute="height" constant="45" id="DQB-8C-wEu"/>
                             </constraints>
-                            <state key="normal" image="MapPointLIstIcon"/>
+                            <state key="normal" image="photos_normal"/>
                             <state key="selected" image="photos_selected"/>
                             <connections>
                                 <action selector="tabButtonPressed:" destination="-1" eventType="touchUpInside" id="b27-7T-F5b"/>
@@ -78,7 +78,7 @@
                             <constraints>
                                 <constraint firstAttribute="height" constant="45" id="aqz-Gv-RlH"/>
                             </constraints>
-                            <state key="normal" image="HistoryIcon"/>
+                            <state key="normal" image="map_normal"/>
                             <state key="selected" image="map_selected"/>
                             <connections>
                                 <action selector="tabButtonPressed:" destination="-1" eventType="touchUpInside" id="oXp-o8-DQq"/>
@@ -90,7 +90,7 @@
                             <constraints>
                                 <constraint firstAttribute="height" constant="45" id="n1k-ls-b9V"/>
                             </constraints>
-                            <state key="normal" image="SettingIcon"/>
+                            <state key="normal" image="profile_normal"/>
                             <state key="selected" image="profile_selected"/>
                             <connections>
                                 <action selector="tabButtonPressed:" destination="-1" eventType="touchUpInside" id="rdF-fq-aAu"/>
@@ -139,14 +139,14 @@
         </view>
     </objects>
     <resources>
-        <image name="FriendListIcon" width="31" height="31"/>
-        <image name="HistoryIcon" width="31" height="31"/>
         <image name="MapButton" width="64" height="64"/>
-        <image name="MapPointLIstIcon" width="31" height="31"/>
-        <image name="SettingIcon" width="31" height="31"/>
-        <image name="friends_selected" width="24" height="24"/>
-        <image name="map_selected" width="24" height="24"/>
-        <image name="photos_selected" width="24" height="24"/>
-        <image name="profile_selected" width="24" height="24"/>
+        <image name="friends_normal" width="31" height="31"/>
+        <image name="friends_selected" width="31" height="31"/>
+        <image name="map_normal" width="31" height="31"/>
+        <image name="map_selected" width="31" height="31"/>
+        <image name="photos_normal" width="31" height="31"/>
+        <image name="photos_selected" width="31" height="31"/>
+        <image name="profile_normal" width="31" height="31"/>
+        <image name="profile_selected" width="31" height="31"/>
     </resources>
 </document>
