@@ -38,22 +38,23 @@
     // Dispose of any resources that can be recreated.
 }
 
-//TODO : if press image button , filter the image viewController for image selection
-- (IBAction)SelectImageButtonPressUp:(id)sender
-{
-	UIImagePickerController* picker = [UIImagePickerController new];
-	picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-//	picker.sourceType = UIImagePickerControllerSourceTypeCamera;
-	picker.delegate = self;
-	//[self presentViewController:picker animated:YES completion:nil];
-	[self.mapPointViewController.rootViewController presentViewController:picker animated:YES completion:nil];
-}
-
 - (IBAction)EditViewSwipeDown:(id)sender
 {
 
 	//if swipe down, cancel edit
     self.closeEditView;
+}
+- (IBAction)TapImageButton:(id)sender
+{
+    
+    
+    UIImagePickerController* picker = [UIImagePickerController new];
+    picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    //	picker.sourceType = UIImagePickerControllerSourceTypeCamera;
+    picker.delegate = self;
+    //[self presentViewController:picker animated:YES completion:nil];
+    [self.mapPointViewController.rootViewController presentViewController:picker animated:YES completion:nil];
+
 }
 
 
@@ -79,12 +80,6 @@
 	//update map view view
 	[self.mapPointViewController updateView: onEdit];
 
-}
-
-//upload image
-- (IBAction)ClickUploadImageButton:(id)sender
-{
-	[self uploadMapPoint];
 }
 
 //upload image
