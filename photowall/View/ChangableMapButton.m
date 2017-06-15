@@ -33,7 +33,7 @@
             break;
 
         case onEdit:
-            changeImage=[UIImage imageNamed:@"MapEditCancelButton"];
+            changeImage=[UIImage imageNamed:@"MapEditOKButton"];
             break;
 
         case forceExistmapPoint:

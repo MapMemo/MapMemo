@@ -18,10 +18,13 @@
 
 //context textbox view
 @property (weak, nonatomic) IBOutlet UITextView *contextUITextView;
+//uploadImageView View
+@property (weak, nonatomic, readonly) IBOutlet UIImageView *uploadImageView;
 
-//uploadImage View
-@property (weak, nonatomic, readonly) IBOutlet UIImage *uploadImage;
+//if this edit is new edit
+-(void)setNewEdit;
 
-
+//upload function
+-(void)uploadMapPoint;
 
 @end
