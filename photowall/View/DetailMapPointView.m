@@ -11,20 +11,49 @@
 #import "MapPoint.h"
 #import "PhotoShowcaseViewController.h"
 #import "UserManager.h"
+#import "UIImageView+WebImage.h"
 
 @interface DetailMapPointView ()
 
-    @property MapPoint *mapPoint;
+    @property MapPoint *nowMapPoint;
 
 @end
 
 @implementation DetailMapPointView
 
+
+//close view by gesture
+- (IBAction)closeGesture:(id)sender
+{
+    [self.host dismissViewControllerAnimated:YES completion:nil];
+}
+
+
+- (CGFloat)collectionView:(UICollectionView*)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section {
+    return 0;
+}
+
+- (CGFloat)collectionView:(UICollectionView*)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section {
+    return 0;
+}
+
+- (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
+    // top, left, bottom, right
+    return UIEdgeInsetsMake(0, 0, 0, 0);
+}
+
+#pragma mark - IBActions
+- (IBAction)closeShowcaseButtonPressed:(id)sender {
+    [self.host dismissViewControllerAnimated:YES completion:nil];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     self.title=@"start";
-
+    //load the info and update view
+    if(self.nowMapPoint!=nil)
+        [self setMapPoint:self.nowMapPoint];
 
 }
 
@@ -47,12 +76,11 @@
 //show the mapView
 -(void) setMapPoint:(MapPoint *)mapPoint
 {
-
-    self.mapPoint=mapPoint;
-    self.contextLabel.text=self.mapPoint.context;
-    self.userLabel.text=[self.userManager getUser:self.mapPoint.posterId].nickname;
-    //self.dateLabel.text=self.mapPoint.timestamp;
-    //self.photoUIImage(MapPoint *)mapPoint
+    self.nowMapPoint=mapPoint;
+    self.contextLabel.text=self.nowMapPoint.context;
+    self.userLabel.text=[self.userManager getUser:self.nowMapPoint.posterId].nickname;
+    //self.dateLabel.text=self.nowMapPoint.timestamp;
+    [self.photoUIImageView setImageWithPath:self.nowMapPoint.thumbnailPath andPlaceholder:nil];
 }
 
 - (void)backAction:(id)sender

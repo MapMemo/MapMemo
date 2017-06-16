@@ -12,7 +12,7 @@
 @class MapPoint;
 @class UserManager;
 
-@interface DetailMapPointView : UIViewController
+@interface DetailMapPointView : UIViewController<UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 
 @property (nonatomic, weak) UserManager* userManager;
 
