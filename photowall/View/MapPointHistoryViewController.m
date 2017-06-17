@@ -17,6 +17,7 @@
 
 #import "NSDate+Utils.h"
 #import "RootViewController.h"
+#import "DetailMapPointView.h"
 
 @implementation MapPointHistoryViewController {
     CGFloat _cellSize;
@@ -109,16 +110,20 @@
     }
 }
 
-- (void)collectionView:(UICollectionView*)collectionView didSelectItemAtIndexPath:(NSIndexPath*)indexPath {
+- (void)collectionView:(UICollectionView*)collectionView didSelectItemAtIndexPath:(NSIndexPath*)indexPath
+{
     MapPoint* photo = [[_cache objectAtIndex:indexPath.section] objectAtIndex:indexPath.item];
-    PhotoShowcaseViewController* controller = [[PhotoShowcaseViewController alloc] initWithNibName:@"PhotoShowcaseView" bundle:nil];
+    DetailMapPointView* controller = [[DetailMapPointView alloc] initWithNibName:@"DetailMapPointView" bundle:nil];
     NSMutableArray* photos = [NSMutableArray new];
     for (NSArray* section in _cache) {
         [photos addObjectsFromArray:section];
     }
     controller.host = self.rootViewController;
-    controller.photos = photos;
-    controller.currentPhotoIndex = [photos indexOfObject:photo];
+    [controller setMapPoint:photo];
+    //set mapPoint
+    //controller.photos = photos;
+    //controller.currentPhotoIndex = [photos indexOfObject:photo];
+    //self.rootViewController.viewContainer addSubview:controller.view fit:YES];
     [self.rootViewController presentViewController:controller animated:YES completion:nil];
 }
 

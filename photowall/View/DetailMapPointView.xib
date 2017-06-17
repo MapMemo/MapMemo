@@ -55,6 +55,7 @@
                 </imageView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <gestureRecognizers/>
             <constraints>
                 <constraint firstItem="yzR-Lf-iDL" firstAttribute="top" secondItem="ZGD-fb-vb6" secondAttribute="bottom" constant="20" id="18Y-W9-fqF"/>
                 <constraint firstItem="HLr-6C-nrH" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="30" id="1S7-LF-hEb"/>
@@ -68,7 +69,15 @@
                 <constraint firstItem="aAh-ZZ-ANE" firstAttribute="top" secondItem="ZGD-fb-vb6" secondAttribute="bottom" constant="20" id="oBw-3Q-wQc"/>
                 <constraint firstItem="HEj-uf-DF6" firstAttribute="leading" secondItem="yzR-Lf-iDL" secondAttribute="trailing" constant="30" id="uD3-ax-c97"/>
             </constraints>
+            <connections>
+                <outletCollection property="gestureRecognizers" destination="D6E-4c-b8r" appends="YES" id="0Uc-J5-m0N"/>
+            </connections>
             <point key="canvasLocation" x="25" y="52"/>
         </view>
+        <swipeGestureRecognizer direction="down" id="D6E-4c-b8r">
+            <connections>
+                <action selector="closeGesture:" destination="-1" id="eim-bb-u2c"/>
+            </connections>
+        </swipeGestureRecognizer>
     </objects>
 </document>
