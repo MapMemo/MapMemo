@@ -53,7 +53,7 @@
     self.title=@"start";
     //load the info and update view
     if(self.nowMapPoint!=nil)
-        [self setMapPoint:self.nowMapPoint];
+        self.UpdateView;
 
 }
 
@@ -71,16 +71,11 @@
     NSLog(@"%@", tap.view);
 }
 
-
-
 //show the mapView
 -(void) setMapPoint:(MapPoint *)mapPoint
 {
     self.nowMapPoint=mapPoint;
-    self.contextLabel.text=self.nowMapPoint.context;
-    self.userLabel.text=[self.userManager getUser:self.nowMapPoint.posterId].nickname;
-    //self.dateLabel.text=self.nowMapPoint.timestamp;
-    [self.photoUIImageView setImageWithPath:self.nowMapPoint.thumbnailPath andPlaceholder:nil];
+    self.UpdateView;
 }
 
 - (void)backAction:(id)sender
@@ -102,5 +97,18 @@
     [self.host presentViewController:controller animated:YES completion:nil];
 }
 
+-(void)UpdateView
+{
+    self.contextLabel.text=self.nowMapPoint.context;
+    if(self.nowMapPoint.context==nil)
+        self.contextLabel.text=@"No context!";
+
+    self.userLabel.text=[self.userManager getUser:self.nowMapPoint.posterId].nickname;
+    if([self.userManager getUser:self.nowMapPoint.posterId].nickname==nil)
+        self.contextLabel.text=@"No userName!";
+
+    //self.dateLabel.text=self.nowMapPoint.timestamp;
+    [self.photoUIImageView setImageWithPath:self.nowMapPoint.thumbnailPath andPlaceholder:nil];
+}
 
 @end
